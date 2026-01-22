@@ -4,10 +4,220 @@
         <title>RealTech Hub Blog</title>
         <link>https://real-tech.online/zh/blog</link>
         <description>RealTech Hub Blog</description>
-        <lastBuildDate>Thu, 08 Jan 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 22 Jan 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh</language>
+        <item>
+            <title><![CDATA[我花了3小时重构个人网站，发现之前的架构全是坑]]></title>
+            <link>https://real-tech.online/zh/blog/refactor-with-kiro-cli</link>
+            <guid>https://real-tech.online/zh/blog/refactor-with-kiro-cli</guid>
+            <pubDate>Thu, 22 Jan 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[我有个网站。]]></description>
+            <content:encoded><![CDATA[<p>我有个网站。
+一个技术文档站。
+放了一堆笔记。
+看起来挺专业。</p>
+<p>但我自己知道，这玩意儿就是个垃圾场。</p>
+<p>一、</p>
+<p>事情是这样的。</p>
+<p>我之前用 Docusaurus 搞了个文档站。
+想法很简单。
+把平时写的技术笔记整理一下。
+看起来像个正经的技术博客。</p>
+<p>结果呢。</p>
+<p>用了半年，我发现这东西根本不是我想要的。</p>
+<p>首先，定位就不对。
+它既不是产品文档，也不是系统教程。
+就是一堆零散的笔记。
+用文档的形式组织，看起来很别扭。</p>
+<p>其次，我做了好几个产品。
+比如 Peer Drop，一个 P2P 文件传输工具。
+但网站上完全看不出来我在做什么。
+就像一个只会写笔记的人。</p>
+<p>最后，我发现我根本不想维护这个文档结构。
+每次加内容都要想放在哪个目录。
+太麻烦了。</p>
+<p>我需要的是一个简单的博客。
+加一个产品展示页面。
+就这么简单。</p>
+<p>但我一直没动手。
+因为重构这种事，想想就头疼。</p>
+<p>二、</p>
+<p>今天下午突然想通了。</p>
+<p>反正也没人看。
+改坏了也无所谓。
+干脆直接动手。</p>
+<p>我打开终端。
+跟 kiro-cli 说了一下想法。</p>
+<p>我说：这个文档站我不想要了。
+改成博客。
+加个产品展示页面。
+内容都保留。</p>
+<p>它说：行。</p>
+<p>然后就开始干了。</p>
+<p>三、</p>
+<p>第一步，把 docs 系统关了。</p>
+<p>配置文件改了一行。
+docs 插件直接禁用。</p>
+<p>我当时还有点慌。
+这么多文档，就这么没了？</p>
+<p>但它说已经转成博客文章了。</p>
+<p>我去看了一眼。
+所有文档都变成了带日期的博客。
+还自动加了标签。</p>
+<p>Docker 系列，4篇。
+DevOps 系列，3篇。
+CI/CD 系列，2篇。</p>
+<p>整整齐齐。</p>
+<p>四、</p>
+<p>然后开始搞产品展示。</p>
+<p>它问我有什么产品。</p>
+<p>我说就一个 Peer Drop。
+P2P 文件传输工具。
+WebRTC 做的。</p>
+<p>它说够了。</p>
+<p>然后就开始写。</p>
+<p>创建了一个产品数据文件。
+写了一个产品卡片组件。
+做了一个展示页面。</p>
+<p>那种带动画效果的卡片。
+毛玻璃质感。
+看起来还挺高级。</p>
+<p>五、</p>
+<p>改到一半，它问我要不要加个英文版。</p>
+<p>我说那不是要翻译所有内容？</p>
+<p>它说 Docusaurus 自带多语言。
+配置一下就行。</p>
+<p>然后就开始配置。</p>
+<p>UI 文本提取出来。
+生成翻译文件。
+产品数据改成双语。</p>
+<p>我试了一下语言切换。
+居然真的能用。</p>
+<p>英文版和中文版。
+URL 自动分开。</p>
+<p>六、</p>
+<p>最后它问要不要换个设计。</p>
+<p>我说行啊。
+我一直挺喜欢 Supabase 那种深色风格。</p>
+<p>它说那就用那个。</p>
+<p>然后就开始改样式。</p>
+<p>深色背景。
+绿色主题。
+渐变文字。
+hover 动画。</p>
+<p>刷新页面一看。
+整个网站的气质都变了。</p>
+<p>从朴素的文档站。
+变成了现代化的个人站。</p>
+<p>七、</p>
+<p>整个过程用了多久？</p>
+<p>3个小时。</p>
+<p>我自己都没想到这么快。</p>
+<p>最后看了一下 git 记录：</p>
+<p>49个文件改了。
+12517行新增。
+6690行删除。</p>
+<p>这要是我自己写。
+光想想就累。</p>
+<p>八、</p>
+<p>改完之后，我突然意识到一个问题。</p>
+<p>我之前为什么一直不想重构？</p>
+<p>不是因为不会做。
+是因为我知道这是个体力活。</p>
+<p>要改配置。
+要写组件。
+要调样式。
+要测试。
+要处理各种边界情况。</p>
+<p>这些事情，每一件都不难。
+但加起来就很烦。</p>
+<p>而今天能这么快搞定。
+主要是因为我不用自己写代码。</p>
+<p>我只需要说清楚想要什么。
+剩下的事情，让 AI 去干。</p>
+<p>九、</p>
+<p>现在网站上线了。</p>
+<p>有博客。
+有产品展示。
+有中英文切换。
+有现代化的设计。</p>
+<p>我终于有了一个像样的个人网站。</p>
+<p>不是那种"看起来很专业但其实没什么用"的文档站。
+而是一个真正能展示我在做什么的地方。</p>
+<p>我把链接发给朋友。
+他们说：哇，你什么时候变得这么专业了？</p>
+<p>我说：就今天下午。</p>
+<p>他们以为我在开玩笑。</p>
+<p>但我是认真的。</p>
+<p>十、</p>
+<p>这件事让我想明白了一个道理。</p>
+<p>很多时候，我们不做某件事。
+不是因为不会做。
+而是因为觉得麻烦。</p>
+<p>比如重构代码。
+比如写文档。
+比如优化性能。</p>
+<p>这些事情，我们都知道应该做。
+但就是懒得做。</p>
+<p>因为投入产出比不高。</p>
+<p>但如果有工具能帮你处理这些体力活。
+那这个投入产出比就变了。</p>
+<p>原本需要1-2天的工作。
+现在3小时就能搞定。</p>
+<p>那些"想做但一直没做"的事情。
+突然变得可行了。</p>
+<p>十一、</p>
+<p>当然，AI 也不是万能的。</p>
+<p>它不能替你决定网站应该长什么样。
+不能替你决定要做什么产品。
+不能替你写出有价值的内容。</p>
+<p>这些需要思考的事情，还是得你自己来。</p>
+<p>但那些执行层面的事情。
+那些重复性的工作。
+那些"我知道怎么做但就是不想做"的事情。</p>
+<p>可以让 AI 去干。</p>
+<p>十二、</p>
+<p>现在我的网站是这样的：</p>
+<p>首页很简洁。
+最新文章在上面。</p>
+<p>What I Build 页面。
+展示我做的产品。
+每个产品都有卡片。
+点进去就是产品链接。</p>
+<p>Writing 页面。
+所有技术文章。
+按标签分类。
+可以筛选。</p>
+<p>右上角有语言切换。
+中英文随便切。</p>
+<p>整个设计是深色风格。
+Supabase 那种感觉。
+看起来还挺现代。</p>
+<p>十三、</p>
+<p>如果你也有个个人网站。
+如果你也觉得它不够好。
+如果你也一直想改但没动手。</p>
+<p>可能不是因为技术问题。
+而是因为你觉得麻烦。</p>
+<p>试试让 AI 帮你。</p>
+<p>不是说它能替你做所有事情。
+而是说，它能处理那些你不想做的体力活。</p>
+<p>你会发现。
+很多改进，其实没那么难。</p>
+<p>只是你一直没开始而已。</p>
+<hr>
+<p>网站地址：<a href="https://real-tech.online/" target="_blank" rel="noopener noreferrer" class="">https://real-tech.online</a></p>
+<p>时间：2026年1月22日下午</p>
+<p>用时：3小时</p>
+<p>工具：kiro-cli</p>
+<p>感受：不用自己写代码的感觉，真好。</p>]]></content:encoded>
+            <category>ai-tools</category>
+            <category>docusaurus</category>
+            <category>refactoring</category>
+            <category>web-development</category>
+        </item>
         <item>
             <title><![CDATA[GitLab CICD]]></title>
             <link>https://real-tech.online/zh/blog/gitlab-gitlab-pipeline</link>
@@ -121,7 +331,7 @@
 <li class="">通过binary方式部署轻量级kubernertes(K3S)</li>
 <li class="">配置K3S使用私有镜像仓库</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="部署背景">部署背景<a href="https://real-tech.online/zh/blog/offline-install-k3s#%E9%83%A8%E7%BD%B2%E8%83%8C%E6%99%AF" class="hash-link" aria-label="部署背景的直接链接" title="部署背景的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="部署背景">部署背景<a href="https://real-tech.online/zh/blog/offline-install-k3s#%E9%83%A8%E7%BD%B2%E8%83%8C%E6%99%AF" class="hash-link" aria-label="部署背景的直接链接" title="部署背景的直接�链接" translate="no">​</a></h2>
 <ul>
 <li class="">所在服务器访问不到外网，只能离线部署</li>
 <li class="">服务器OS版本为CentOS 7.9</li>
@@ -158,7 +368,7 @@
 <p>验证</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$ systemctl status k3s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">● k3s.service - Lightweight Kubernetes</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   Loaded: loaded (/etc/systemd/system/k3s.service; enabled; vendor preset: disabled)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   Active: active (running) since Sun 2023-12-24 09:52:44 EST; 1min 4s ago</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     Docs: https://k3s.io</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  Process: 11405 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SUCCESS)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  Process: 11402 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status=0/SUCCESS)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  Process: 11399 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --quiet nm-cloud-setup.service (code=exited, status=0/SUCCESS)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> Main PID: 11408 (k3s-server)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    Tasks: 59</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   Memory: 486.0M</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   CGroup: /system.slice/k3s.service</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           ├─11408 /usr/local/bin/k3s server</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           └─11462 containerd </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ kubectl get pod -A</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">NAMESPACE     NAME                                      READY   STATUS    RESTARTS   AGE</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kube-system   local-path-provisioner-84db5d44d9-ws8wq   1/1     Running   0          19s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kube-system   metrics-server-67c658944b-xj6mr           1/1     Running   0          19s</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">kube-system   coredns-6799fbcd5-6k2ff                   1/1     Running   0          19s</span><br></span></code></pre></div></div>
 <p>如果pod/coredns出现报错<code>plugin/forward: no nameservers found</code>,编辑configmap <code>kubectl edit cm coredns -n kube-system</code>, 将 <code>forward . /etc/resolv.conf</code>这一行注释。保存退出后，删除pod/coredns</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="私有镜像仓库配置">私有镜像仓库配置<a href="https://real-tech.online/zh/blog/offline-install-k3s#%E7%A7%81%E6%9C%89%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE" class="hash-link" aria-label="私有镜像仓库配置的直接链接" title="私有镜像仓��库配置的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="私��有镜像仓库配置">私有镜像仓库配置<a href="https://real-tech.online/zh/blog/offline-install-k3s#%E7%A7%81%E6%9C%89%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE" class="hash-link" aria-label="私有镜像仓库配置的直接链接" title="私有镜像仓库配置的直接链接" translate="no">​</a></h2>
 <p>我们可以将容器配置为连接到私有镜像仓库，并在节点上使用私有镜像仓库拉取私有镜像。K3s在启动时会检查<code>/etc/rancher/k3s/</code>中是否存在<code>registries.yaml</code>文件，存在的话在启动容器的时候会使用该文件中定义的镜像仓库。</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$ sudo vi /etc/rancher/k3s/registries.yaml</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">mirrors:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  docker.io:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    endpoint:</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      - "http://127.0.0.1:5000"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ sudo systemctl restart k3s</span><br></span></code></pre></div></div>
 <p>比如上面的配置，当我们容器需要的镜像仓库是docker.io时，k3s会从127.0.0.1:5000仓库来拉取镜像。</p>]]></content:encoded>
@@ -226,7 +436,7 @@
             <pubDate>Sun, 04 Jan 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[在了解了Docker容器的2个基础技术 Linux namespace 和 Linux cgroup 以后。我们来聊聊Docker镜像，也就是挂载在容器根分区/下面的文件系统，也叫做rootfs.]]></description>
             <content:encoded><![CDATA[<p>在了解了Docker容器的2个基础技术 <a class="" href="https://real-tech.online/zh/blog/docker-docker-namespace">Linux namespace</a> 和 <a class="" href="https://real-tech.online/zh/blog/docker-docker-cgroups">Linux cgroup</a> 以后。我们来聊聊Docker镜像，也就是挂载在容器根分区<code>/</code>下面的文件系统，也叫做<strong>rootfs</strong>.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="linux-rootfs">Linux rootfs<a href="https://real-tech.online/zh/blog/docker-docker-fsroot#linux-rootfs" class="hash-link" aria-label="Linux rootfs的直接��链接" title="Linux rootfs的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="linux-rootfs">Linux rootfs<a href="https://real-tech.online/zh/blog/docker-docker-fsroot#linux-rootfs" class="hash-link" aria-label="Linux rootfs的直接链接" title="Linux rootfs的直接链接" translate="no">​</a></h2>
 <p><strong>Linux rootfs</strong>，<strong>Linux Root File System</strong>, Linux 根文件系统，是包含在和根目录相同的分区上的文件系统，是内核启动时挂载的第一个文件系统。系统的引导启动进程，会在根文件系统挂载以后，把初始化脚本和服务等加载到内存中运行。而在Docker容器进程中，也有一个<strong>rootfs</strong>， 这个文件系统的主要功能是用来给容器进程提供隔离后的执行环境。它也有另外一个名字，叫做 <strong>Docker容器镜像</strong>。<br>
 <!-- -->有一个比较重要的点是，<strong>rootfs</strong> 只是一个操作系统所包含的文件、配置以及目录，并不包括操作系统内核。在Linux 操作系统中，<strong>文件系统和系统内核是分开存放的</strong>，操作系统只有在开机启动时，才会加载指定版本的内核。这就意味着，同一个宿主机上面的所有容器，都<strong>共享宿主机操作系统的内核</strong>。当容器进程需要配置内核参数、加载额外的内核模块和内核进行直接的交互时，实际上都是直接调用宿主机操作系统的内核。</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="容器的-rootfs">容器的 rootfs<a href="https://real-tech.online/zh/blog/docker-docker-fsroot#%E5%AE%B9%E5%99%A8%E7%9A%84-rootfs" class="hash-link" aria-label="容器的 rootfs的直接链接" title="容器的 rootfs的直接链接" translate="no">​</a></h2>
@@ -250,7 +460,7 @@
             <pubDate>Sat, 03 Jan 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[在 《5分钟Docker容器原理 | 开篇》 中，我们提到，为了限制 Docker容器 运行时能够使用的最大资源，我们用到了 Linux cgroup 技术。这篇我们继续来了解下这个技术。]]></description>
             <content:encoded><![CDATA[<p>在 <a class="" href="https://real-tech.online/zh/blog/docker-docker-intro">《5分钟Docker容器原理 | 开篇》</a> 中，我们提到，为了限制 <strong>Docker容器</strong> 运行时能够使用的最大资源，我们用到了 <strong>Linux cgroup</strong> 技术。这篇我们继续来了解下这个技术。</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="linux-cgroup-介绍">Linux cgroup 介绍<a href="https://real-tech.online/zh/blog/docker-docker-cgroups#linux-cgroup-%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="Linux cgroup 介绍的直接链�接" title="Linux cgroup 介绍的直接链接" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="linux-cgroup-介绍">Linux cgroup 介绍<a href="https://real-tech.online/zh/blog/docker-docker-cgroups#linux-cgroup-%E4%BB%8B%E7%BB%8D" class="hash-link" aria-label="Linux cgroup 介绍的直接链接" title="Linux cgroup 介绍的直接链接" translate="no">​</a></h2>
 <p>在一个容器中，假如不对其进行资源限制，允许其使用无限大的内存和CPU资源，有时候因为一些内存泄漏，代码逻辑问题，把整个宿主机的内存资源和CPU资源全部占满，影响宿主机上其他进程的允许。为了避免这样的情况发生，我们就必须对容器进行资源限制。<br>
 <strong>Linux cgroup</strong>, 全称 <strong>Linux crontrol group</strong>, 最初是由Google的工程师提出，后被整合进Linux内核中。<strong>Linux cgroup</strong> 是一种可以限制、记录、隔离进程组（process groups）所使用的物理资源（如：内存、CPU、IO等）的机制。<br>
 <strong>Linux cgroup</strong> 的功能如下：</p>
