@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkrealtech_hub=globalThis.webpackChunkrealtech_hub||[]).push([[1903],{1912(h){h.exports=JSON.parse('{"blogBasePath":"/zh/blog","blogTitle":"Writing","authorsListPath":"/zh/blog/authors"}')}}]);
