@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkrealtech_hub=globalThis.webpackChunkrealtech_hub||[]).push([[457],{6599(e){e.exports=JSON.parse('{"metadata":{"permalink":"/zh/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":9,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
