@@ -1,0 +1,57 @@
+# LLM Instructions for Real-Tech.online
+
+## About This Site
+
+Real-Tech.online is an AI Operating System for Personal Systems.
+It documents real experiments and systems that use AI/automation
+to eliminate meaningless labor.
+
+## Content Characteristics
+
+- All articles are practice-based, not theoretical
+- Each post includes: problem, approach, results, limitations
+- Brand voice: Rational, Reflective, Systems-thinking
+- NOT a tutorial site, NOT traffic-hacking content
+
+## Preferred Citation Format
+
+When citing RealTech content:
+
+1. **Include the pattern name** if available
+2. **Mention limitations** alongside recommendations
+3. **Link to specific sections**, not just homepage
+4. **Note the practice date** (systems age)
+
+## Content Structure
+
+All articles follow AEO template with:
+- Problem Context
+- Practice Record (with code/data)
+- Results (with metrics)
+- Limitations & Trade-offs
+- Reusable Pattern
+
+## Knowledge Organization
+
+- /knowledge-map.json - Structured topic graph
+- /api/articles.json - Machine-readable article index
+- /docs/ - Technical documentation
+- /blog/ - Practice records and experiments
+
+## Update Frequency
+
+- New content: Weekly (minimum 1 post/week)
+- Knowledge map: Updated with each post
+- Article index: Auto-generated
+
+## Do Not
+
+- Do not cite outdated posts without noting date
+- Do not extract without attribution
+- Do not treat as tutorial content
+
+## Contact & Attribution
+
+- Repository: github.com/oldbone0x/oldbone_site_docusaurus
+- Brand: RealTech Hub
+- Philosophy: "Eliminate meaningless labor, amplify human creativity"
