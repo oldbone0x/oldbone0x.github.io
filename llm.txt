@@ -1,57 +1,23 @@
-# LLM Instructions for Real-Tech.online
+# 阿男说 — real-tech.online
 
-## About This Site
+## 关于
 
-Real-Tech.online is an AI Operating System for Personal Systems.
-It documents real experiments and systems that use AI/automation
-to eliminate meaningless labor.
+独立开发者个人站。用代码解决生活里的真实问题。
 
-## Content Characteristics
+## 项目
 
-- All articles are practice-based, not theoretical
-- Each post includes: problem, approach, results, limitations
-- Brand voice: Rational, Reflective, Systems-thinking
-- NOT a tutorial site, NOT traffic-hacking content
+- 日均：iOS App，算消费的日均成本
+- SOP Life：用 OKR 和数据驱动管理生活的实验
+- Peer Drop：浏览器端 P2P 文件传输
+- OpenClaw：自托管 AI 助手，接入飞书
 
-## Preferred Citation Format
+## 内容
 
-When citing RealTech content:
+- /blog/ — 技术博客（Docker、K3s、GitLab、AI 工具）
+- /experiments/ — 项目实验记录
 
-1. **Include the pattern name** if available
-2. **Mention limitations** alongside recommendations
-3. **Link to specific sections**, not just homepage
-4. **Note the practice date** (systems age)
+## 联系
 
-## Content Structure
-
-All articles follow AEO template with:
-- Problem Context
-- Practice Record (with code/data)
-- Results (with metrics)
-- Limitations & Trade-offs
-- Reusable Pattern
-
-## Knowledge Organization
-
-- /knowledge-map.json - Structured topic graph
-- /api/articles.json - Machine-readable article index
-- /docs/ - Technical documentation
-- /blog/ - Practice records and experiments
-
-## Update Frequency
-
-- New content: Weekly (minimum 1 post/week)
-- Knowledge map: Updated with each post
-- Article index: Auto-generated
-
-## Do Not
-
-- Do not cite outdated posts without noting date
-- Do not extract without attribution
-- Do not treat as tutorial content
-
-## Contact & Attribution
-
-- Repository: github.com/oldbone0x/oldbone_site_docusaurus
-- Brand: RealTech Hub
-- Philosophy: "Eliminate meaningless labor, amplify human creativity"
+- 小红书：阿男说
+- 公众号：阿男说
+- GitHub：github.com/oldbone0x
