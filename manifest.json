@@ -1,6 +1,6 @@
 {
-  "name": "愧怍",
-  "short_name": "愧怍",
+  "name": "阿男说",
+  "short_name": "阿男说",
   "theme_color": "#12affa",
   "background_color": "#424242",
   "display": "standalone",
@@ -9,7 +9,7 @@
   "related_applications": [
     {
       "platform": "webapp",
-      "url": "https://kuizuo.me/manifest.json"
+      "url": "https://www.real-tech.online/manifest.json"
     }
   ],
   "icons": [

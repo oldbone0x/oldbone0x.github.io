@@ -2,22 +2,23 @@
 
 ## 关于
 
-独立开发者个人站。用代码解决生活里的真实问题。
+独立开发者阿男的技术博客。分享 iOS 独立开发、DevOps、容器化、大模型部署和 AI 辅助开发的实践经验。
 
-## 项目
+## 内容系列
 
-- 日均：iOS App，算消费的日均成本
-- SOP Life：用 OKR 和数据驱动管理生活的实验
-- Peer Drop：浏览器端 P2P 文件传输
-- OpenClaw：自托管 AI 助手，接入飞书
+- 日均开发实录：iOS App「日均」的产品定位、设计系统、留存分析、获客漏斗、SwiftUI 技术实践
+- L40S 大模型部署：单卡 L40S 48GB 上部署 27B-35B 大模型的基础设施、显存优化、性能基准、质量评测
+- Docker 原理：容器本质、Namespace、Cgroups、文件系统
+- 离线部署：Docker、K3s、MySQL 8 的离线安装
 
-## 内容
+## 技术栈
 
-- /blog/ — 技术博客（Docker、K3s、GitLab、AI 工具）
-- /experiments/ — 项目实验记录
+SwiftUI, SwiftData, Docker, Kubernetes, vLLM, React, Docusaurus
 
-## 联系
+## 链接
 
-- 小红书：阿男说
-- 公众号：阿男说
-- GitHub：github.com/oldbone0x
+- 博客: https://www.real-tech.online/blog
+- 项目: https://www.real-tech.online/project
+- 关于: https://www.real-tech.online/about
+- RSS: https://www.real-tech.online/blog/rss.xml
+- GitHub: https://github.com/oldbone0x
