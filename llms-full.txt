@@ -1,0 +1,2178 @@
+# 阿男说 — 完整博客内容
+
+> 本文件包含 real-tech.online 所有博客文章的完整内容，供 AI 系统深度引用。
+
+---
+
+## Docker 原理：从虚拟机到容器
+
+# 开篇
+## 容器的本质
+容器技术，是一种**沙盒**技术， 这种技术就像**集装箱**一样，把你的应用装到里面去，因此应用与应用之间因为有了**集装箱**的存在，不会相互干扰。而且被装进**集装箱**的应用，也可以很方便地搬来搬去。  
+容器技术的核心功能，就是提供这么一个**集装箱**，一个**被约束好边界和条件的进程**。  
+容器，其实就是一种特殊的进程。
+## 虚拟机(VM)和容器(Container)的区别
+|VM|Container|
+|:--:|:--:|
+|![vm.png](/img/vm.png)|![container.png](/img/container.png)|
+
+虚拟机的运行，需要**Hypervisor**为其创建虚拟硬件/固件，而且还需要搭建**Guest OS**才能运行用户的应用进程。这个虚拟机是真实存在的，无论用户的应用进程是否运行，都需要消耗和占用一定的资源来运行虚拟机。而且应用进程在虚拟机上面运行、调用资源的时候，无可避免地都要经过虚拟机的连接和处理，带来额外的性能损耗。  
+容器化后的用户应用，实际上还是一个进程，并不会有虚拟化带来的性能损耗。而且容器本身的**隔离**，是通过`namespace`技术来实现的，资源的消耗和占用可以忽略不计。
+
+## 容器的隔离和限制
+对于Docker等大多数Linux容器来说，**隔离**是通过**namespace**技术来实现，而**限制**是通过**cgroup**技术来控制。  
+### 隔离
+资源隔离。通过**Linux namespace**技术可以对全局系统资源进行封装和隔离，让容器内的进程只能看到自己**namespace**的相关资源，这样就和其他**namespace**的进程起到了隔离的作用。改变一个**namespace**里面的资源，只会影响同一个**namespace**里的进程，对其他**namespace**的进程没有影响。  
+在**Linux namespace**中，虽然能够隔离很多资源，包括性能资源、文件、设备、状态、配置等，但也有不能隔离的对象。最典型的是时间，当你修改容器里的时间时，同时会对宿主机的时间造成修改。
+### 限制
+Docker容器中的进程，虽然在**Linux namespace**技术的隔离下，各自之间的运行不受影响，但是他们实际上还是宿主机上面的一个进程，消耗和占用着宿主机的资源。宿主机的资源是有限且公用的，如果不对这些进程进行资源的限制，这些进程可能会占用很多的系统资源，从而影响到其他进程的正常运行。  
+**Linux cgroups**技术是Linux内核中用来为进程限制资源调用的一个重要技术。**Linux cgroups**的全称是**Linux Control Group**, 它最主要的功能，就是限制一个进程能够使用的资源上限，包括内存、CPU、磁盘空间、网络带宽等。
+## 容器的文件系统
+为了让容器内部**更像**一个独立的系统，一般我们会把一整个操作系统的文件系统，挂载到容器的根目录`/`下面，用来给容器内部的进程提供隔离后的执行环境。这个文件系统，就是**容器镜像**，也叫做**rootfs**.
+
+---
+
+## Docker 原理：namespace
+
+#  namespace 观察和实践篇
+在 [《5分钟Docker容器原理 | 开篇》](/blog/docker-docker-intro) 提到，**Docker容器**的隔离性是通过 **Linux namespace** 技术来实现的，本篇详细介绍下这个技术，并以一个**Docker容器**作为切入点，验证和实践下**Linux namespace**的隔离性。
+## Linux namespace 的类型
+
+|名称|隔离对象|描述|内核版本|
+|:--:|:--|:--|:--:|
+|MNT namespace|Mount points|提供磁盘挂载点和文件系统的隔离|2.4.19|
+|IPC namespace|System V IPC, POSIX message queues| 提供进程间通信的隔离|2.6.19|
+|UTS namespace|Hostname and NIS domain name|提供主机名和域名的隔离|2.6.19|
+|PID namespace|Process IDs |提供进程的隔离|2.6.24|
+|Net namespace|Network devices, stacks, ports, etc.|提供网络的隔离|2.6.29|
+|User namespace|User and group IDs|提供用户和权限的隔离|3.8|
+
+**Docker容器**本质上是一个进程，为了在分布式的环境下进行通信和定位，Docker容器必须拥有自己独立的IP、端口、路由，这个时候就需要用到**Net namespace**提供的网络隔离能力。网络通信需要隔离，进程间通信也需要隔离，所以需要用**IPC namespace**。还有用户权限、用户组权限，也需要和宿主机区分开，就用到了**User namespace**。容器里面的进程也拥有自己的PID，这个是**PID namespace**起到的隔离作用......  
+所以，**Docker容器**本质上是一个带有不同的**namespace**参数的进程，正是这些**namespace**的存在, 容器内部就只能看到自己当前**namespace**限定的资源、文件、设备、状态、配置等。  
+上面这几种**namespace**类型，我们可以通过指令`unshare --help`来查看。  
+```
+$ uname -r
+3.10.0-1160.el7.x86_64
+$ unshare --help
+
+Usage:
+ unshare [options] <program> [<argument>...]
+
+Run a program with some namespaces unshared from the parent.
+
+Options:
+ -m, --mount               unshare mounts namespace
+ -u, --uts                 unshare UTS namespace (hostname etc)
+ -i, --ipc                 unshare System V IPC namespace
+ -n, --net                 unshare network namespace
+ -p, --pid                 unshare pid namespace
+ -U, --user                unshare user namespace
+ -f, --fork                fork before launching <program>
+     --mount-proc[=<dir>]  mount proc filesystem first (implies --mount)
+ -r, --map-root-user       map current user to root (implies --user)
+     --propagation <slave|shared|private|unchanged>
+                           modify mount propagation in mount namespace
+ -s, --setgroups allow|deny  control the setgroups syscall in user namespaces
+
+ -h, --help     display this help and exit
+ -V, --version  output version information and exit
+
+```
+可以看到，当前OS的内核版本是3.10.0， 目前`unshare`支持的**namespace**类型是6种，跟上面的表格是一致的。  
+大家如果想看到更具体的信息，可以使用`man unshare`指令看看详细的文档。 
+
+> 在 [《离线环境部署docker及私有镜像仓库》](/blog/offline-install-docker) 中，我们启动了一个Docker容器，接下来我们来观察下这个容器，以**PID namespace**为例，来进行简单的验证和实践。
+## PID namespace的观察
+
+首先我们找到并使用`sh`进入容器
+```
+$ docker ps
+CONTAINER ID   IMAGE             COMMAND                  CREATED      STATUS          PORTS                                       NAMES
+98cb5c25871b   registry:latest   "/entrypoint.sh /etc…"   4 days ago   Up 39 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   private-registry
+$ docker exec -it 98cb5c25871b sh
+/ # 
+```
+接下来我们打印当前容器运行的所有进程。可以看到容器内主进程`registry`的PID为`1`
+```
+/ # ps -ef
+PID   USER     TIME  COMMAND
+    1 root      0:00 registry serve /etc/docker/registry/config.yml
+   11 root      0:00 sh
+   18 root      0:00 ps -ef
+```
+我们打开另外一个终端，在宿主机中查看**docker**相关进程
+```
+$ ps -ef | grep docker
+......
+root      1917     1  0 07:26 ?        00:00:01 /usr/bin/containerd-shim-runc-v2 -namespace moby -id 98cb5c25871b94420418094efb19f36c45c7fbe18274229e9f8c4b00328ec180 -address /var/run/docker/containerd/containerd.sock
+root      1945  1917  0 07:26 pts/0    00:00:01 registry serve /etc/docker/registry/config.yml
+......
+```
+由于显示的内容非常多，在这里我只截取了2个进程信息。可以看到`registry`进程在宿主机中的PID是`1945`,而且它的父进程ID正是容器进程的PID`1917`。这正是**PID namespace**的作用。  
+## PID namespace的实践
+我们可以用`unshare`指令来创建一个PID隔离的**bash**进程。如下
+```
+$ sudo unshare --pid --fork --mount-proc /bin/bash
+# 
+# ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 08:16 pts/0    00:00:00 /bin/bash
+root        10     1  0 08:16 pts/0    00:00:00 ps -ef
+# sleep 1024 &
+# ps -ef
+UID        PID  PPID  C STIME TTY          TIME CMD
+root         1     0  0 08:16 pts/0    00:00:00 /bin/bash
+root        13     1  0 08:22 pts/0    00:00:00 sleep 1024
+root        14     1  0 08:22 pts/0    00:00:00 ps -ef
+```
+可以看到，我们的**bash**进程，已经成为了1号进程，并且我们创建的`sleep`静默进程，此时的父进程ID为`1`  
+接下来我们在宿主机打印出相关进程
+```
+$ ps -ef | grep sleep
+root     17301 15805  0 08:22 pts/0    00:00:00 sleep 1024
+......
+$ ps -ef | grep 15805
+root     15805 15803  0 08:16 pts/0    00:00:00 /bin/bash
+root     17301 15805  0 08:22 pts/0    00:00:00 sleep 1024
+......
+```
+可以看到，宿主机中运行的`bash`进程PID为`15805`，而它的子进程`sleep`，在宿主机中的PID为`17301`。   
+以上就是对**PID namespace**的观察与实践，大家如果对其他**Linux namespace**也感兴趣，可以参考下`unshare`的说明文档，继续做下相关的测试和验证。
+
+---
+
+## Docker 原理：cgroup
+
+# cgroup 观察和实践篇
+在 [《5分钟Docker容器原理 | 开篇》](/blog/docker-docker-intro) 中，我们提到，为了限制 **Docker容器** 运行时能够使用的最大资源，我们用到了 **Linux cgroup** 技术。这篇我们继续来了解下这个技术。
+## Linux cgroup 介绍
+在一个容器中，假如不对其进行资源限制，允许其使用无限大的内存和CPU资源，有时候因为一些内存泄漏，代码逻辑问题，把整个宿主机的内存资源和CPU资源全部占满，影响宿主机上其他进程的允许。为了避免这样的情况发生，我们就必须对容器进行资源限制。  
+**Linux cgroup**, 全称 **Linux crontrol group**, 最初是由Google的工程师提出，后被整合进Linux内核中。**Linux cgroup** 是一种可以限制、记录、隔离进程组（process groups）所使用的物理资源（如：内存、CPU、IO等）的机制。  
+**Linux cgroup** 的功能如下：  
+|功能|描述|
+|:--:|:--|
+|资源限制（Resource limitation）|**cgroup** 可以对进程组使用的**资源总额**进行限制。比如我们可以设置应用运行时内存上限时，一旦超过整个配额（quota）就会发出OOM（Out of Memory）|
+|优先级分配（Prioritization）|**cgroup** 能够控制进程运行的优先级，实际上这个控制是通过限制分配的CPU时间片数量以及硬盘IO、带宽大小来实现的|
+|资源统计（Accounting）|**cgroup** 可以统计系统的资源总使用量，比如内存用量、CPU使用时长的。|
+|进程控制（Process Control）|**cgroup** 可以对进程组进行挂起、恢复等操作|
+
+> **Linux cgroup**的API是以一个伪文件系统的方式实现，所有资源管理的功能都以子系统（subsystem）的方式管理。比如 CPU 的 cgroup 就一般会放在 `/sys/fs/cgroup/cpu`里面，内存的 cgroup 就一般会放在 `/sys/fs/cgroup/memory`里面。
+
+## 观察一个Docker容器
+我们首先通过`busybox`镜像`run`一个容器，指定最大CPU配额为0.2，也就是容器能够使用的最大CPU个数为0.2个。
+```
+$ docker run -it --rm --cpus=0.2 --name busybox busybox sh
+/ # 
+/ # while true; do a=1; done;
+
+```
+我们在里面运行了一个死循环，我们另开一个terminal，用`docker stats`指令观察容器的CPU利用率
+```
+$ docker stats busybox
+CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT   MEM %     NET I/O   BLOCK I/O   PIDS
+565d245db66c   busybox   19.97%    148KiB / 62.65GiB   0.00%     0B / 0B   0B / 0B     1
+```
+能够看到CPU利用率一直在 20% 附近波动，证明参数是生效的。接下来我们到 `/sys/fs/cgroup/cpu`下面，找到`docker`分组下面对应`容器ID`的目录
+```
+$ cd /sys/fs/cgroup/cpu
+$ ls
+cgroup.clone_children  cpuacct.stat          cpu.cfs_quota_us   cpu.stat       notify_on_release  tasks
+cgroup.event_control   cpuacct.usage         cpu.rt_period_us   docker         release_agent  
+cgroup.procs           cpuacct.usage_percpu  cpu.rt_runtime_us  kubepods       scs
+cgroup.sane_behavior   cpu.cfs_period_us     cpu.shares         machine.slice  system.slice
+$ cd docker/
+$ ls
+cpuacct.usage cpuacct.usage_percpu cpu.cfs_period_us cpu.cfs_quota_us cpu.rt_period_us
+cpu.rt_runtime_us cpu.shares cpu.stat cgroup.clone_children  
+565d245db66c2e3fba3d6dec90a49ee03b2c90b9e8ca5ab40fd2d20bc2059562
+cgroup.event_control  cgroup.procs  cpuacct.stat notify_on_release
+tasks
+$ cd 565d245db66c2e3fba3d6dec90a49ee03b2c90b9e8ca5ab40fd2d20bc2059562/
+$ ls
+cgroup.clone_children  cgroup.procs  cpuacct.usage         cpu.cfs_period_us  cpu.rt_period_us   cpu.shares  notify_on_release cgroup.event_control   cpuacct.stat  cpuacct.usage_percpu  cpu.cfs_quota_us   cpu.rt_runtime_us  cpu.stat    tasks
+```
+能够看到这里就是**cgroup**对我们刚刚那个容器进程的CPU限制目录。我们关注2个文件，一个是`tasks`，里面配置了资源受限的进程ID，另一个是`cpu.cfs_quota_us`，里面配置了最大CPU额度（quota）。
+```
+$ cat cpu.cfs_quota_us
+20000
+$ cat tasks
+146058
+```
+在CPU的cgroup中，一个CPU核心被切割成了10万份，这里配置了2万，也就是0.2个CPU  
+## CPU cgroup的实践
+接下来我们模拟下Docker容器，创建一个CPU受限的进程。  
+首先在`/sys/fs/cgroup/cpu`目录下面创建一个目录`ob01`  
+```
+# sudo su
+# cd /sys/fs/cgroup/cpu
+# mkdir ob01
+# cd ob01/
+# ls -l
+total 0
+-rw-r--r--. 1 root root 0 Dec 29 08:42 cgroup.clone_children
+--w--w--w-. 1 root root 0 Dec 29 08:42 cgroup.event_control
+-rw-r--r--. 1 root root 0 Dec 29 08:42 cgroup.procs
+-r--r--r--. 1 root root 0 Dec 29 08:42 cpuacct.stat
+-rw-r--r--. 1 root root 0 Dec 29 08:42 cpuacct.usage
+-r--r--r--. 1 root root 0 Dec 29 08:42 cpuacct.usage_percpu
+-rw-r--r--. 1 root root 0 Dec 29 08:42 cpu.cfs_period_us
+-rw-r--r--. 1 root root 0 Dec 29 08:42 cpu.cfs_quota_us
+-rw-r--r--. 1 root root 0 Dec 29 08:42 cpu.rt_period_us
+-rw-r--r--. 1 root root 0 Dec 29 08:42 cpu.rt_runtime_us
+-rw-r--r--. 1 root root 0 Dec 29 08:42 cpu.shares
+-r--r--r--. 1 root root 0 Dec 29 08:42 cpu.stat
+-rw-r--r--. 1 root root 0 Dec 29 08:42 notify_on_release
+-rw-r--r--. 1 root root 0 Dec 29 08:42 tasks
+```
+可以看到系统已经帮我们创建了一系列的配置文件了，接下来我们将把CPU配额`cpu.cfs_quota_us`修改成5万，然后把当前进程ID加入到`tasks`文件中
+```
+# echo "50000" > cpu.cfs_quota_us
+# echo $$
+152314
+# echo $$ > tasks 
+# while true; do a=1; done;
+
+```
+然后打开另外一个terminal，用`top -p `指令查看CPU利用率
+```
+$ top -p 152314
+top - 21:50:40 up 86 days,  1:36,  2 users,  load average: 0.90, 0.61, 0.60
+Tasks:   1 total,   1 running,   0 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.8 us,  0.2 sy,  0.0 ni, 97.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem : 65689704 total,  4661644 free, 20283872 used, 40744188 buff/cache
+KiB Swap:        0 total,        0 free,        0 used. 41196384 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                        
+152314 root      20   0  116796   3624   1800 R  49.8  0.0   0:12.89 bash                                                           
+......
+```
+可以看到CPU利用率也是稳定在 50%, 和我们的限额是保持一致的。
+
+## The End
+目前我们已经观察和试验过了**Docker容器**底层的2个重要技术，**Linux namespace**的隔离，还有**Linux cgroup**的限额（如果**Linux namespace**隔离部分还没看的话可以跳转[《5分钟Docker容器原理 | namespace 观察和实践篇》](/blog/docker-docker-namespace)）虽然Docker容器听起来是一个很玄的概念，但是经过我们分析，其实也是一个特殊的进程，并且在我们了解了隔离和限额2个技术以后，它神秘的面纱也被慢慢解开，原理一了解，回过头来看，其实也就这么回事。  
+接下来我还会继续更新这个系列的其他文章，希望对大家理解**Docker原理**带来帮助。  
+我是老骨头，下次再见。
+
+---
+
+## Docker 原理：rootfs
+
+# rootfs 篇
+在了解了Docker容器的2个基础技术 [Linux namespace](/blog/docker-docker-namespace) 和 [Linux cgroup](/blog/docker-docker-cgroups) 以后。我们来聊聊Docker镜像，也就是挂载在容器根分区`/`下面的文件系统，也叫做**rootfs**.
+## Linux rootfs
+**Linux rootfs**，**Linux Root File System**, Linux 根文件系统，是包含在和根目录相同的分区上的文件系统，是内核启动时挂载的第一个文件系统。系统的引导启动进程，会在根文件系统挂载以后，把初始化脚本和服务等加载到内存中运行。而在Docker容器进程中，也有一个**rootfs**， 这个文件系统的主要功能是用来给容器进程提供隔离后的执行环境。它也有另外一个名字，叫做 **Docker容器镜像**。   
+有一个比较重要的点是，**rootfs** 只是一个操作系统所包含的文件、配置以及目录，并不包括操作系统内核。在Linux 操作系统中，**文件系统和系统内核是分开存放的**，操作系统只有在开机启动时，才会加载指定版本的内核。这就意味着，同一个宿主机上面的所有容器，都**共享宿主机操作系统的内核**。当容器进程需要配置内核参数、加载额外的内核模块和内核进行直接的交互时，实际上都是直接调用宿主机操作系统的内核。  
+## 容器的 rootfs
+容器的 **rootfs** 自下而上分为三个部分，分别是，只读层（ro+wh），init层（ro+wh），读写层（rw）
+|名称|描述|
+|:--:|:--|
+|只读层|对应 Docker 容器的镜像层，这部分不可被修改|
+| init 层|夹在只读层和读写层之间，Docker 容器单独生成的一个内部层，专门用来存放 `/etc/hosts`、`/etc/resolv.conf`等信息
+|读写层|这一层的挂载方式是 `rw`，一旦在容器里做了写操作，你修改后的内容就会增量地出现在这个层中|
+
+### 观察一个Docker容器
+> 在之前 [《离线环境部署docker环境》](/blog/offline-install-docker) 我们启动了一个registry容器，接下来我们来看看它的文件系统  
+
+我们可以利用 `docker inspect` 指令来获取容器的详细信息
+```
+$ docker inspect private-registry
+......
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/7d83a80fb09250a1ef49b37d20a0492b37b93db65e9a4b954f3c820a0f2ed106-init/diff:/var/lib/docker/overlay2/242007cc0f388dbb760a60b5e8b635a981b62b9dc170fd2c8aa02dc762426a10/diff:/var/lib/docker/overlay2/7d4c76a7d4f3cb5d5c3ebae69a45aac157060178cb29f113e1cfda1142ba9e88/diff:/var/lib/docker/overlay2/bf51aac76ea5da6532f53b5d4d833f69f479ffdc4033695ba6c9a400c3333649/diff:/var/lib/docker/overlay2/826cee954a8e9db6b13ffff58c333bc3071de9a569a0e6afd888b347c968f6db/diff:/var/lib/docker/overlay2/d4f5a3d3ae5157eb33cad7d3b24808f0420f55b61910f36c8026bfb18bd6b99b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/7d83a80fb09250a1ef49b37d20a0492b37b93db65e9a4b954f3c820a0f2ed106/merged",
+                "UpperDir": "/var/lib/docker/overlay2/7d83a80fb09250a1ef49b37d20a0492b37b93db65e9a4b954f3c820a0f2ed106/diff",
+                "WorkDir": "/var/lib/docker/overlay2/7d83a80fb09250a1ef49b37d20a0492b37b93db65e9a4b954f3c820a0f2ed106/work"
+            },
+            "Name": "overlay2"
+        },
+......
+```
+
+我们可以看到，这个容器的用到的文件系统类型是 overlayfs, 这个是目前 Docker的默认类型。另外我们可以看到 `docker inspect` 的输出有4个类型的目录，镜像所挂载的目录层为 Lower 层，然后通过 Merged 展示所有的文件目录与文件。用户写入的所有文件都是在 UpperDir 目录,并且会在 UpperDir 建立于 Merged层展示的文件 目录结构, 所以用户就可以看到写入的文件。并且底层的镜像是不能被修改(如果挂载目 录为 UpperDir,则可以修改源镜像)。  
+
+---
+
+## 离线安装 - Docker
+
+# Docker
+
+## 本文内容
+- 通过binary方式安装docker，并注册成服务
+- 搭建docker私有镜像仓库
+
+## 背景描述
+- 所在的服务器是一个内网，无法访问到外网环境。
+- 服务器OS版本是 CentOS 7.9
+
+## 安装docker
+获取所需版本的docker binary包，官方链接在 https://download.docker.com/linux/static/stable/x86_64/. 在这里我选择了最新版本的`
+docker-24.0.7.tgz`
+
+将压缩包上传到目标服务器。
+
+解压压缩包，并把文件放在`/usr/bin/` 
+```
+$ tar zxvf docker-24.0.7.tgz 
+docker/
+docker/docker
+docker/docker-init
+docker/dockerd
+docker/runc
+docker/ctr
+docker/containerd-shim-runc-v2
+docker/containerd
+docker/docker-proxy
+$ sudo cp docker/* /usr/bin/
+```
+
+编写service文件
+
+```
+$ vim /etc/systemd/system/docker.service
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network-online.target firewalld.service
+Wants=network-online.target
+[Service]
+Type=notify
+## the default is not to use systemd for cgroups because the delegate issues still
+## exists and systemd currently does not support the cgroup feature set required
+## for containers run by docker
+ExecStart=/usr/bin/dockerd
+ExecReload=/bin/kill -s HUP $MAINPID
+## Having non-zero Limit*s causes performance problems due to accounting overhead
+## in the kernel. We recommend using cgroups to do container-local accounting.
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+## Uncomment TasksMax if your systemd version supports it.
+## Only systemd 226 and above support this version.
+#TasksMax=infinity
+TimeoutStartSec=0
+## set delegate yes so that systemd does not reset the cgroups of docker containers
+Delegate=yes
+## kill only the docker process, not all processes in the cgroup
+KillMode=process
+## restart the docker process if it exits prematurely
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
+ 
+[Install]
+WantedBy=multi-user.target
+```
+
+新增用户组 docker。其他用户需要有docker的执行权限，只需将用户加入docker用户组即可
+```
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+```
+
+启动docker service,并设置开机自启动
+```
+$ sudo chmod +x /etc/systemd/system/docker.service
+$ sudo systemctl daemon-reload
+$ sudo systemctl start docker
+$ sudo systemctl enable docker
+```
+
+验证
+```
+$ systemctl status docker                                                         
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/etc/systemd/system/docker.service; enabled; vendor preset: disabled)
+   Active: active (running) since Sun 2023-12-24 02:13:06 EST; 1min 1s ago
+     Docs: https://docs.docker.com
+ Main PID: 1764 (dockerd)
+   CGroup: /system.slice/docker.service
+           ├─1764 /usr/bin/dockerd
+           └─1771 containerd --config /var/run/docker/containerd/containerd.toml
+$ docker -v
+Docker version 24.0.7, build afdd53b
+```
+
+## 搭建docker私有镜像仓库
+
+在一台可以访问到外网的服务器上面准备registry镜像包 
+```
+$ docker pull registry
+Using default tag: latest
+latest: Pulling from library/registry
+c926b61bad3b: Pull complete 
+5501dced60f8: Pull complete 
+e875fe5e6b9c: Pull complete 
+21f4bf2f86f9: Pull complete 
+98513cca25bb: Pull complete 
+Digest: sha256:0a182cb82c93939407967d6d71d6caf11dcef0e5689c6afe2d60518e3b34ab86
+Status: Downloaded newer image for registry:latest
+docker.io/library/registry:latest
+$ docker save -o registry.tar registry
+$ gzip registry.tar
+```
+
+上传镜像包`registry.tar.gz`到目标服务器
+
+解压加载镜像
+```
+$ gunzip registry.tar.gz 
+$ docker load < registry.tar 
+4693057ce236: Loading layer [==================================================>]  7.626MB/7.626MB
+f4285c491509: Loading layer [==================================================>]  771.6kB/771.6kB
+90d6ca1e837f: Loading layer [==================================================>]   16.2MB/16.2MB
+f79c4d8837b6: Loading layer [==================================================>]  4.096kB/4.096kB
+85f82aceeda3: Loading layer [==================================================>]  2.048kB/2.048kB
+Loaded image: registry:2.8.2
+9fe9a137fd00: Loading layer [==================================================>]   7.63MB/7.63MB
+d9bce47b357e: Loading layer [==================================================>]  771.6kB/771.6kB
+afcdb1715fb3: Loading layer [==================================================>]  17.55MB/17.55MB
+9f383ae4f64d: Loading layer [==================================================>]  4.096kB/4.096kB
+645ddea72735: Loading layer [==================================================>]  2.048kB/2.048kB
+Loaded image: registry:latest
+```
+
+启动私有镜像仓库容器
+```
+$ sudo mkdir -p /data/registry
+$ docker run -itd -v /data/registry/:/docker/registry -p 5000:5000 --restart=always --name private-registry registry:latest
+98cb5c25871b94420418094efb19f36c45c7fbe18274229e9f8c4b00328ec180
+```
+参数说明
+> -itd：在容器中打开一个伪终端进行交互操作，并在后台运行  
+> -v：映射目录, 将宿主机的/data/registry 映射到容器的/dcoker/registry  
+> -p：映射端口, 将宿主机的5000端口映射到容器的5000端口  
+
+测试上传镜像到private-registry
+```
+$ docker tag registry 127.0.0.1:5000/registry
+$ docker push 127.0.0.1:5000/registry
+Using default tag: latest
+The push refers to repository [127.0.0.1:5000/registry]
+645ddea72735: Pushed 
+9f383ae4f64d: Pushed 
+afcdb1715fb3: Pushed 
+d9bce47b357e: Pushed 
+9fe9a137fd00: Pushed 
+latest: digest: sha256:860f379a011eddfab604d9acfe3cf50b2d6e958026fb0f977132b0b083b1a3d7 size: 1363
+```
+
+测试下载镜像
+```
+$ docker rmi 127.0.0.1:5000/registry
+Untagged: 127.0.0.1:5000/registry:latest
+Untagged: 127.0.0.1:5000/registry@sha256:860f379a011eddfab604d9acfe3cf50b2d6e958026fb0f977132b0b083b1a3d7
+$ docker pull 127.0.0.1:5000/registry
+Using default tag: latest
+latest: Pulling from registry
+Digest: sha256:860f379a011eddfab604d9acfe3cf50b2d6e958026fb0f977132b0b083b1a3d7
+Status: Downloaded newer image for 127.0.0.1:5000/registry:latest
+127.0.0.1:5000/registry:latest
+```
+
+查看私有仓库镜像
+```
+$ curl http://localhost:5000/v2/_catalog
+{"repositories":["registry"]}
+```
+
+---
+
+## 离线安装 - K3S
+
+- 通过binary方式部署轻量级kubernertes(K3S)
+- 配置K3S使用私有镜像仓库
+
+## 部署背景
+- 所在服务器访问不到外网，只能离线部署
+- 服务器OS版本为CentOS 7.9
+- 已经搭建好私有docker镜像仓库。（如没有可移步 [离线环境部署docker及私有镜像仓库](/blog/offline-install-docker)）
+
+## 什么是K3S
+> K3s 是轻量级的 Kubernetes。K3s 易于安装，而且仅需要 Kubernetes 内存的一半，所有组件都在一个小于 100 MB 的二进制文件中。
+
+## 安装包准备
+1. `k3s-airgap-images-amd64.tar.gz`. K3S镜像包，下载地址 https://github.com/k3s-io/k3s/releases . 由于服务器的CPU是X86_64架构，所以选择 `amd64`版本.
+2. `k3s`.K3S 可执行文件. 下载地址 https://github.com/k3s-io/k3s/releases
+3. `install.sh`. K3S安装脚本.下载地址 https://get.k3s.io
+4. `k3s-selinux-1.4-1.el7.noarch.rpm`. 非必须，只有当你的服务器需要SELinux时才需要安装。下载地址https://github.com/k3s-io/k3s-selinux/releases/tag/v1.4.stable.1
+
+## K3S安装
+将安装包上传到目标服务器,并放在同一个目录  
+安装SELinux支持（如不需要可跳过此步骤）  
+假如出现缺少container-selinux 依赖的报错，下载安装 [container-selinux-2.107-3.el7.noarch.rpm](http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm)
+```
+$ sudo rpm -ivh container-selinux-2.107-3.el7.noarch.rpm
+$ sudo rpm -ivh k3s-selinux-1.4-1.el7.noarch.rpm 
+```
+关闭firewalld
+```
+$ sudo systemctl disable firewalld --now
+```
+如果你希望保持firewalld的开启状态，那需要为K3S加几条规则
+```
+$ firewall-cmd --permanent --add-port=6443/tcp #apiserver
+$ firewall-cmd --permanent --zone=trusted --add-source=10.42.0.0/16 #pods
+$ firewall-cmd --permanent --zone=trusted --add-source=10.43.0.0/16 #services
+$ firewall-cmd --reload
+```
+安装K3S
+```
+$ sudo mkdir -p /var/lib/rancher/k3s/agent/images/
+$ sudo cp ./k3s-airgap-images-amd64.tar.gz /var/lib/rancher/k3s/agent/images/
+$ sudo cp ./k3s /usr/local/bin/
+$ sudo chmod +x /usr/local/bin/k3s
+$ INSTALL_K3S_SELINUX_WARN=true INSTALL_K3S_SKIP_DOWNLOAD=true ./install.sh --write-kubeconfig-mode=644
+[INFO]  Skipping k3s download and verify
+[INFO]  Skipping installation of SELinux RPM
+[WARN]  Failed to find the k3s-selinux policy, please install:
+    yum install -y container-selinux
+    yum install -y https://rpm.rancher.io/k3s/stable/common/centos/7/noarch/
+
+[INFO]  Creating /usr/local/bin/kubectl symlink to k3s
+[INFO]  Creating /usr/local/bin/crictl symlink to k3s
+[INFO]  Skipping /usr/local/bin/ctr symlink to k3s, command exists in PATH at /bin/ctr
+[INFO]  Creating killall script /usr/local/bin/k3s-killall.sh
+[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh
+[INFO]  env: Creating environment file /etc/systemd/system/k3s.service.env
+[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service
+[INFO]  systemd: Enabling k3s unit
+Created symlink from /etc/systemd/system/multi-user.target.wants/k3s.service to /etc/systemd/system/k3s.service.
+[INFO]  systemd: Starting k3s
+```
+参数说明:
+> INSTALL_K3S_SELINUX_WARN=true: 当缺少`k3s-selinux`依赖时，也会继续安装  
+> INSTALL_K3S_SKIP_DOWNLOAD=true: 跳过下载k3s安装包  
+> --write-kubeconfig-mode=644: 修改k3s配置文件的权限，避免普通用户无法使用kubectl的情况
+
+验证
+```
+$ systemctl status k3s
+● k3s.service - Lightweight Kubernetes
+   Loaded: loaded (/etc/systemd/system/k3s.service; enabled; vendor preset: disabled)
+   Active: active (running) since Sun 2023-12-24 09:52:44 EST; 1min 4s ago
+     Docs: https://k3s.io
+  Process: 11405 ExecStartPre=/sbin/modprobe overlay (code=exited, status=0/SUCCESS)
+  Process: 11402 ExecStartPre=/sbin/modprobe br_netfilter (code=exited, status=0/SUCCESS)
+  Process: 11399 ExecStartPre=/bin/sh -xc ! /usr/bin/systemctl is-enabled --quiet nm-cloud-setup.service (code=exited, status=0/SUCCESS)
+ Main PID: 11408 (k3s-server)
+    Tasks: 59
+   Memory: 486.0M
+   CGroup: /system.slice/k3s.service
+           ├─11408 /usr/local/bin/k3s server
+           └─11462 containerd 
+$ kubectl get pod -A
+NAMESPACE     NAME                                      READY   STATUS    RESTARTS   AGE
+kube-system   local-path-provisioner-84db5d44d9-ws8wq   1/1     Running   0          19s
+kube-system   metrics-server-67c658944b-xj6mr           1/1     Running   0          19s
+kube-system   coredns-6799fbcd5-6k2ff                   1/1     Running   0          19s
+```
+如果pod/coredns出现报错`plugin/forward: no nameservers found`,编辑configmap `kubectl edit cm coredns -n kube-system`, 将 `forward . /etc/resolv.conf`这一行注释。保存退出后，删除pod/coredns
+
+## 私有镜像仓库配置
+我们可以将容器配置为连接到私有镜像仓库，并在节点上使用私有镜像仓库拉取私有镜像。K3s在启动时会检查`/etc/rancher/k3s/`中是否存在`registries.yaml`文件，存在的话在启动容器的时候会使用该文件中定义的镜像仓库。
+```
+$ sudo vi /etc/rancher/k3s/registries.yaml
+mirrors:
+  docker.io:
+    endpoint:
+      - "http://127.0.0.1:5000"
+$ sudo systemctl restart k3s
+```
+比如上面的配置，当我们容器需要的镜像仓库是docker.io时，k3s会从127.0.0.1:5000仓库来拉取镜像。
+
+
+---
+
+## 离线安装 - MySQL 8
+
+# MySQL 8
+
+## 本文内容
+- 通过 binary 方式部署 MySQL8
+- 为 MySQL8 配置 Service 并设置开机启动
+
+## 背景描述
+- 服务器访问不到内网，软件只能离线部署
+- 服务器的 OS 版本为 CentOS 7.9
+
+## 安装包准备 
+点击进入 [MySQL 安装包官方下载地址](https://downloads.mysql.com/archives/community/)，选择我们服务器对应的安装包。在这里我选择的是
+ - Product Version: 8.0.33
+ - Operating System: Red Hat Enterprise Linux / Oracle Linux
+ - OS Version: Red Hat Enterprise Linux 7 / Oracle Linux 7 (x86, 64-bit)
+
+版本选择后可以看到最下方有 **Compress TAR Archive**, 点击右边的 **Download** 按钮下载。  
+如果你的OS版本和笔者一样，也直接点击  [这里](https://downloads.mysql.com/archives/get/p/23/file/mysql-8.0.33-el7-x86_64.tar.gz)  下载。  
+下载完毕后，我们得到安装包 `mysql-8.0.33-el7-x86_64.tar.gz`
+
+## MySQL8安装
+上传 MySQL8 安装包到服务器，解压并将解压后的目录移动到 `/usr/local/mysql`
+```
+$ tar zxf mysql-8.0.33-el7-x86_64.tar.gz 
+$ sudo mv mysql-8.0.33-el7-x86_64 /usr/local/mysql
+```
+权限配置 (我打算将`/data/mysql`作为MySQL8的数据目录，所以在这里一并创建)
+```
+$ sudo groupadd mysql
+$ sudo useradd -r -g mysql mysql
+$ sudo chown -R mysql:mysql /usr/local/mysql/
+$ sudo chmod -R 755 /usr/local/mysql/
+$ sudo mkdir -p /data/mysql
+$ sudo chown -R mysql:mysql /data/mysql/
+```
+编辑 MySQL 8 配置文件 `/etc/my.cnf`
+```
+$ sudo vi /etc/my.cnf
+[mysqld]
+log-error=/usr/local/mysql/mysqld.log
+pid-file=/usr/local/mysql/mysql.pid
+datadir=/data/mysql
+socket=/usr/local/mysql/mysql.sock
+lower_case_table_names=1
+
+[mysqld_safe]
+log-error=/usr/local/mysql/mysqld.log
+pid-file=/usr/local/mysql/mysql.pid
+datadir=/data/mysql
+socket=/usr/local/mysql/mysql.sock
+
+[mysql]
+socket=/usr/local/mysql/mysql.sock
+
+[mysqldump]
+socket=/usr/local/mysql/mysql.sock
+```
+> 这里需要注意一点，MySQL8 只有在初始化的时候，才能修改 `lower_case_table_names`这个配置，所以大家一开始就需要根据实际场景，来配置 `lower_case_table_names`，避免后面出现不兼容的情况。`lower_case_table_names` 默认为0.
+
+初始化 MySQL8
+```
+$ cd /usr/local/mysql/bin/
+$ sudo ./mysqld --initialize --user=mysql --lower-case-table-names=1 --datadir=/data/mysql --basedir=/usr/local/mysql/
+$ sudo grep -i password /usr/local/mysql/mysqld.log 
+```
+> 最后一步执行完，可得到 MySQL8 的root临时密码，需要记录下来。比如这里我输出的是   
+> `A temporary password is generated for root@localhost: XXXXXXX`
+
+到这里 MySQL8 已经安装好了，接下来我们为 MySQL8 配置服务
+
+## 配置 MySQL8 Service
+```
+$ sudo ln -s /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+$ sudo ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql
+$ sudo ln -s /usr/local/mysql/mysql.sock /var/mysql.sock
+$ sudo vi /usr/lib/systemd/system/mysql.service
+[Unit]
+Description=MySQL Server
+After=network.target
+After=syslog.target
+[Service]
+User=mysql
+Group=mysql
+Type=forking
+PermissionsStartOnly=true
+ExecStart=/etc/init.d/mysql start
+ExecStop=/etc/init.d/mysql stop
+ExecReload=/etc/init.d/mysql restart
+LimitNOFILE = 5000
+LimitNPROC = 5000
+[Install]
+WantedBy=multi-user.target
+
+$ sudo systemctl daemon-reload
+$ sudo systemctl stop mysql
+$ sudo systemctl restart mysql
+$ sudo chkconfig mysql on
+
+```
+到这里 MySQL 8的服务已经正常配置且启动了，接下来我们用上面获取到的临时密码登录进去，并修改密码
+```
+$ mysql -uroot -p 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> alter user 'root'@'localhost' identified by '123456';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> exit
+Bye
+
+```
+自此 MySQL8 已经成功部署。
+
+---
+
+## GitLab CICD
+
+## 配置使用 Gitlab runner
+
+### Gitlab runner 介绍
+GitLab Runner是GitLab CI/CD系统中的一个组件，它负责执行构建和部署任务。  
+主要功能包括：
+1. 执行构建任务： 当开发者提交代码时，GitLab Runner负责执行CI/CD流水线中定义的构建任务，例如编译代码、运行测试等。
+2. 并行执行： GitLab Runner支持并行执行多个任务，这有助于提高构建和测试的效率。
+3. 多平台支持： 它可以在不同的操作系统和环境中运行，例如Linux、macOS、Windows等，从而满足不同项目的需求。
+4. Docker支持： GitLab Runner可以与Docker集成，使构建和部署过程更加轻量和可移植。
+5. 持续交付： GitLab Runner通过执行CI/CD流水线中的任务，支持自动化持续集成和交付流程，使团队能够更快地将软件交付到生产环境中。
+
+### 安装 Gitlab runner （CentOS 7.9）
+由于 Gitlab runner 是运行在自己的服务器上，所以需要在自己的服务器上安装依赖
+```
+curl -LJO "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/rpm/gitlab-runner_amd64.rpm"
+rpm -i gitlab-runner_amd64.rpm
+gitlab-runner start
+```
+
+> 详细安装信息请参考 https://docs.gitlab.com/runner/install/
+
+### 注册 Gitlab runner（CentOS 7.9）  
+#### 获取 registration token
+在项目页面中，选择 `Settings -> CI/CD -> Runners`, 在这里获取 URL 和 token
+
+#### 执行注册指令
+```
+gitlab-runner register \
+  --non-interactive \
+  --url "$GITLAB_URL" \
+  --token "$RUNNER_TOKEN" \
+  --executor "docker" \
+  --docker-image alpine:latest \
+  --description "docker-runner"
+```
+成功以后可以在项目 Runners 页面看到刚注册的 Gitlab runner
+
+#### 异常情况
+1. 在 Gitlab runner 运行时出现 no permitted 权限问题  
+找到 gitlab-runner的配置文件，一般在 `/etc/gitlab-runner/config.toml`, 找到对应的 gitlab runner 配置， 将 `privileged = false` 修改 `privileged = true`, 重新启动。
+```
+gitlab-runner restart
+```
+
+## 编写 `.gitlab-ci.yml`
+
+### `.gitlab-ci.yml` 介绍
+`.gitlab-ci.yml` 是GitLab CI/CD的配置文件，用于定义项目的持续集成和持续交付（CI/CD）流水线。这个文件采用YAML（YAML Ain't Markup Language）格式，以清晰且易读的方式描述了构建、测试、部署等任务的执行步骤和规则。
+
+### 基本结构和内容
+一个简单的`.gitlab-ci.yml`文件可能包含以下部分：
+```
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  APP_NAME: "my-app"
+
+before_script:
+  - echo "Setting up environment..."
+
+build:
+  stage: build
+  script:
+    - echo "Building the application..."
+
+test:
+  stage: test
+  script:
+    - echo "Running tests..."
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to production..."
+  only:
+    - master
+
+```
+
+- `stages` 部分定义了流水线的阶段，每个阶段包含一个或多个任务。
+- `variables` 部分用于定义全局变量，可以在整个流水线中使用。
+- `before_script` 部分包含在每个任务执行之前运行的脚本。
+- `build`, `test`, 和 `deploy` 是具体的任务，每个任务包含一个或多个脚本命令。
+
+---
+
+## 3 小时重构个人网站：AI 辅助执行层工作的实践记录
+
+## Problem Context
+
+### 问题背景
+
+**原有架构问题：**
+- 使用 Docusaurus 文档站，但内容既不是产品文档也不是系统教程
+- 零散技术笔记用文档形式组织，维护成本高
+- 无法展示实际项目（如 Peer Drop）
+- 每次添加内容需要思考目录结构，心理负担大
+
+**为什么需要解决：**
+- 网站定位与实际内容不匹配，影响访问者理解
+- 缺少产品展示，无法体现实际项目进展
+- 维护成本高导致更新频率低
+
+**常见替代方案：**
+- 继续使用文档站，逐步调整结构（耗时且效果有限）
+- 完全重写网站（投入过大，容易放弃）
+- 迁移到其他平台（如 WordPress，失去技术控制力）
+
+---
+
+## Practice Record
+
+### 采用的方案
+
+使用 kiro-cli（AI 编程助手）辅助重构，人工负责战略决策，AI 负责执行层工作。
+
+### 实施步骤
+
+#### 1. 禁用文档系统
+
+修改 Docusaurus 配置文件，禁用 docs 插件，只保留博客插件。这样原有的文档结构会被转换为按时间线组织的博客文章。
+
+#### 2. 转换现有文档为博客
+
+将文档目录下的文件迁移到博客目录，并为每篇文章添加博客必需的 front matter（包括标题、标签、发布日期等元数据）。AI 批量处理了 9 篇文档的转换工作。
+
+#### 3. 创建产品展示系统
+
+创建产品数据文件，定义产品的基本信息（名称、描述、链接、标签等）。然后创建产品卡片组件，用于在页面上展示产品，包含标题、描述、访问链接和 hover 动画效果。
+
+#### 4. 配置多语言支持
+
+配置 Docusaurus 的 i18n 插件，添加中文和英文两种语言支持。配置完成后，网站右上角会显示语言切换按钮，URL 会自动根据语言分开。
+
+#### 5. 样式重构（深色主题）
+
+自定义 CSS 变量和组件样式，采用深色背景配合绿色主题色，类似 Supabase 的设计风格。产品卡片使用毛玻璃效果和 hover 动画，提升视觉质感。
+
+---
+
+## Results
+
+### 量化结果
+
+| 指标 | 数值 |
+|------|------|
+| 总耗时 | 3 小时 |
+| 修改文件数 | 49 个 |
+| 新增代码 | 12,517 行 |
+| 删除代码 | 6,690 行 |
+| 转换文档 | 9 篇 |
+| 创建产品页 | 1 个（Peer Drop）|
+
+### 功能成果
+
+**重构前：**
+- ❌ 文档站结构，定位模糊
+- ❌ 无产品展示
+- ❌ 单语言（中文）
+- ❌ 朴素设计
+
+**重构后：**
+- ✅ 博客架构，清晰的时间线
+- ✅ 产品展示页面（What I Build）
+- ✅ 中英文双语切换
+- ✅ 现代化深色设计（Supabase 风格）
+
+### 意外发现
+
+- Docusaurus 的文档转博客比预期简单（只需调整 front matter）
+- AI 在处理重复性工作时效率极高（如批量添加 front matter）
+- 多语言配置的复杂度被高估了（Docusaurus 内置支持完善）
+
+---
+
+## Limitations & Trade-offs
+
+### 局限性
+
+**AI 辅助的边界：**
+- AI 无法决定网站应该展示什么内容（战略决策）
+- AI 无法判断设计风格是否符合个人品牌（审美决策）
+- AI 无法保证技术选型的长期适用性（架构决策）
+
+**技术权衡：**
+- 从文档站改博客后，失去了文档的层级导航（但获得了时间线浏览）
+- 产品展示页面需要手动维护（但比集成 CMS 更轻量）
+- 多语言需要双倍翻译工作（但 Docusaurus 的 i18n 简化了流程）
+
+### 不适用场景
+
+- 需要复杂权限系统的内容管理
+- 需要实时协作的文档平台
+- 需要高度定制化设计的项目（AI 只能提供通用方案）
+
+---
+
+## Reusable Pattern
+
+### 核心原则
+
+**AI 辅助执行层工作模式：**
+
+> 人工负责战略决策（做什么、为什么做），AI 负责执行层工作（怎么做、具体代码）
+
+### 操作指南
+
+**适用场景判断：**
+1. 目标清晰，但执行步骤繁琐
+2. 知道怎么做，但不想写重复代码
+3. 需要快速验证想法，而非追求完美
+
+**工作流程：**
+1. **明确目标** - 用自然语言描述想要什么
+2. **确认边界** - 说明哪些需要人工决策
+3. **分步执行** - 让 AI 按步骤输出，逐步验证
+4. **人工审查** - 关键决策点暂停，人工确认
+
+**投入产出比计算：**
+```
+传统方式：需求分析 (2h) + 编码 (8h) + 调试 (4h) = 14h
+AI 辅助：需求分析 (2h) + AI 执行 (1h) + 审查 (1h) = 4h
+节省时间：10h (71%)
+```
+
+### 相关实践
+
+- AI Agent 系统配置
+- 自动化工作流设计
+
+---
+
+## Citations & References
+
+### 工具使用
+
+- [kiro-cli](https://github.com/kiro-cli/kiro) - AI 编程助手，用于代码生成和重构
+- [Docusaurus](https://docusaurus.io/) - 静态网站生成器，支持博客和多语言
+- [Peer Drop](https://peer-drop.real-tech.online/) - P2P 文件传输工具（本项目产出）
+
+### 进一步阅读
+
+- [Docusaurus 博客迁移指南](https://docusaurus.io/docs/blog)
+- [Docusaurus 国际化](https://docusaurus.io/docs/i18n/introduction)
+
+---
+
+## AI Extraction Hints
+
+<!--
+KEY_INSIGHTS:
+- AI 辅助执行层工作可节省 70%+ 时间
+- 战略决策（做什么）必须人工，执行决策（怎么做）可委托 AI
+- 投入产出比改变是启动重构的关键触发点
+
+PATTERN_NAME: AI 辅助执行层工作模式
+CATEGORY: system-building
+COMPLEXITY: intermediate
+TIME_INVESTMENT: 3 hours
+ROI: high
+-->
+
+---
+
+**重构时间：** 2026 年 1 月 22 日下午  
+**总耗时：** 3 小时  
+**核心工具：** AI 编程助手  
+**关键收获：** 不用自己写代码的感觉，真好
+
+
+---
+
+## 日均开发实录①：从想法到上架——日均 App 的产品定位思考
+
+做「日均」之前，我问自己一个问题：市面上记账 App 已经几百个了，我为什么还要做一个跟钱有关的工具？
+
+答案是——我不做记账。
+
+## 一个消费者的真实困惑
+
+买了一台 ¥2,980 的投影仪。买的时候觉得贵，用了半年后觉得——其实每天才 ¥16，比去电影院便宜多了。
+
+但买了一双 ¥800 的跑鞋，穿了三次就扔在鞋柜里。每次 ¥267。
+
+**问题不是"花了多少钱"，而是"这钱花得值不值"。**
+
+这个视角转换，就是日均的全部。
+
+## 不做什么，比做什么更重要
+
+在定位日均的时候，我花了很多时间想清楚**不做什么**：
+
+- ❌ 不做记账 — 不追踪收入，不做分类，不做预算
+- ❌ 不做购物助手 — 不比价，不找优惠券
+- ❌ 不做理财顾问 — 不提供投资建议
+- ❌ 不做极简主义 App — 不评判你买什么
+
+日均只回答一个问题：**这笔钱，值不值？**
+
+## 竞品分析：找到空白地带
+
+| 竞品类型 | 它们做什么 | 日均的差异 |
+|---------|-----------|-----------|
+| 鲨鱼记账 / 随手记 | 完整记账——收入、支出、分类、预算 | 日均不做记账，只做判断 |
+| 钱迹 | 轻量记账 | 仍以追踪为核心，日均以判断为核心 |
+| 各种"日均计算器"小程序 | 一次性计算，不追踪 | 日均长期追踪——用得越多，数字越好看 |
+
+空白地带在哪？**即时计算 + 长期追踪 + 行为干预**，三者结合在一个轻量的包里。
+
+## 核心价值：我们真正在卖什么
+
+不是功能，是三种感受：
+
+1. **减少后悔** — "还好我想了想"（冷静清单）
+2. **验证消费** — "这个其实挺值的"（日均成本追踪）
+3. **新视角** — "我从来没这么想过"（从总价到日均/次均）
+
+这不是功能堆砌，是一次消费认知的升级。
+
+## 判断算法：把感觉变成数字
+
+v1.2 加入了"算一算"功能，核心是一套判断算法：
+
+| 日均成本 | 判断 | 生活类比 |
+|---------|------|---------|
+| < ¥3 | 👍 非常值得 | ≈ 一瓶水 |
+| ¥3–10 | 👍 值得 | ≈ 一杯咖啡 |
+| ¥10–30 | 🤔 还行 | ≈ 一顿早餐 |
+| ¥30–60 | ⚠️ 偏高 | ≈ 一顿外卖 |
+| ¥60–100 | ⚠️ 需要想想 | ≈ 一顿正餐 |
+| > ¥100 | ❌ 冲动风险 | ≈ 一天生活费 |
+
+**生活类比**是关键设计决策。"日均 ¥16" 是个抽象数字，但"每天一杯咖啡的钱"立刻有了体感。
+
+## 目标用户：谁会用这个？
+
+我定义了三类用户画像，但营销主攻第二类：
+
+1. **理性优化型** — 买前做功课，想量化"值不值"
+2. **冲动消费型** — 频繁网购，事后愧疚（小红书受众最大）
+3. **自我提升型** — 想养成更好的消费习惯
+
+为什么主攻冲动消费型？因为他们的痛点最强烈，小红书传播潜力最大，而且产品的"冷静清单"功能直接解决他们的问题。
+
+## 变现策略：先留存，后收费
+
+一个反直觉的决定：**v1.0 到 v1.3 全部功能免费**。
+
+不是因为不想赚钱，而是数据告诉我时机不对：
+- D1 留存 12%，D7 留存 4%
+- 活跃用户十几个
+- 瓶颈是留存，不是变现
+
+付费上线的前提条件（缺一不可）：
+- D7 留存 > 25%
+- 周活跃用户 > 500
+- 用户平均追踪物品数 > 3
+
+在这之前，把最强留存工具（小组件、通知）锁在付费后面 = 自断留存。
+
+## 北极星指标
+
+最终选定：**每周活跃追踪物品数**。
+
+这个指标同时衡量了获客（新增物品）和留存（用户回来记录使用），比 DAU 更能反映产品的真实健康度。
+
+## 回头看
+
+做日均最大的收获不是技术，是学会了**克制**。
+
+一个人做产品，最大的诱惑是什么都想加。但日均的核心竞争力恰恰是它**不做什么**——不做记账、不做预算、不做比价。只做一件事：帮你看清每一笔消费的真实成本。
+
+下一篇聊聊设计——一个人怎么从零建立一套完整的设计系统。
+
+
+---
+
+## 日均开发实录②：一个人做 iOS App 的设计系统——日均的温暖极简风格
+
+独立开发者最容易忽略的事情之一：设计系统。不是说要做一套 Material Design 那样的巨型规范，而是——你的 App 看起来像是同一个人做的吗？
+
+日均的设计关键词是四个字：**温暖极简**。
+
+## 为什么需要设计系统
+
+一个人做 App，最常见的状态是：这个页面用了蓝色，那个页面用了绿色，按钮有的圆角 8px 有的 16px，字号从 12 到 18 随机分布。
+
+不是审美问题，是效率问题。每次写新页面都要重新决定颜色、间距、字号，这些决策消耗的心智资源比你想象的多。
+
+所以在写第一行 SwiftUI 代码之前，我先做了一件事：**用 HTML 原型定义设计语言**。
+
+## 设计理念：温暖极简
+
+> 干净但不冷漠。App 应该像一个值得信赖的朋友帮你思考，而不是一张电子表格。
+
+参考对象：
+- **Apple Notes** 的简洁
+- **Notion** 的卡片布局
+- **温暖色调**（不是纯白纯黑）
+
+关键决策：背景色不用 `#FFFFFF`，用暖米色 `#F7F5F2`。这一个决定就让整个 App 的感觉从"工具"变成了"生活"。
+
+## 色彩系统：四种情绪
+
+日均的色彩不是随便选的，每种颜色对应一种情绪状态：
+
+| 颜色 | 色值 | 情绪 | 使用场景 |
+|------|------|------|---------|
+| 薄荷绿 | `#3D9E7E` | 正向 / 值得 | 品牌主色、CTA、成本下降 |
+| 蓝色 | `#3A78B5` | 中性 / 追踪中 | 冷静清单、按时间追踪 |
+| 橙色 | `#E8A87C` | 警告 / 偏贵 | 高成本提醒、紧急冷静 |
+| 紫色 | `#7952D4` | 决策 / 反思 | 冷静详情、倒计时 |
+
+这套颜色系统的好处是：用户不需要读文字，看颜色就知道这个物品的状态。绿色 = 值，橙色 = 贵，紫色 = 再想想。
+
+## 卡片设计：克制的阴影
+
+日均的卡片设计有一个原则：**阴影极其克制**。
+
+```css
+box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+```
+
+0.06 的透明度。大多数 App 用 0.1 到 0.2，日均刻意压低。原因是：暖米色背景 + 重阴影 = 脏。轻阴影让卡片"浮"起来，但不会抢视线。
+
+卡片的其他规范：
+- 圆角 20px（大卡片）、16px（小元素）
+- 内边距 16–18px
+- 背景纯白 `#FFFFFF`
+
+## 数字的温度：生活类比
+
+设计系统不只是视觉，还包括文案。日均最重要的设计决策之一是**生活类比**。
+
+"日均 ¥16" 是冰冷的数字。但 "≈ 一杯咖啡" 立刻有了温度。
+
+这个设计贯穿整个 App：
+- 算一算结果页：大数字 + 判断标签 + 生活类比，三层信息交错动画展示
+- 物品卡片：右上角用颜色色块暗示价值判断
+- 进度条：渐变填充，用得越多颜色越"满"
+
+## 动画原则：冷静克制
+
+日均的动画有一条红线：**不用弹性/弹跳动画**。
+
+```swift
+.animation(.easeInOut(duration: 0.25), value: someState)
+```
+
+原因很简单：日均帮用户做理性决策，弹跳动画传递的是"活泼"和"兴奋"，跟产品气质不符。
+
+动画规范：
+- 过渡动画 0.25s
+- 展示动画 0.3s
+- 交错展示：元素间 0.3s 延迟
+- 缓动函数统一 `.easeInOut`
+
+## Emoji 作为视觉标识
+
+一个省钱的设计决策：用 Emoji 代替自定义图标作为物品的主要视觉标识。
+
+好处：
+1. 零设计成本
+2. 用户自选，有归属感
+3. 跨平台一致
+4. 放在 42px 圆角色块中，配合主题色，效果不输自定义图标
+
+## 营销视觉一致性
+
+设计系统不止于 App 内部。小红书封面、App Store 截图都遵循同一套规范：
+
+- 薄荷绿主色
+- 暖米色背景（不用纯白纯黑）
+- 大数字用粗体
+- Emoji 作为视觉锚点
+- 温暖感，不要企业感
+
+这让用户从小红书看到封面，到 App Store 看到截图，到打开 App，视觉体验是连贯的。
+
+## 给独立开发者的建议
+
+1. **先定颜色，再写代码** — 3-4 个主色 + 背景色 + 文字色，够了
+2. **背景色别用纯白** — 加一点暖色（米色、浅灰），质感立刻不同
+3. **阴影要克制** — 透明度 0.06-0.08，不要超过 0.1
+4. **统一圆角** — 选 2-3 个值（比如 12/16/20），全局复用
+5. **文案也是设计** — "计算"不如"看看值不值"，"确认"不如"开始追踪"
+
+设计系统不需要完美，需要**一致**。一致性本身就是专业感。
+
+下一篇聊留存——D7 留存 4%，我是怎么诊断问题并尝试破局的。
+
+
+---
+
+## 日均开发实录③：独立开发者的留存困局——从 4% 到破局之路
+
+D1 留存 12%，D7 留存 4%。
+
+这两个数字，是日均上线两周后 App Store Connect 给我的现实。100 个人下载了 App，一周后只有 4 个人还在用。
+
+这篇文章记录我怎么诊断问题、做出决策、以及为什么"砍功能"有时候比"加功能"更重要。
+
+## 数据现实
+
+先看时间线：
+
+| 日期 | 累计下载 | 活跃设备 | 备注 |
+|------|---------|---------|------|
+| ~04-04 | 8 | — | v1.2.2 发布前 |
+| 04-05 | 44 | — | 单日 +36，小红书内容开始驱动 |
+| 04-13 | 211 | 峰值 18 | D1 留存 12%，D7 留存 4% |
+
+211 次下载，峰值活跃 18 个设备。这意味着绝大多数用户下载后很快就流失了。
+
+## 诊断：新用户的前 30 秒
+
+留存问题的根源通常在**新用户的首次体验**。我回头审视了 v1.2 的 Tab 结构：
+
+```
+v1.2 Tab 结构：
+我的物品（列表）| 冷静 | 洞察 | 设置
+算一算被隐藏在二级入口
+```
+
+问题出在哪？
+
+新用户打开 App，看到的是一个**空列表**。没有物品、没有数据、没有即时价值。要体验核心功能"算一算"，需要找到入口、输入数据、等待结果。
+
+**新用户在获得价值之前就离开了。**
+
+## 关键决策：恢复算一算为首 Tab
+
+v1.3.1 的核心改动只有一个：**把算一算恢复为第一个 Tab**。
+
+```
+v1.3.1 Tab 结构：
+算一算（默认）| 我的物品 | 冷静 | 洞察
+```
+
+这个决策的逻辑：
+
+1. **即时价值** — 新用户打开 App，立刻看到一个计算器。输入价格和使用频率，10 秒内得到结果。
+2. **零门槛** — 不需要先添加物品，不需要理解"追踪"概念。
+3. **转化漏斗** — 算完之后自然引导到"开始追踪"或"加入冷静清单"。
+
+## 同时修复的 Bug
+
+诊断过程中还发现了一个严重 bug：**冷静清单到期通知从未触发**。
+
+原因：`scheduleCalmExpiry` 函数写好了，但从未被调用。用户添加了冷静物品，设了 7 天冷静期，但 7 天后什么都没发生。
+
+这意味着冷静清单的核心价值——"到期提醒你做决定"——完全失效了。
+
+修复清单：
+- 修复 `scheduleCalmExpiry` 调用时机
+- 修复通知权限请求时机（添加冷静物品时请求，而非只在记录使用时）
+- 算一算新增物品名输入框，预填到追踪/冷静清单
+
+## 为什么不加更多功能
+
+面对 4% 的留存，直觉反应是"加功能"——加社交、加成就系统、加每日签到。
+
+但我选择了相反的方向：**不加功能，调整结构**。
+
+理由：
+1. 用户不是因为功能不够而离开，是因为**没感受到核心价值**就离开了
+2. 加功能 = 加复杂度 = 新用户更难理解产品
+3. 一个人的开发资源有限，每加一个功能就是一个维护负担
+
+## 付费功能的克制
+
+v1.3.1 还做了一个决定：**隐藏 Pro 升级入口**。
+
+已经写好了 StoreKit 2 的付费逻辑、PaywallView、产品配置。但数据告诉我：
+
+- 活跃用户十几个
+- D7 留存 4%
+- 瓶颈是留存，不是变现
+
+在这个阶段上付费，不仅赚不到钱，还会让新用户觉得"又一个想收费的 App"。
+
+付费上线的前提条件我定得很明确：
+- D7 留存 > 25%
+- 周活跃用户 > 500
+- 用户平均追踪物品数 > 3
+
+三个条件缺一不可。在此之前，所有功能免费。
+
+## 验证指标
+
+v1.3.1 发版后需要观察一周的指标：
+
+1. **D1 留存是否从 12% 提升到 20%+** — 算一算作为首 Tab 是否让新用户更快获得价值
+2. **Sessions/用户是否提升** — 用户是否更频繁地打开 App
+3. **算一算 → 开始追踪的转化率** — 计算完之后有多少人真的开始追踪
+
+## 独立开发者的留存思维
+
+几个从这次经历中学到的东西：
+
+**1. 新用户的前 30 秒决定一切**
+
+不是你的功能不好，是用户没机会体验到。首屏必须提供即时价值。
+
+**2. 空状态是杀手**
+
+新用户看到空列表 = 看到一个没用的 App。要么预填示例数据，要么把不需要数据的功能放在前面。
+
+**3. 留存问题先看结构，再看功能**
+
+Tab 顺序、默认页面、首次引导——这些"结构性"改动的效果往往比新功能大得多。
+
+**4. 数据小的时候，定性比定量重要**
+
+18 个活跃用户的留存率统计意义有限。但"新用户打开看到空列表"这个问题，不需要统计就能判断。
+
+**5. 克制是一种能力**
+
+不上付费、不加功能、不做社交——在 4% 留存面前，这些决定比"做什么"更难。
+
+---
+
+留存的故事还在继续。下一篇聊获客——小红书内容是怎么驱动 App Store 下载的，211 次下载背后的完整漏斗。
+
+
+---
+
+## 日均开发实录④：小红书 + App Store 的获客漏斗——211 次下载背后的故事
+
+日均上线后的前两周，我没花一分钱投广告，累计获得了 211 次下载。
+
+这个数字不大，但背后的获客路径很有意思：**不是 App Store 搜索带来的自然流量，而是小红书内容间接驱动的**。
+
+## 数据时间线
+
+| 日期 | 累计下载 | 单日新增 | 发生了什么 |
+|------|---------|---------|-----------|
+| ~04-04 | 8 | — | 上线一周，几乎没有下载 |
+| 04-05 | 44 | +36 | 爆发式增长 |
+| 04-13 | 211 | — | 9 天新增 167 次 |
+
+关键转折点在 04-05。单日 +36 次下载，之前一周总共才 8 次。
+
+## 发生了什么？
+
+03-30 开始在小红书发布日均相关的内容。发帖后约一周，下载量爆发。
+
+时间线高度吻合：
+- 03-30 之前：累计 8 次下载
+- 03-30 开始发帖
+- 04-05 开始爆发
+- 04-13 累计 211 次
+
+**小红书内容是触发器，App Store 搜索是下载渠道。**
+
+## 获客漏斗的真实结构
+
+一开始我以为获客漏斗是这样的：
+
+```
+App Store 搜索 → 看到日均 → 下载
+```
+
+实际上是这样的：
+
+```
+小红书笔记 → 用户产生兴趣 → 去 App Store 搜索"日均" → 下载
+```
+
+这个认知修正很重要。它意味着：
+
+1. **App Store 搜索词优化（ASO）仍然重要** — 用户搜"日均"必须能找到
+2. **但流量源头是小红书** — 没有内容触达，就没有搜索行为
+3. **小红书涨粉和 App 获客是同一条漏斗** — 不是两件事
+
+## 小红书内容策略
+
+什么样的内容能驱动下载？不是直接说"下载我的 App"，而是**先提供价值，再自然引导**。
+
+有效的内容类型：
+- **消费观点类** — "你的 AirPods 每天花你多少钱？"引发思考
+- **自嘲式故事** — "买了 ¥800 的跑鞋，穿了 3 次，每次 ¥267"引发共鸣
+- **数据可视化** — 把日均成本做成直观的对比图
+
+核心原则：**内容本身有价值，App 是解决方案的自然延伸**。
+
+## ASO：让搜索能找到你
+
+v1.2 提交时做了一轮 ASO 优化：
+
+- **副标题：** 每笔消费值不值？算一下就知道
+- **关键词：** 日均成本、值不值、性价比、理性消费、冲动消费、省钱、消费管理、购物决策、冷静期……
+
+关键词策略的思路：
+1. **品牌词** — "日均"、"日均成本"（搜索意图最强）
+2. **场景词** — "值不值"、"冲动消费"、"购物决策"（用户痛点）
+3. **竞品词** — "记账"、"省钱"（蹭流量，但转化率低）
+
+目前样本量太小，App Store Connect 还没显示关键词数据。但从下载时间线看，品牌词"日均"应该是主要搜索词。
+
+## 一个反直觉的发现
+
+**App Store 的"搜索"下载量，不等于自然搜索流量。**
+
+App Store Connect 显示的"搜索"来源，包括了用户主动搜索品牌词的行为。当用户在小红书看到"日均"这个名字，去 App Store 搜索下载，这在数据上显示为"搜索"来源——但实际触发点是小红书内容。
+
+这意味着：如果你只看 App Store 数据，会误以为是 ASO 在起作用。实际上是内容营销在起作用。
+
+## 活跃设备 vs 下载量
+
+211 次下载，峰值活跃设备 18 个。
+
+这个比例（~8.5%）说明了什么？
+
+1. **大量用户下载后很快卸载** — 首次体验没有留住他们（这就是上一篇聊的留存问题）
+2. **获客不是瓶颈** — 小红书能持续带来新用户
+3. **留存才是瓶颈** — 留不住人，获客再多也是漏水的桶
+
+## 成本分析
+
+这 211 次下载的获客成本：
+
+- 广告费：¥0
+- 小红书内容制作：个人时间（每篇约 1-2 小时）
+- ASO 优化：个人时间（一次性）
+
+纯时间成本，零现金投入。对独立开发者来说，这是最可持续的获客方式。
+
+## 给独立开发者的获客建议
+
+**1. 内容先行，App 后置**
+
+不要一上来就推 App。先在目标用户聚集的平台（小红书、即刻、Twitter）提供有价值的内容，让用户自然产生兴趣。
+
+**2. 品牌词要好搜**
+
+App 名字要简短、好记、好搜。"日均"两个字，用户在小红书看到后能直接去 App Store 搜索。如果名字是"SmartCostTracker"，这个漏斗就断了。
+
+**3. 小红书的内容半衰期比你想象的长**
+
+不像微博或朋友圈，小红书的笔记有搜索流量。一篇好的笔记可以持续几周甚至几个月带来曝光。
+
+**4. 先跑通漏斗，再优化每一步**
+
+```
+内容触达 → 产生兴趣 → 搜索下载 → 首次体验 → 留存
+```
+
+先确认整条漏斗是通的，再逐步优化每个环节的转化率。
+
+**5. 数据小的时候，看趋势不看绝对值**
+
+211 次下载的统计意义有限。但"发帖后下载量爆发"这个趋势是确定的。在早期，定性判断比定量分析更有用。
+
+---
+
+下一篇是这个系列的最后一篇，聊技术——SwiftUI + SwiftData 的独立开发实践，包括架构选择、iCloud 同步、Widget 开发的踩坑记录。
+
+
+---
+
+## 日均开发实录⑤：SwiftUI + SwiftData 实践笔记
+
+日均的技术栈很简单：SwiftUI + SwiftData，纯 iOS 原生开发。没有后端，没有第三方依赖，数据通过 iCloud 同步。
+
+这篇记录一些技术选型的思考和实际开发中的经验。
+
+## 为什么选 SwiftUI + SwiftData
+
+2026 年做一个新的 iOS App，SwiftUI 已经是默认选择。但 SwiftData 的选择需要多想一步。
+
+**选 SwiftData 的理由：**
+- 与 SwiftUI 深度集成，`@Query` 宏让数据绑定极其简洁
+- 内置 iCloud 同步（CloudKit），零配置
+- 不需要写 migration 代码（对于 v1.x 阶段的快速迭代很重要）
+- 一个人开发，学习成本要低
+
+**放弃 Core Data 的理由：**
+- 样板代码太多
+- NSManagedObject 和 SwiftUI 的配合不够自然
+- 2026 年了，没必要背历史包袱
+
+**没考虑 Realm / SQLite 的理由：**
+- 引入第三方依赖 = 引入维护风险
+- 日均的数据模型很简单，不需要复杂查询
+- iCloud 同步是刚需，SwiftData 原生支持
+
+## 数据模型设计
+
+日均的核心模型只有两个：
+
+```swift
+@Model
+class TrackedItem {
+    var name: String
+    var emoji: String
+    var price: Double
+    var trackingType: TrackingType  // byTime or byCount
+    var purchaseDate: Date
+    var expectedUsageDays: Int?
+    var usageRecords: [UsageRecord]
+    var isTracked: Bool  // prevent duplicate tracking from calm list
+    // computed: dailyCost, costPerUse, totalUses...
+}
+
+@Model
+class CalmItem {
+    var name: String
+    var emoji: String
+    var price: Double
+    var calmDays: Int  // 3, 5, 7, or 14
+    var addedDate: Date
+    var isTracked: Bool
+    // computed: expiryDate, daysRemaining...
+}
+```
+
+设计原则：**模型尽量扁平，计算属性代替冗余字段**。
+
+比如 `dailyCost` 不存储在数据库里，而是每次从 `price`、`purchaseDate`、`usageRecords` 实时计算。好处是数据永远一致，坏处是列表多的时候可能有性能问题——但日均的数据量级（几十到几百个物品）完全不是问题。
+
+## iCloud 同步：零配置的代价
+
+SwiftData + CloudKit 的 iCloud 同步确实是"零配置"——在 Xcode 里勾选 iCloud 能力，选择 CloudKit 容器，就完了。
+
+但"零配置"不等于"零问题"：
+
+1. **同步延迟不可控** — 有时候几秒，有时候几分钟。用户换设备后可能看不到最新数据。
+2. **冲突解决是黑盒** — CloudKit 的 last-write-wins 策略，你无法自定义。
+3. **调试困难** — 同步出问题时，几乎没有日志可看。
+
+对日均来说，这些问题可以接受。用户不会在两台设备上同时编辑同一个物品，同步延迟几分钟也不影响使用。
+
+## Widget 开发：App Group 是关键
+
+v1.5 加入了桌面小组件。Widget Extension 是独立进程，不能直接访问主 App 的 SwiftData 数据库。
+
+解决方案：**App Group + UserDefaults 缓存**。
+
+```
+主 App 数据变更 → 写入 App Group UserDefaults → Widget 读取缓存
+```
+
+为什么不让 Widget 直接访问 SwiftData？
+- Widget 的内存限制很严格
+- SwiftData 的初始化开销不小
+- Widget 只需要展示数据，不需要写入
+
+实际做法：主 App 在每次数据变更时，把 Widget 需要的数据（日均成本最低的物品、冷静清单倒计时）序列化写入 UserDefaults。Widget 只读这个缓存。
+
+## StoreKit 2 付费：写好但不上线
+
+日均的付费逻辑已经写好了：
+
+```swift
+class PurchaseManager {
+    // 月付 ¥3 / 年付 ¥18 / 永久买断 ¥38
+    func purchase(_ product: Product) async throws -> Transaction
+    func restorePurchases() async
+    var isPro: Bool { get }
+}
+```
+
+StoreKit 2 比 StoreKit 1 好用太多——纯 Swift async/await API，不需要处理 SKPaymentQueue 的回调地狱。
+
+但这些代码目前处于"写好不上线"状态。PaywallView 写好了，产品 ID 定义好了，但 App Store Connect 里没有配置产品。原因在留存那篇文章里说过：留存没达标之前，上付费没有意义。
+
+## 通知系统：一个低级 Bug 的教训
+
+v1.2 的冷静清单有一个严重 bug：到期通知从未触发。
+
+原因很简单：`scheduleCalmExpiry` 函数写好了，但在添加冷静物品的流程里**忘了调用**。
+
+```swift
+// v1.2 的代码（有 bug）
+func addCalmItem(_ item: CalmItem) {
+    modelContext.insert(item)
+    // scheduleCalmExpiry(item)  ← 这行不存在
+}
+
+// v1.3.1 修复后
+func addCalmItem(_ item: CalmItem) {
+    modelContext.insert(item)
+    scheduleCalmExpiry(item)
+    requestNotificationPermission()  // 同时请求权限
+}
+```
+
+教训：**写完功能要走一遍完整的用户流程**。不是测试单个函数，而是从"用户点击添加"到"7 天后收到通知"的完整链路。
+
+## HTML 原型先行
+
+日均的开发流程有一个不太常见的做法：**先用 HTML 做原型，再写 SwiftUI**。
+
+`ui/` 目录下有完整的 HTML 原型：
+- `page1_home.html` — 首页列表
+- `page2_add.html` — 添加物品
+- `page3_detail.html` — 物品详情
+- `page4_calm_list.html` — 冷静清单
+- `page5_calm_detail.html` — 冷静详情
+- `page6_insight.html` — 洞察页
+
+为什么用 HTML 而不是 Figma？
+1. **我更熟悉 CSS** — 写 HTML 比拖 Figma 快
+2. **可以精确定义数值** — 颜色、间距、圆角都是代码，直接复制到 SwiftUI
+3. **可以在浏览器里交互** — 比静态设计稿更接近真实体验
+4. **零成本** — 不需要 Figma 订阅
+
+## 项目结构
+
+日均的代码组织很简单：
+
+```
+ZhiValue/Sources/ZhiValue/
+├── Models/          # SwiftData 模型
+├── Views/           # SwiftUI 视图
+│   ├── Calculator/  # 算一算
+│   ├── Items/       # 物品列表和详情
+│   ├── Calm/        # 冷静清单
+│   ├── Insight/     # 洞察
+│   └── Settings/    # 设置
+├── Services/        # 通知、购买等服务
+└── Theme/           # AppTheme（颜色、字体、间距）
+```
+
+没有用 MVVM、没有用 Coordinator、没有用 Clean Architecture。对于一个人开发的小 App，**View 直接操作 Model** 是最简单高效的方式。
+
+等 App 复杂到需要架构的时候再重构，不要提前过度设计。
+
+## 给独立开发者的技术建议
+
+1. **SwiftData 够用就用** — 除非你需要复杂查询或自定义同步逻辑
+2. **不要引入不必要的依赖** — 每个依赖都是维护负担
+3. **HTML 原型比 Figma 更适合开发者** — 如果你会写 CSS 的话
+4. **先跑通完整流程，再优化细节** — 通知 bug 就是反面教材
+5. **代码写好不等于要上线** — 付费逻辑可以提前写，但上线时机要看数据
+6. **计算属性优于冗余字段** — 数据一致性比性能更重要（在小数据量下）
+
+---
+
+这是日均系列的最后一篇。五篇文章覆盖了产品定位、设计系统、留存优化、获客漏斗和技术实践——一个独立开发者从 0 到 1 的完整记录。
+
+日均还在继续迭代。如果你也在做独立开发，欢迎在 App Store 搜索「日均」体验，或者在小红书找到我聊聊。
+
+
+---
+
+## L40S 大模型部署实录①：单卡 48GB，能跑多大的模型？
+
+单卡 L40S，48GB 显存。公司给了一台 EKS GPU 节点，有 3 张 L40S 可用，每张卡独立部署一个模型做横向对比。目标：找出单卡 L40S 上跑 27B-35B 大模型的最优方案。最终结论——Qwen3.5-27B-FP8 单卡 18 tok/s，96% 显存利用率。这篇记录从零搭建的完整过程。
+
+## 为什么是 L40S
+
+选 GPU 之前先明确需求：我们要在一个 EKS 集群上同时跑多个 20B-35B 参数的大模型，提供 OpenAI 兼容 API，给内部多个业务系统调用。
+
+L40S 的定位是"推理专用卡"，和 A100 的区别（数据来自 NVIDIA 官方 spec sheet）：
+
+| 对比项 | L40S | A100 80GB |
+|--------|------|-----------|
+| 显存 | 48GB GDDR6 | 80GB HBM2e |
+| FP8 算力 | 733 TFLOPS | 不支持原生 FP8 |
+| BF16 算力 | 366 TFLOPS | 312 TFLOPS |
+| 显存带宽 | 864 GB/s | 2,039 GB/s |
+| 每卡每小时 | ~$2.62 (g6e) | ~$2.74 (p4d) |
+
+L40S 的优势是 **FP8 原生支持**：同样跑 FP8 量化模型，L40S 的算力是 A100 的两倍多。劣势是显存带宽低（864 vs 2039 GB/s），大模型推理的 decode 阶段（memory-bound）会比 A100 慢。但我们的核心目标是**在有限的 GPU 性能下找出效果最好的模型**，不追求极致速度。
+
+最终用的是 `g6e.12xlarge`：3×L40S 可用 + 48 vCPU + 384GB 内存 + 2×1.8TB NVMe SSD。
+
+## EKS GPU 环境搭建
+
+### NVIDIA GPU Operator
+
+不要手动装驱动。用 NVIDIA GPU Operator 一键搞定：
+
+```bash
+helm install gpu-operator nvidia/gpu-operator \
+  --namespace gpu-operator --create-namespace \
+  --set driver.enabled=true \
+  --set toolkit.enabled=true \
+  --set devicePlugin.enabled=true \
+  --set dcgmExporter.enabled=true
+```
+
+它会自动安装：驱动、Container Toolkit、Device Plugin（让 K8s 识别 GPU 资源）、DCGM Exporter（GPU 监控指标）。
+
+验证：
+
+```bash
+kubectl get pods -n gpu-operator
+nvidia-smi  # 应该看到 3×L40S
+```
+
+### NVMe 存储——别忘了挂载
+
+g6e.12xlarge 自带 2×1.8TB NVMe SSD，但**默认不挂载**。模型文件动辄 20-30GB，必须用本地 NVMe 而不是 EBS。
+
+我写了一个 DaemonSet 自动格式化和挂载：
+
+```yaml
+# nvme-auto-mount DaemonSet 核心逻辑
+mkfs.xfs /dev/nvme1n1 && mount /dev/nvme1n1 /data1
+mkfs.xfs /dev/nvme2n1 && mount /dev/nvme2n1 /data2
+```
+
+**坑**：EKS 节点扩缩容后，新节点的 NVMe 没有挂载，模型 Pod 会卡在 `PodInitializing`，hostPath PV 挂载失败但不报错。必须确保 DaemonSet 先于模型 Pod 运行。
+
+### 模型下载策略
+
+模型存在 NVMe 上，用 Init Container 从 HuggingFace 镜像站下载：
+
+```yaml
+initContainers:
+  - name: model-downloader
+    command:
+      - sh
+      - -c
+      - |
+        if [ -z "$(ls -A $MODEL_DIR)" ]; then
+          huggingface-cli download $MODEL_NAME --local-dir $MODEL_DIR
+        fi
+```
+
+**坑**：`ls -A` 检查目录非空就跳过下载。如果上次下载中断，目录存在但文件不完整，vLLM 启动时报 "Cannot find model weights"。解决方案：加一个完整性校验，或者在下载完成后写一个 `.done` 标记文件。
+
+## vLLM 关键配置
+
+vLLM 是目前最成熟的开源推理框架。核心配置：
+
+```bash
+python -m vllm.entrypoints.openai.api_server \
+  --model $MODEL_PATH \
+  --served-model-name $MODEL_NAME \
+  --max-model-len 128000 \
+  --gpu-memory-utilization 0.92 \
+  --kv-cache-dtype fp8 \
+  --enable-prefix-caching \
+  --enable-chunked-prefill \
+  --tensor-parallel-size 1
+```
+
+逐个解释：
+
+- `--kv-cache-dtype fp8`：KV Cache 用 FP8 存储，显存占用减半，质量几乎无损。这是 L40S 上的必选项。
+- `--gpu-memory-utilization 0.92`：vLLM 预分配 92% 显存给模型+KV Cache。留 8% 给 CUDA context。
+- `--enable-prefix-caching`：相同前缀的请求共享 KV Cache，多轮对话场景提升明显。
+- `--enable-chunked-prefill`：长文本分块预填充，避免单个长请求阻塞其他请求。
+- `--max-model-len`：最大上下文长度。这个值直接影响 KV Cache 大小，设太大会 OOM。
+
+### enforce-eager：什么时候需要
+
+默认情况下 vLLM 会用 CUDA Graph 加速推理。但有些模型架构不兼容：
+
+- **Qwen3.6 的 Mamba/DeltaNet 混合架构**：Mamba cache 和 CUDA Graph 不兼容，必须 `--enforce-eager`
+- **MoE + BF16 + Tensor Parallel**：某些组合下 CUDA Graph capture 会 OOM
+
+`--enforce-eager` 的代价是 TPOT 增加约 40%（Qwen3.6: 88ms vs Qwen3.5: 53ms）。
+
+## 部署架构
+
+3 张 L40S，每张卡独立部署一个模型，做横向对比：
+
+```
+EKS GPU Node (3×L40S 48GB)
+├── GPU 0: Qwen3.6-27B-FP8 + Embedding-0.6B
+├── GPU 1: Qwen3.6-35B-A3B-FP8 + Embedding-0.6B
+├── GPU 2: Gemma4-31B-FP8 + Embedding-0.6B
+└── LiteLLM → 统一 API 网关，路由到各模型
+```
+
+核心思路是**单卡部署**：每张卡跑一个 LLM + 一个 Embedding 模型，通过 LiteLLM 做统一路由。3 张卡 3 个模型并行跑，方便做性能和质量的横向对比。这个"一卡双模型"的方案踩了非常多坑，下一篇详细讲。
+
+## 小结
+
+搭建 GPU 推理基础设施，核心是三件事：
+1. **GPU Operator 自动化**——不要手动装驱动
+2. **NVMe 存储**——模型文件必须在本地盘，EBS 太慢
+3. **vLLM 配置调优**——`kv-cache-dtype=fp8` 是 L40S 上的必选项
+
+下一篇讲多模型 GPU 共享的显存优化，那才是真正的地狱。
+
+
+---
+
+## L40S 大模型部署实录②：48GB 显存塞两个模型——7 个让我崩溃的坑
+
+`Free memory: 0.41 GiB`。这是我第一次尝试在一张卡上跑两个模型时，vLLM 启动日志里的数字。然后它 crash 了。从第一次 OOM 到三组模型稳定运行，中间经历了 7 种不同的失败姿势。这篇是完整的踩坑记录。
+
+## 目标：一卡双模型
+
+需求很明确：每张 L40S 上跑一个 LLM（用于对话/推理）+ 一个 Embedding 模型（用于 RAG 检索）。三张卡，三组模型。
+
+看起来显存够用：
+
+```
+LLM (27B FP8):     ~28GB 权重 + ~10GB KV Cache = ~38GB
+Embedding (0.6B):  ~1.2GB 权重 + ~0.3GB KV Cache = ~1.5GB
+总计:              ~39.5GB / 48GB，还剩 8.5GB
+```
+
+实际情况远没这么简单。
+
+## 坑 1：K8s GPU 隔离——两个容器不能各声明一张卡
+
+最初的想法：Pod 里两个容器，各声明 `nvidia.com/gpu: 1`。
+
+**错了。** K8s NVIDIA Device Plugin 按容器分配 GPU，不是按 Pod。两个容器各声明 1 张 GPU = Pod 需要 2 张 GPU。
+
+正确做法：只有 Embedding 容器声明 `nvidia.com/gpu: 1`，LLM 容器不声明 GPU，通过 `NVIDIA_VISIBLE_DEVICES=all` 访问所有 GPU。
+
+## 坑 2：NVIDIA_VISIBLE_DEVICES=all 看到的是所有卡
+
+LLM 容器设了 `NVIDIA_VISIBLE_DEVICES=all` 后，它能看到节点上**所有 GPU**，不只是 Embedding 拿到的那张。vLLM 默认用 `cuda:0`，但 `cuda:0` 可能是别的 Pod 正在用的卡。
+
+结果：vLLM 启动时发现 `cuda:0` 只剩 0.41GB 可用显存，直接 crash。
+
+```
+ValueError: Free memory on device cuda:0 (0.41/44.39 GiB) 
+is less than desired GPU memory utilization (0.55, 24.42 GiB)
+```
+
+**解决方案：GPU UUID 文件协调**
+
+Embedding 容器启动后，把自己拿到的 GPU UUID 写到共享 Volume：
+
+```bash
+# Embedding 启动脚本
+GPU_UUID=$(nvidia-smi --query-gpu=gpu_uuid --format=csv,noheader)
+echo "$GPU_UUID" > /mnt/models/.gpu-uuid-$MODEL_NAME
+```
+
+LLM 容器读取 UUID，转换成物理索引：
+
+```bash
+# LLM 启动脚本
+GPU_UUID=$(cat /mnt/models/.gpu-uuid-$MODEL_NAME)
+GPU_INDEX=$(nvidia-smi --query-gpu=index,gpu_uuid --format=csv,noheader \
+  | grep "$GPU_UUID" | cut -d',' -f1)
+export CUDA_VISIBLE_DEVICES=$GPU_INDEX
+```
+
+## 坑 3：CUDA_VISIBLE_DEVICES 不接受 UUID
+
+一开始我直接把 UUID 传给 `CUDA_VISIBLE_DEVICES`：
+
+```bash
+export CUDA_VISIBLE_DEVICES=GPU-47ecdc0c-acfd-cb3a-2768-b3da530ff5c1
+```
+
+vLLM 报错：
+
+```
+ValueError: invalid literal for int() with base 10: 'GPU-47ecdc...'
+```
+
+必须转成整数索引（0/1/2/3）。
+
+## 坑 4：gpu-memory-utilization 是各算各的
+
+两个 vLLM 进程各自独立计算 `gpu-memory-utilization`，都是基于**整卡 48GB** 算的。
+
+如果 Embedding 设 0.08（3.8GB），LLM 设 0.92（43.2GB），加起来 47GB，看起来刚好。但每个进程还有 ~0.5GB 的 CUDA context 开销，实际总需求超过 48GB → OOM。
+
+**最终配置**：Embedding 0.08 + LLM 0.87 = 0.95，留 5% 给双 CUDA context。
+
+## 坑 5：MoE 模型加载全部参数
+
+Qwen3.6-35B-A3B-FP8 标称"3B 活跃参数"，但它有 128 个 Expert，总参数 35B。vLLM 加载时把**全部 35B 权重**（~34GB）都放到 GPU 上，不是只放 3B。
+
+这意味着 35B MoE 在单卡 48GB 上非常紧张：34GB 权重 + CUDA context + KV Cache，几乎没有余量。最终只分配到 2.3GB KV Cache（约 53K tokens），勉强能用。
+
+## 坑 6：Qwen3.6 的 torch.compile 吃显存
+
+Qwen3.6 加载完 34GB 权重后，torch.compile 阶段会额外占用显存做 CUDA Graph capture。在 48GB 卡上，这个阶段直接 OOM。
+
+尝试过的方案：
+1. `--compilation-config '{"cudagraph_capture_sizes": [1,2,4,8]}'` — 减少 capture 数量，从 51 个降到 4 个。但 Helm YAML 转义 JSON 时出错，没生效。
+2. `--enforce-eager` — 完全跳过 torch.compile 和 CUDA Graph。**这个有效。**
+
+代价是推理速度下降：TPOT 从理论的 ~55ms 涨到 88ms。但至少能跑起来。
+
+## 坑 7：Probe 超时
+
+多容器 Pod 的 LLM 容器有 90 秒启动延迟（等 Embedding 先启动），加上模型加载时间，总启动时间可能超过 5 分钟。
+
+Kubernetes 的 liveness probe 默认 `initialDelaySeconds` 太短，模型还没加载完就被 kill 了，进入 CrashLoopBackOff。
+
+最终配置：
+
+| 模型 | initialDelaySeconds |
+|------|:-------------------:|
+| 27B Dense | 180s |
+| 35B MoE + MTP | 600s |
+| 31B Dense | 360s |
+
+## 最终显存分布
+
+三组模型全部 2/2 Running，0 restarts 后的 `nvidia-smi`：
+
+| GPU | 已用 | 剩余 | Pod |
+|-----|------|------|-----|
+| 0 | 44,600 MiB (96.8%) | 859 MiB | Qwen3.6-27B + Embedding |
+| 1 | 44,322 MiB (96.2%) | 1,136 MiB | Qwen3.6-35B + Embedding |
+| 2 | 44,398 MiB (96.5%) | 1,060 MiB | Gemma4-31B + Embedding |
+
+三张卡都用到了 96% 以上。这就是为什么调参过程如此痛苦——每一个百分点的显存分配都可能决定模型能不能启动。
+
+## 经验总结
+
+1. **K8s 里多容器共享 GPU，只能一个容器声明 GPU 资源**，另一个用 `NVIDIA_VISIBLE_DEVICES=all` + UUID 文件协调
+2. **gpu-memory-utilization 是各算各的**，两个进程加起来不能超过 0.95
+3. **MoE 模型按总参数算显存**，不是活跃参数
+4. **enforce-eager 是最后的救命稻草**，牺牲速度换稳定性
+5. **Probe 超时要按最慢的模型配置**，35B MoE 需要 10 分钟
+
+下一篇讲性能基准测试——同样的硬件，不同模型的吞吐差异有多大。
+
+
+---
+
+## L40S 大模型部署实录③：同一张卡跑三个模型，速度差了 8 倍
+
+Qwen3.5-27B：18 tok/s。Qwen3.6-35B：11 tok/s。gemma-4-26B 双卡：93 tok/s。同样是 L40S，模型选错速度差 8 倍。这篇用真实测试数据告诉你，哪个模型值得你的 GPU 时间。
+
+## 测试方法
+
+自己写了一个 benchmark 脚本（`bench_model.py`），核心逻辑：
+
+- **Warm-up**：每个场景先跑 2 次预热，不计入统计
+- **多次运行**：每个场景跑 3 次，取中位数
+- **测试矩阵**：4 种输入长度（512/2K/8K/32K）× 4 种并发度（1/2/4/8）
+- **输出固定 512 tokens**
+- **指标**：TPS（tokens/s）、TTFT（首 token 延迟）、TPOT（每 token 延迟）
+
+所有测试在同一节点上完成，3 张卡各跑一个模型并行测试。
+
+## 测试环境
+
+| 项目 | 配置 |
+|------|------|
+| GPU | 单卡 NVIDIA L40S 48GB |
+| vLLM | v0.19.1（Qwen3.5/Gemma4），latest（Qwen3.6） |
+| 优化 | `--kv-cache-dtype=fp8 --enable-prefix-caching --enable-chunked-prefill` |
+
+三个模型的关键差异：
+
+| 模型 | 架构 | 精度 | 权重大小 | max-model-len | CUDA Graph |
+|------|------|------|:--------:|:-------------:|:----------:|
+| Qwen3.5-27B-FP8 | Dense | FP8 | ~28GB | 128K | ✅ |
+| Qwen3.6-35B-A3B-FP8 | MoE 128E/8A | FP8 | ~34GB | 64K | ❌ enforce-eager |
+| Gemma4-31B-FP8 | Dense | FP8 | ~31GB | 128K | ✅ |
+
+## 单请求吞吐（c=1）
+
+最基础的指标——一个请求，模型能跑多快：
+
+| 模型 | 512 输入 | 2K 输入 | 8K 输入 | 32K 输入 |
+|------|:--------:|:-------:|:-------:|:--------:|
+| Qwen3.5-27B | **18.1** tok/s | **18.5** tok/s | **18.3** tok/s | **16.2** tok/s |
+| Qwen3.6-35B | 11.0 tok/s | 11.1 tok/s | 10.9 tok/s | ❌ OOM |
+| Gemma4-31B | 17.4 tok/s | 17.2 tok/s | 16.7 tok/s | ❌ OOM |
+
+**关键发现**：
+
+1. **Qwen3.5 最快**，18 tok/s 稳定输出，32K 长文本也只降到 16.2
+2. **Gemma4 接近 Qwen3.5**，但 32K 输入 OOM（31B 权重占了太多显存，KV Cache 不够）
+3. **Qwen3.6 最慢**，只有 11 tok/s。原因是 `enforce-eager`（没有 CUDA Graph 加速）+ MoE 架构的 Expert 路由开销
+
+## 并发吞吐（c=8）
+
+8 个并发请求同时打：
+
+| 模型 | 512 输入 | 2K 输入 | 8K 输入 |
+|------|:--------:|:-------:|:-------:|
+| Qwen3.5-27B | 130.3 tok/s | 130.1 tok/s | 100.8 tok/s |
+| Qwen3.6-35B | 83.6 tok/s | 82.0 tok/s | 80.9 tok/s |
+| Gemma4-31B | **132.0** tok/s | **129.5** tok/s | **126.2** tok/s |
+
+**Gemma4 在高并发下反超 Qwen3.5**！原因是 Gemma4 的 KV Cache 更大（7GB vs Qwen3.5 的 10GB），在 8K 输入时 Qwen3.5 开始受 KV Cache 容量限制，吞吐下降到 100.8。
+
+## 延迟指标
+
+| 模型 | TTFT (512in, c=1) | TTFT (8Kin, c=1) | TPOT (c=1) | TPOT (c=8) |
+|------|:-----------------:|:----------------:|:----------:|:----------:|
+| Qwen3.5 | 1,224 ms | 1,599 ms | **53.0 ms** | 57.3 ms |
+| Qwen3.6 | 1,148 ms | 1,839 ms | 88.3 ms | 92.3 ms |
+| Gemma4 | **1,025 ms** | 1,675 ms | 55.4 ms | 57.8 ms |
+
+- **TTFT**（首 token 延迟）：Gemma4 最快，因为 prefill 阶段 Dense 架构比 MoE 高效
+- **TPOT**（每 token 延迟）：Qwen3.5 最低 53ms，Qwen3.6 因为 enforce-eager 高达 88ms
+
+## 并发扩展性
+
+所有模型都展现了近线性的并发扩展：
+
+| 模型 | c=1 | c=2 | c=4 | c=8 | 扩展比 |
+|------|:---:|:---:|:---:|:---:|:------:|
+| Qwen3.5 | 18.1 | 36.9 | 73.1 | 130.3 | 7.2× ✅ |
+| Qwen3.6 | 11.0 | 21.3 | 42.1 | 83.6 | 7.6× ✅ |
+| Gemma4 | 17.4 | 34.3 | 67.9 | 132.0 | 7.6× ✅ |
+
+8 并发达到 7.2-7.6× 的扩展，说明 vLLM 的 continuous batching 在 L40S 上工作良好。
+
+## 历史对比：单卡 vs 双卡
+
+之前还测过 TP=2（双卡）的配置：
+
+| 模型 | 卡数 | c=1 | c=8 | TPOT |
+|------|:----:|:---:|:---:|:----:|
+| gemma-4-26B-A4B BF16 | 2 | **93.0** | **536.9** | **9.1 ms** |
+| Qwen3.5-27B-Int4 | 1 | 24.5 | 167.3 | 39.0 ms |
+| Qwen3.5-27B-FP8 | 1 | 18.1 | 130.3 | 53.0 ms |
+
+**gemma-4-26B-A4B 双卡 BF16 是性能怪兽**：93 tok/s 单请求，537 tok/s 并发。MoE 架构（4B 活跃参数）+ 双卡 + BF16 精度 = 极致速度。但它占两张卡，在"一卡一模型"的方案里用不了。
+
+另一个有趣的发现：**Int4 比 FP8 快**（24.5 vs 18.1 tok/s）。Int4 权重更小（~15GB vs ~28GB），更多显存给 KV Cache，decode 阶段的显存带宽压力更小。代价是精度损失，需要评测验证。
+
+## 结论
+
+在单卡 L40S 48GB 上：
+
+- **追求质量+速度平衡**：Qwen3.5-27B-FP8（18 tok/s，76.6% 质量）
+- **追求极致吞吐**：Gemma4-31B-FP8（132 tok/s @c=8，但长文本 OOM）
+- **不推荐**：Qwen3.6-35B-A3B-FP8（enforce-eager 拖累太大，11 tok/s）
+
+下一篇讲质量评测——速度快不代表回答好，160 道题 6 个维度的评测结果。
+
+
+---
+
+## L40S 大模型部署实录④：160 道题考三个大模型，赢家出乎意料
+
+跑得最快的模型，长文本全部超时。参数最多的模型，总分垫底。最终胜出的是参数最少的那个——76.6% vs 69.7% vs 69.1%。这篇记录 160 道题、6 个维度的完整评测过程，以及为什么"参数大 ≠ 质量好"。
+
+## 评测设计
+
+参考了 Artificial Analysis 和主流 benchmark 的方法论，设计了 6 个维度、160 道题的评测集：
+
+| 维度 | 题数 | 数据来源 | 考察能力 |
+|------|:----:|----------|----------|
+| 通识基础 | 50 | MMLU-Pro | 多领域知识 |
+| 高级推理 | 30 | GSM8K + ARC-Challenge | 数学 + 逻辑 |
+| 指令跟随 | 30 | IFEval | 格式约束遵循 |
+| 模型幻觉 | 25 | TruthfulQA + SQuAD v2 | 拒答 + 事实性 |
+| 工具调用 | 10 | BFCL v3 | Function Calling |
+| 长文本 | 15 | K8s 文档 | 8K-32K 上下文理解 |
+
+### 为什么不直接用公开 benchmark
+
+公开 benchmark 的问题：
+1. **数据污染**——模型训练数据可能包含测试题
+2. **场景不匹配**——我们需要的是工具调用、长文本理解，不是做高考题
+3. **量化影响**——FP8 量化后的表现和原始精度不同，需要实测
+
+所以我从公开数据集中**抽样**，加上自己构造的工具调用和长文本题目，确保评测贴近实际使用场景。
+
+## 评测流程
+
+```
+1. Collect：向每个模型发送 160 道题，收集原始回复
+2. Auto-Score：规则引擎自动评分（MCQ 精确匹配、数学答案提取、格式检查）
+3. Manual Review：人工审核自动评分结果，修正误判
+```
+
+关键配置：
+- `temperature=0.6`，开启 thinking mode（Qwen3.5/3.6 支持）
+- `max_tokens=4096`
+- 超时 300 秒/题
+
+### 自动评分规则
+
+不同题型用不同评分逻辑：
+
+- **MCQ**：精确匹配选项字母（A/B/C/D）
+- **数学**：从回复中提取 `\boxed{}` 或加粗数字，和标准答案比较
+- **指令跟随**：逐条检查约束（JSON 格式、字数限制、语言要求、关键词包含等）
+- **幻觉/可回答**：语义匹配预期答案
+- **幻觉/不可回答**：检测拒答模式（"I don't know"、"无法确定"等）
+- **工具调用**：解析模型输出的 tool call 格式，匹配函数名和参数
+
+## 评测结果
+
+| 维度 | Qwen3.5-27B | Qwen3.6-35B | Gemma4-31B |
+|------|:-----------:|:-----------:|:----------:|
+| 通识基础 (50) | 52.0% | 50.0% | **60.0%** |
+| 高级推理 (30) | **93.3%** | 86.7% | 86.7% |
+| 指令跟随 (30) | **71.7%** | 61.7% | 68.3% |
+| 模型幻觉 (25) | **100%** | **100%** | **100%** |
+| 工具调用 (10) | **100%** | 80.0% | 90.0% |
+| 长文本 (15) | **80.0%** | 60.0% | 0.0% ⚠️ |
+| **总分 (160)** | **76.6%** | 69.7% | 69.1% |
+
+## 逐维度分析
+
+### 通识基础：Gemma4 领先
+
+Gemma4 在 MMLU-Pro 多选题上表现最好（60%），可能因为 Google 的训练数据在百科知识方面更全面。Qwen3.5 和 3.6 都在 50% 左右，说明 FP8 量化对知识类任务有一定影响。
+
+### 高级推理：Qwen3.5 碾压
+
+Qwen3.5 在数学推理上达到 93.3%，远超其他两个模型。Qwen3.6 虽然有 thinking mode，但**倾向于过度推理**——在复杂数学题上写了很长的推导过程，结果被 `max_tokens` 截断，最终答案没输出完。
+
+这是 MoE 架构的一个隐性问题：Expert 路由增加了推理路径的不确定性，模型更容易"跑偏"。
+
+### 指令跟随：所有模型都不够好
+
+IFEval 的约束非常严格（"用 JSON 格式回答"、"不超过 50 个词"、"必须包含关键词 X"），三个模型都只有 62-72%。这是当前开源模型的普遍短板。
+
+### 模型幻觉：全部满分
+
+三个模型在幻觉测试上都是 100%——该拒答的拒答，该引用的引用。FP8 量化没有影响模型的事实性判断能力。这是个好消息。
+
+### 工具调用：格式差异
+
+Qwen3.5 满分，Gemma4 90%，Qwen3.6 只有 80%。
+
+问题出在**格式**：
+- Qwen3.5/3.6 用 `<function=name>` XML 格式
+- Gemma4 用 `<|tool_call>call:name{...}` 格式
+
+Qwen3.6 的 2 道错题是参数格式不对（JSON 里多了引号转义），不是逻辑错误。这种问题在实际使用中可以通过 prompt 工程缓解。
+
+### 长文本：Gemma4 全军覆没
+
+Gemma4 的 15 道长文本题**全部超时**（300 秒）。原因：Dense 31B 模型在单卡 L40S 上处理 8K-32K 的 prefill 太慢，TTFT 超过 300 秒。
+
+这不是模型能力问题，是**硬件限制**。如果给 Gemma4 双卡 TP=2，长文本性能会好很多。但在单卡方案里，它不适合长文本场景。
+
+## 最终选型
+
+综合性能和质量：
+
+| 指标 | Qwen3.5-27B | Qwen3.6-35B | Gemma4-31B |
+|------|:-----------:|:-----------:|:----------:|
+| 质量总分 | **76.6%** | 69.7% | 69.1% |
+| 单请求速度 | **18.1** tok/s | 11.0 tok/s | 17.4 tok/s |
+| 并发吞吐 | 130.3 tok/s | 83.6 tok/s | **132.0** tok/s |
+| 长文本支持 | ✅ 128K | ⚠️ 64K | ❌ 32K OOM |
+| 工具调用 | **100%** | 80% | 90% |
+
+**结论：Qwen3.5-27B-FP8 是单卡 L40S 上的最佳选择。**
+
+它在质量、速度、长文本、工具调用四个维度上都是最优或接近最优。唯一的短板是通识知识（52% vs Gemma4 的 60%），但这对我们的业务场景（代码生成、文档问答、工具调用）影响不大。
+
+## 复盘
+
+整个评测过程中学到的几点：
+
+1. **不要同时跑 throughput 和 eval**——我犯过这个错误，两个测试互相干扰，数据全废了
+2. **MoE 模型的"活跃参数"是个陷阱**——3B 活跃参数不代表 3B 的速度，Expert 路由有开销
+3. **量化对不同能力的影响不同**——FP8 对推理能力影响小，对知识记忆影响大
+4. **硬件限制比模型能力更重要**——Gemma4 的长文本能力不差，是单卡显存不够
+
+这个系列到此结束。从基础设施搭建、显存优化、性能测试到质量评测，完整记录了在单卡 L40S 上部署大模型推理服务的全过程。希望对同样在做企业内部大模型部署的同学有帮助。
+
+

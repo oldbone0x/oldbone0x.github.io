@@ -4,12 +4,42 @@
 
 独立开发者阿男的技术博客。分享 iOS 独立开发、DevOps、容器化、大模型部署和 AI 辅助开发的实践经验。
 
-## 内容系列
+作者背景：全栈工程师，专注 iOS 原生开发（SwiftUI/SwiftData）和云原生基础设施（Docker/Kubernetes/vLLM）。
 
-- 日均开发实录：iOS App「日均」的产品定位、设计系统、留存分析、获客漏斗、SwiftUI 技术实践
-- L40S 大模型部署：单卡 L40S 48GB 上部署 27B-35B 大模型的基础设施、显存优化、性能基准、质量评测
-- Docker 原理：容器本质、Namespace、Cgroups、文件系统
-- 离线部署：Docker、K3s、MySQL 8 的离线安装
+## 文章索引
+
+### 系列：L40S 大模型部署
+
+- [L40S 大模型部署实录①：单卡 48GB，能跑多大的模型？](/blog/l40s-llm-infra-setup) — 单卡 L40S 部署 27B-35B 模型的完整基础设施搭建，Qwen3.5-27B-FP8 达到 18 tok/s
+- [L40S 大模型部署实录②：48GB 显存塞两个模型](/blog/l40s-gpu-memory-optimization) — 一卡双模型的 7 种 OOM 失败模式和最终解决方案
+- [L40S 大模型部署实录③：同一张卡跑三个模型，速度差了 8 倍](/blog/l40s-model-benchmark) — Qwen3.5-27B 18tok/s vs Qwen3.6-35B 11tok/s vs gemma-4-26B 93tok/s
+- [L40S 大模型部署实录④：160 道题考三个大模型](/blog/l40s-model-quality-eval) — 6 维度评测结果：76.6% vs 69.7% vs 69.1%，参数大≠质量好
+
+### 系列：日均开发实录
+
+- [日均开发实录①：产品定位](/blog/zhi-value-product-positioning) — 不做记账，做「消费值不值」的判断工具
+- [日均开发实录②：设计系统](/blog/zhi-value-design-system) — 独立开发者的「温暖极简」设计语言实践
+- [日均开发实录③：留存困局](/blog/zhi-value-retention-struggle) — D7 留存 4% 的诊断与破局
+- [日均开发实录④：获客漏斗](/blog/zhi-value-acquisition-funnel) — 零广告预算，小红书驱动 211 次下载
+- [日均开发实录⑤：SwiftUI + SwiftData](/blog/zhi-value-swiftui-swiftdata-practice) — 纯原生 iOS 开发的技术选型和实践
+
+### 系列：Docker 原理
+
+- [Docker 原理：从虚拟机到容器](/blog/docker-docker-intro) — 容器的本质是被约束好边界的进程
+- [Docker 原理：namespace](/blog/docker-docker-namespace) — Linux namespace 6 种隔离类型的实践验证
+- [Docker 原理：cgroup](/blog/docker-docker-cgroups) — cgroup 对容器 CPU 和内存的资源限制
+- [Docker 原理：rootfs](/blog/docker-docker-fsroot) — Docker 镜像的本质是 rootfs 根文件系统
+
+### 系列：离线部署
+
+- [离线安装 Docker](/blog/offline-install-docker) — binary 方式安装 + 私有镜像仓库搭建
+- [离线安装 K3S](/blog/offline-install-k3s) — 轻量级 Kubernetes 离线部署
+- [离线安装 MySQL 8](/blog/offline-install-mysql-8) — binary 方式部署 + systemd 服务配置
+
+### 其他
+
+- [GitLab CICD](/blog/gitlab-gitlab-pipeline) — GitLab Runner 配置和 Pipeline 自动化
+- [3 小时重构个人网站](/blog/refactor-with-kiro-cli) — AI 辅助完成 Docusaurus 网站重构
 
 ## 技术栈
 
@@ -22,3 +52,4 @@ SwiftUI, SwiftData, Docker, Kubernetes, vLLM, React, Docusaurus
 - 关于: https://www.real-tech.online/about
 - RSS: https://www.real-tech.online/blog/rss.xml
 - GitHub: https://github.com/oldbone0x
+- llms-full.txt: https://www.real-tech.online/llms-full.txt
