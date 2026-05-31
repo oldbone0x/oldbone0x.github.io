@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([["8416"],{6600(e){e.exports=JSON.parse('{"authors":[{"name":"\u963F\u7537","title":"\u72EC\u7ACB\u5F00\u53D1\u8005","url":"https://real-tech.online","socials":{"github":"https://github.com/oldbone0x"},"imageURL":"/img/anan.jpg","key":"oldbone","page":null,"count":33}]}')}}]);
