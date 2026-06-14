@@ -4,11 +4,132 @@
         <title>阿男说</title>
         <link>https://www.real-tech.online/blog</link>
         <description>阿男说 Blog</description>
-        <lastBuildDate>Mon, 08 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 15 Jun 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>Copyright © 2026 阿男说 Built with Docusaurus.</copyright>
+        <item>
+            <title><![CDATA[海外需求雷达日报 - 2026-06-15]]></title>
+            <link>https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15</link>
+            <guid>https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15</guid>
+            <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[今日关注：App 本地化 AI Agent（GitHub Bot 模式）；垂直 SaaS 备份工具的机会窗口；AI 驱动的非开发者网页数据提取。每日扫描 Product Hunt 发现独立开发者可复制的 AI 工具与 SaaS 机会。]]></description>
+            <content:encoded><![CDATA[<p>每日扫描 Product Hunt 发现值得关注的海外 AI 工具与独立开发机会，重点关注一人可做、SEO 可积累、订阅可变现的方向。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日最值得关注机会top-3">🔥 今日最值得关注机会（Top 3）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#-%E4%BB%8A%E6%97%A5%E6%9C%80%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8%E6%9C%BA%E4%BC%9Atop-3" class="hash-link" aria-label="🔥 今日最值得关注机会（Top 3）的直接链接" title="🔥 今日最值得关注机会（Top 3）的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="1-app-本地化-ai-工作流-">1. App 本地化 AI 工作流 🟢<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#1-app-%E6%9C%AC%E5%9C%B0%E5%8C%96-ai-%E5%B7%A5%E4%BD%9C%E6%B5%81-" class="hash-link" aria-label="1. App 本地化 AI 工作流 🟢的直接链接" title="1. App 本地化 AI 工作流 🟢的直接链接">​</a></h3>
+<ul>
+<li>URL: <a href="https://www.producthunt.com/products/locin-ai%EF%BC%88LocIn" target="_blank" rel="noopener noreferrer">https://www.producthunt.com/products/locin-ai（LocIn</a> AI，PH 6/11 上线）</li>
+<li>核心功能: AI 驱动的 app 本地化——自动识别待翻译字符串、tone-aware 翻译、自动化工作流</li>
+<li>AI 模式: <strong>AI worker</strong>（事件驱动：Git push → 检测新 strings → AI 翻译 → 自动创建 PR / 同步到翻译平台）</li>
+<li>竞争密度: Lokalise（500+ 人，$50M+ ARR，企业导向）、Crowdin（$20M+ ARR）、Phrase（$30M+ ARR）、POEditor。传统厂商体积大、企业定价贵（$100+/月起步），无人盯 indie dev 市场</li>
+<li>窗口判断: 🟢 还开着</li>
+<li>窗口原因: 现有竞品都是 2012-2018 年创立的传统 SaaS，AI 只是加了 feature 不是原生 DNA；indie dev / 小团队市场被巨头忽略，这是 2026 年才有的「用 AI worker 模式重做本地化」窗口</li>
+<li>SEO 潜力: 高。核心词 "app localization tool"（月搜索 5K+）、long-tail "how to localize react native app to Japanese" 类搜索意图极强。可建 1000+ pSEO 页面：每个 framework × 每个语言 = 内容矩阵</li>
+<li>MVP 难度: 低。1-2 周。核心：GitHub App webhook + LLM 翻译 API + PR 创建。Next.js + Prisma + OpenAI/Claude API</li>
+<li>商业化潜力: 高。订阅制（按字符串数/项目数），freemium（500 strings 免费），indie dev → small team → enterprise 阶梯定价。付费方（开发者/团队 lead）= 受益方（省翻译时间），完美对齐</li>
+<li>差异化切角: 做「indie dev 专属的 AI 本地化 agent」——不做 dashboard，做 GitHub bot，PR 即界面</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="2-垂直-saas-备份--迁移工具-">2. 垂直 SaaS 备份 / 迁移工具 🟡<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#2-%E5%9E%82%E7%9B%B4-saas-%E5%A4%87%E4%BB%BD--%E8%BF%81%E7%A7%BB%E5%B7%A5%E5%85%B7-" class="hash-link" aria-label="2. 垂直 SaaS 备份 / 迁移工具 🟡的直接链接" title="2. 垂直 SaaS 备份 / 迁移工具 🟡的直接链接">​</a></h3>
+<ul>
+<li>URL: <a href="https://www.producthunt.com/products/cloudback%EF%BC%88Cloudback" target="_blank" rel="noopener noreferrer">https://www.producthunt.com/products/cloudback（Cloudback</a> for Linear，PH 6/13 上线）</li>
+<li>核心功能: 为特定 SaaS 平台（GitHub/Azure DevOps/GitLab/Linear）提供自动备份和恢复</li>
+<li>AI 模式: AI wrapper（定时触发备份，AI 辅助恢复/验证）</li>
+<li>竞争密度: ProBackup（broad SaaS backup，$10K+ MRR 估计）、GitProtect（GitHub/DevOps 专用，~100 人）、Rewind（shopify backup，$5M+ ARR）。每个 niche 1-2 个玩家，都不大</li>
+<li>窗口判断: 🟡 快关闭</li>
+<li>窗口原因: Cloudback 已拿下 Linear（先发优势），GitHub/GitLab 备份已有 2-3 家。但 Notion、Airtable、ClickUp、Figma 等平台的备份工具市场仍空白——窗口还剩 6-12 个月</li>
+<li>SEO 潜力: 高。"[platform] backup tool" 搜索意图极强（月搜索 1K-5K 取决于平台），long-tail "how to backup notion workspace"、"export airtable to csv automatically"。每个平台可建 50-200 pSEO 页面</li>
+<li>MVP 难度: 低。1 周。核心：OAuth + API 拉取 + 云存储写入。Next.js + S3 + Cron。每个新平台 3-5 天接入</li>
+<li>商业化潜力: 中高。订阅制（按 workspace/repo 数），freemium（1 workspace 免费），单平台切入 → 多平台扩展。付费方 = 受益方（团队 lead/CTO 买数据安全），完全对齐</li>
+<li>差异化切角: 做「Notion Backup by AI」——不只是备份，AI 自动检测数据异常/丢失/冲突，每周发健康报告。竞品只做搬运，你做「备份 + AI 验证」</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="3-ai-驱动的非开发者网页数据提取-">3. AI 驱动的非开发者网页数据提取 🟡<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#3-ai-%E9%A9%B1%E5%8A%A8%E7%9A%84%E9%9D%9E%E5%BC%80%E5%8F%91%E8%80%85%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E6%8F%90%E5%8F%96-" class="hash-link" aria-label="3. AI 驱动的非开发者网页数据提取 🟡的直接链接" title="3. AI 驱动的非开发者网页数据提取 🟡的直接链接">​</a></h3>
+<ul>
+<li>URL: <a href="https://www.producthunt.com/products/tabstack%EF%BC%88Tabstack" target="_blank" rel="noopener noreferrer">https://www.producthunt.com/products/tabstack（Tabstack</a> Structured Extraction，PH 6/9 上线）</li>
+<li>核心功能: 从任意网页提取结构化 JSON 数据，无需写爬虫</li>
+<li>AI 模式: AI wrapper（人输入 URL → AI 提取 → 返回结构化数据）</li>
+<li>竞争密度: Firecrawl（YC，$3M+ ARR，dev 导向）、Jina AI（开源，reader 免费）、Browse AI（no-code 爬虫，$2M+ ARR）。dev 端拥挤，非 dev 端 Browse AI 一家独大但有学习曲线</li>
+<li>窗口判断: 🟡 快关闭</li>
+<li>窗口原因: 通用 web extraction 已被 Firecrawl/Jina 瓜分。但垂直场景（电商竞品监控、房产数据聚合、招聘市场分析）的「开箱即用数据产品」仍是蓝海</li>
+<li>SEO 潜力: 中高。垂直 long-tail："amazon price tracker for sellers"、"real estate listings data export"、"job market salary data by city"。每个垂直 100-500 pSEO 页面</li>
+<li>MVP 难度: 中。2 周。核心：Firecrawl API + LLM 结构化 + 定时爬取 + 数据展示。Next.js + Firecrawl API + Supabase</li>
+<li>商业化潜力: 中。订阅制（按数据源/更新频率），freemium（1 数据源免费）。付费方 = 受益方（小商家自己用），对齐</li>
+<li>差异化切角: 不做通用 extraction API，做「电商卖家竞品价格监控」——选定竞品链接，每日自动更新价格变化表，Slack/Email 推送</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日发现的长尾关键词机会">🔑 今日发现的长尾关键词机会<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#-%E4%BB%8A%E6%97%A5%E5%8F%91%E7%8E%B0%E7%9A%84%E9%95%BF%E5%B0%BE%E5%85%B3%E9%94%AE%E8%AF%8D%E6%9C%BA%E4%BC%9A" class="hash-link" aria-label="🔑 今日发现的长尾关键词机会的直接链接" title="🔑 今日发现的长尾关键词机会的直接链接">​</a></h2>
+<table><thead><tr><th>关键词</th><th>搜索意图</th><th>SEO 难度</th><th>pSEO 适合</th></tr></thead><tbody><tr><td>how to localize [framework] app to [language]</td><td>开发者找翻译方案</td><td>低</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>notion automatic backup tool</td><td>Notion 用户找备份</td><td>低-中</td><td>⭐⭐⭐⭐</td></tr><tr><td>export airtable to csv automatically</td><td>Airtable 用户导出</td><td>低</td><td>⭐⭐⭐⭐</td></tr><tr><td>amazon price tracker for sellers</td><td>电商卖家竞品监控</td><td>中</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>figma backup export all files</td><td>设计师/团队安全</td><td>低</td><td>⭐⭐⭐⭐</td></tr><tr><td>docker logs without elk stack</td><td>个人开发者日志方案</td><td>低</td><td>⭐⭐⭐</td></tr><tr><td>app store description translator</td><td>indie dev 上架需求</td><td>低</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>clone website design to figma</td><td>设计师效率工具</td><td>低-中</td><td>⭐⭐⭐</td></tr><tr><td>real estate mls data export tool</td><td>房产数据需求</td><td>中</td><td>⭐⭐⭐⭐</td></tr><tr><td>job listing scraper for recruiters</td><td>HR/招聘数据需求</td><td>中</td><td>⭐⭐⭐</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日发现的可复制模式">📐 今日发现的可复制模式<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#-%E4%BB%8A%E6%97%A5%E5%8F%91%E7%8E%B0%E7%9A%84%E5%8F%AF%E5%A4%8D%E5%88%B6%E6%A8%A1%E5%BC%8F" class="hash-link" aria-label="📐 今日发现的可复制模式的直接链接" title="📐 今日发现的可复制模式的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-1github-bot-即-saaslocin-ai-模式">模式 1：GitHub Bot 即 SaaS（LocIn AI 模式）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#%E6%A8%A1%E5%BC%8F-1github-bot-%E5%8D%B3-saaslocin-ai-%E6%A8%A1%E5%BC%8F" class="hash-link" aria-label="模式 1：GitHub Bot 即 SaaS（LocIn AI 模式）的直接链接" title="模式 1：GitHub Bot 即 SaaS（LocIn AI 模式）的直接链接">​</a></h3>
+<p><strong>为什么有效：</strong> 开发者不愿意学新 dashboard。最好的 SaaS 是「不需要打开」的 SaaS——它在你 GitHub workflow 里自动运行。PR 就是通知界面，merge 就是确认操作。</p>
+<p><strong>可复制到：</strong></p>
+<ul>
+<li>自动生成 CHANGELOG（commit → AI 写 changelog → PR）</li>
+<li>自动代码审查建议（PR → AI review → inline comments）</li>
+<li>自动文档更新（code change → AI 更新 README → PR）</li>
+<li>自动依赖升级（detect outdated → AI 评估 breaking changes → PR）</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-2大平台的功能缺口cloudback-模式">模式 2：大平台的功能缺口（Cloudback 模式）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#%E6%A8%A1%E5%BC%8F-2%E5%A4%A7%E5%B9%B3%E5%8F%B0%E7%9A%84%E5%8A%9F%E8%83%BD%E7%BC%BA%E5%8F%A3cloudback-%E6%A8%A1%E5%BC%8F" class="hash-link" aria-label="模式 2：大平台的功能缺口（Cloudback 模式）的直接链接" title="模式 2：大平台的功能缺口（Cloudback 模式）的直接链接">​</a></h3>
+<p><strong>为什么有效：</strong> 大平台不做的小功能 = 你的 SaaS。Notion 不做自动备份？你做。Figma 不做批量导出？你做。用户已经在大平台上了，迁移成本高，愿意为缺失的关键功能付费。</p>
+<p><strong>可复制到：</strong></p>
+<ul>
+<li>Notion 自动备份 + 版本历史 → $10/月</li>
+<li>Figma 批量导出 + 自动备份 → $15/月</li>
+<li>Airtable 自动备份 + Schema 变更追踪 → $12/月</li>
+<li>ClickUp 自动备份 + 跨 workspace 迁移 → $20/月</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-3llm-翻译--本地化locin-ai-深度洞察">模式 3：LLM 翻译 ≠ 本地化（LocIn AI 深度洞察）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#%E6%A8%A1%E5%BC%8F-3llm-%E7%BF%BB%E8%AF%91--%E6%9C%AC%E5%9C%B0%E5%8C%96locin-ai-%E6%B7%B1%E5%BA%A6%E6%B4%9E%E5%AF%9F" class="hash-link" aria-label="模式 3：LLM 翻译 ≠ 本地化（LocIn AI 深度洞察）的直接链接" title="模式 3：LLM 翻译 ≠ 本地化（LocIn AI 深度洞察）的直接链接">​</a></h3>
+<p><strong>为什么有效：</strong> 直接调 LLM 翻译 API 只是个 wrapper。真正的价值在「知道什么需要翻译 + 翻译完放回正确的文件位置 + 保持代码结构不变」。这是 domain knowledge 壁垒，不是模型能力壁垒。</p>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日不建议进入的方向">⛔ 今日不建议进入的方向<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#-%E4%BB%8A%E6%97%A5%E4%B8%8D%E5%BB%BA%E8%AE%AE%E8%BF%9B%E5%85%A5%E7%9A%84%E6%96%B9%E5%90%91" class="hash-link" aria-label="⛔ 今日不建议进入的方向的直接链接" title="⛔ 今日不建议进入的方向的直接链接">​</a></h2>
+<ol>
+<li>
+<p><strong>通用 AI email assistant（Slashy 类）</strong>：YC president 下场（Garry Tan）、Superhuman 已加 AI、Gmail 内置 Gemini。个人开发者没有分发优势。<strong>竞争密度：极高，巨头 + VC 重注。</strong></p>
+</li>
+<li>
+<p><strong>AI coding CLI（Bob's CLI 类）</strong>：Cursor、Claude Code、GitHub Copilot、Windsurf 已占领心智。新人需要 10x 好才能让开发者切换工具，10x 好几乎不可能。<strong>竞争密度：极高，切换成本高。</strong></p>
+</li>
+<li>
+<p><strong>AI memory/personalization 中间件（Memoriq 类）</strong>：ChatGPT 已内置 memory、Claude 有 projects。作为独立产品价值被第一方功能吞没是时间问题。<strong>平台风险：极高。</strong></p>
+</li>
+<li>
+<p><strong>AI financial advisor（Meet Warren 类）</strong>：金融合规成本高、错误成本高（钱的事不能搞错）、用户信任建立周期长。<strong>一人做不动。</strong></p>
+</li>
+<li>
+<p><strong>健康/医疗 AI（Juno、Medicyn 类）</strong>：HIPAA/隐私合规成本高、错误成本极高（医疗误判不可逆）、需要医学 domain expert。<strong>不适合快速 MVP。</strong></p>
+</li>
+<li>
+<p><strong>纯娱乐/社交（Reverie.fm、Tinfoil Pigeons、NomNak 类）</strong>：需要网络效应、retention 靠社交关系而非产品价值、变现路径长。<strong>不符合「SEO 积累」核心原则。</strong></p>
+</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日最值得尝试的-mvp">🚀 今日最值得尝试的 MVP<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#-%E4%BB%8A%E6%97%A5%E6%9C%80%E5%80%BC%E5%BE%97%E5%B0%9D%E8%AF%95%E7%9A%84-mvp" class="hash-link" aria-label="🚀 今日最值得尝试的 MVP的直接链接" title="🚀 今日最值得尝试的 MVP的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-app-本地化-ai-agentgithub-bot">🥇 App 本地化 AI Agent（GitHub Bot）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#-app-%E6%9C%AC%E5%9C%B0%E5%8C%96-ai-agentgithub-bot" class="hash-link" aria-label="🥇 App 本地化 AI Agent（GitHub Bot）的直接链接" title="🥇 App 本地化 AI Agent（GitHub Bot）的直接链接">​</a></h3>
+<ul>
+<li><strong>产品方向：</strong> GitHub App，监听 repo 的 i18n/locales 文件夹变化，自动检测新增/修改的 strings，AI 翻译为目标语言，自动创建 PR</li>
+<li><strong>最小功能：</strong> 1) GitHub OAuth 安装 2) Webhook 监听 locales/*.json 变化 3) LLM 翻译（保留变量、plural forms） 4) 自动创建 PR with translation diff 5) 支持 10 种语言</li>
+<li><strong>推荐技术栈：</strong> Next.js + Prisma + OpenAI/Claude API + Octokit（GitHub API）+ Vercel 部署</li>
+<li><strong>开发时间：</strong> 7-10 天</li>
+<li><strong>SEO 切入口：</strong> 写一系列「How to localize [Framework] app」教程，每篇嵌入产品链接。React Native、Flutter、Next.js、SwiftUI、Kotlin × 每种语言 × 最佳实践 = 500+ 页面</li>
+<li><strong>内容矩阵方向：</strong> 官网 blog + Dev.to + Medium + Hashnode 同步。核心关键词：app localization tool, auto translate app, github localization bot, react native i18n automation</li>
+<li><strong>定价：</strong> Free tier（1 project, 500 strings/mo）→ $19/mo（5 projects, 5000 strings）→ $49/mo（unlimited）</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-决策矩阵">📊 决策矩阵<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15#-%E5%86%B3%E7%AD%96%E7%9F%A9%E9%98%B5" class="hash-link" aria-label="📊 决策矩阵的直接链接" title="📊 决策矩阵的直接链接">​</a></h2>
+<table><thead><tr><th></th><th style="text-align:center">App 本地化 Agent</th><th style="text-align:center">SaaS 备份工具</th><th style="text-align:center">垂直数据提取</th></tr></thead><tbody><tr><td>竞争密度</td><td style="text-align:center">🟡 中（巨头做企业，小团队空白）</td><td style="text-align:center">🟡 中（每 niche 1-2 玩家）</td><td style="text-align:center">🔴 高（通用层拥挤）</td></tr><tr><td>窗口期</td><td style="text-align:center">🟢 6-12 个月</td><td style="text-align:center">🟡 3-6 个月</td><td style="text-align:center">🟡 需垂直切入</td></tr><tr><td>SEO 潜力</td><td style="text-align:center">🟢 极高（framework × language 矩阵）</td><td style="text-align:center">🟢 高（platform 关键词明确）</td><td style="text-align:center">🟡 中（垂直 long-tail）</td></tr><tr><td>MVP 难度</td><td style="text-align:center">🟢 低（7-10 天）</td><td style="text-align:center">🟢 低（5-7 天单平台）</td><td style="text-align:center">🟡 中（2 周）</td></tr><tr><td>商业化</td><td style="text-align:center">🟢 强订阅 + 付费方=受益方</td><td style="text-align:center">🟢 强订阅 + 刚性需求</td><td style="text-align:center">🟡 中（价格敏感）</td></tr><tr><td><strong>优先级</strong></td><td style="text-align:center"><strong>🥇 P0</strong></td><td style="text-align:center"><strong>🥈 P1</strong></td><td style="text-align:center"><strong>🥉 P2</strong></td></tr></tbody></table>
+<hr>
+<p><em>今日扫描范围：Product Hunt RSS feed（~40 个产品，2026-06-08 ~ 2026-06-14）。因 PH 主站 Cloudflare 封锁，使用 RSS 源 + 官网抽查完成扫描。</em>
+<em>PH 主站今日 (6/15 周一) 的新 launch 尚未进入 RSS feed，下次扫描建议推迟到 PT 时间 6/16 凌晨。</em>
+<em>⚠️ Google Drive 上传失败：OAuth token 已过期且 refresh token 被吊销，需在交互环境中重新运行 setup.py 认证。</em></p>]]></content:encoded>
+            <category>海外需求雷达</category>
+            <category>Product Hunt</category>
+            <category>indie hacker</category>
+            <category>AI工具</category>
+            <category>SaaS机会</category>
+        </item>
         <item>
             <title><![CDATA[海外需求雷达日报 - 2026-06-08]]></title>
             <link>https://www.real-tech.online/blog/overseas-demand-radar-2026-06-08</link>
@@ -2458,71 +2579,6 @@ YouTube 上有无限的学习素材，但学习者需要的是：1) 找合适难
             <category>vLLM</category>
             <category>显存优化</category>
             <category>Kubernetes</category>
-        </item>
-        <item>
-            <title><![CDATA[L40S 大模型部署实录①：单卡 48GB，能跑多大的模型？]]></title>
-            <link>https://www.real-tech.online/blog/l40s-llm-infra-setup</link>
-            <guid>https://www.real-tech.online/blog/l40s-llm-infra-setup</guid>
-            <pubDate>Wed, 29 Apr 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[单卡 L40S 48GB 显存部署 27B-35B 大模型的完整基础设施搭建：EKS GPU 节点配置、vLLM 部署、Qwen3.5-27B-FP8 达到 18 tok/s。]]></description>
-            <content:encoded><![CDATA[<p>单卡 L40S，48GB 显存。公司给了一台 EKS GPU 节点，有 3 张 L40S 可用，每张卡独立部署一个模型做横向对比。目标：找出单卡 L40S 上跑 27B-35B 大模型的最优方案。最终结论——Qwen3.5-27B-FP8 单卡 18 tok/s，96% 显存利用率。这篇记录从零搭建的完整过程。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="为什么是-l40s">为什么是 L40S<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF-l40s" class="hash-link" aria-label="为什么是 L40S的直接链接" title="为什么是 L40S的直接链接">​</a></h2>
-<p>选 GPU 之前先明确需求：我们要在一个 EKS 集群上同时跑多个 20B-35B 参数的大模型，提供 OpenAI 兼容 API，给内部多个业务系统调用。</p>
-<p>L40S 的定位是"推理专用卡"，和 A100 的区别（数据来自 NVIDIA 官方 spec sheet）：</p>
-<table><thead><tr><th>对比项</th><th>L40S</th><th>A100 80GB</th></tr></thead><tbody><tr><td>显存</td><td>48GB GDDR6</td><td>80GB HBM2e</td></tr><tr><td>FP8 算力</td><td>733 TFLOPS</td><td>不支持原生 FP8</td></tr><tr><td>BF16 算力</td><td>366 TFLOPS</td><td>312 TFLOPS</td></tr><tr><td>显存带宽</td><td>864 GB/s</td><td>2,039 GB/s</td></tr><tr><td>每卡每小时</td><td>~$2.62 (g6e)</td><td>~$2.74 (p4d)</td></tr></tbody></table>
-<p>L40S 的优势是 <strong>FP8 原生支持</strong>：同样跑 FP8 量化模型，L40S 的算力是 A100 的两倍多。劣势是显存带宽低（864 vs 2039 GB/s），大模型推理的 decode 阶段（memory-bound）会比 A100 慢。但我们的核心目标是<strong>在有限的 GPU 性能下找出效果最好的模型</strong>，不追求极致速度。</p>
-<p>最终用的是 <code>g6e.12xlarge</code>：3×L40S 可用 + 48 vCPU + 384GB 内存 + 2×1.8TB NVMe SSD。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="eks-gpu-环境搭建">EKS GPU 环境搭建<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#eks-gpu-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA" class="hash-link" aria-label="EKS GPU 环境搭建的直接链接" title="EKS GPU 环境搭建的直接链接">​</a></h2>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="nvidia-gpu-operator">NVIDIA GPU Operator<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#nvidia-gpu-operator" class="hash-link" aria-label="NVIDIA GPU Operator的直接链接" title="NVIDIA GPU Operator的直接链接">​</a></h3>
-<p>不要手动装驱动。用 NVIDIA GPU Operator 一键搞定：</p>
-<div class="language-bash codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-bash codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">helm </span><span class="token function" style="color:hsl(221, 87%, 60%)">install</span><span class="token plain"> gpu-operator nvidia/gpu-operator </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token parameter variable" style="color:hsl(221, 87%, 60%)">--namespace</span><span class="token plain"> gpu-operator --create-namespace </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token parameter variable" style="color:hsl(221, 87%, 60%)">--set</span><span class="token plain"> </span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">driver.enabled</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token plain">true </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token parameter variable" style="color:hsl(221, 87%, 60%)">--set</span><span class="token plain"> </span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">toolkit.enabled</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token plain">true </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token parameter variable" style="color:hsl(221, 87%, 60%)">--set</span><span class="token plain"> </span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">devicePlugin.enabled</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token plain">true </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token parameter variable" style="color:hsl(221, 87%, 60%)">--set</span><span class="token plain"> </span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">dcgmExporter.enabled</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token plain">true</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>它会自动安装：驱动、Container Toolkit、Device Plugin（让 K8s 识别 GPU 资源）、DCGM Exporter（GPU 监控指标）。</p>
-<p>验证：</p>
-<div class="language-bash codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-bash codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">kubectl get pods </span><span class="token parameter variable" style="color:hsl(221, 87%, 60%)">-n</span><span class="token plain"> gpu-operator</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">nvidia-smi  </span><span class="token comment" style="color:hsl(230, 4%, 64%)"># 应该看到 3×L40S</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="nvme-存储别忘了挂载">NVMe 存储——别忘了挂载<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#nvme-%E5%AD%98%E5%82%A8%E5%88%AB%E5%BF%98%E4%BA%86%E6%8C%82%E8%BD%BD" class="hash-link" aria-label="NVMe 存储——别忘了挂载的直接链接" title="NVMe 存储——别忘了挂载的直接链接">​</a></h3>
-<p>g6e.12xlarge 自带 2×1.8TB NVMe SSD，但<strong>默认不挂载</strong>。模型文件动辄 20-30GB，必须用本地 NVMe 而不是 EBS。</p>
-<p>我写了一个 DaemonSet 自动格式化和挂载：</p>
-<div class="language-yaml codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-yaml codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token comment" style="color:hsl(230, 4%, 64%)"># nvme-auto-mount DaemonSet 核心逻辑</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">mkfs.xfs /dev/nvme1n1 </span><span class="token important" style="color:hsl(230, 8%, 24%);font-weight:bold">&amp;&amp;</span><span class="token plain"> mount /dev/nvme1n1 /data1</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">mkfs.xfs /dev/nvme2n1 </span><span class="token important" style="color:hsl(230, 8%, 24%);font-weight:bold">&amp;&amp;</span><span class="token plain"> mount /dev/nvme2n1 /data2</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p><strong>坑</strong>：EKS 节点扩缩容后，新节点的 NVMe 没有挂载，模型 Pod 会卡在 <code>PodInitializing</code>，hostPath PV 挂载失败但不报错。必须确保 DaemonSet 先于模型 Pod 运行。</p>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模型下载策略">模型下载策略<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD%E7%AD%96%E7%95%A5" class="hash-link" aria-label="模型下载策略的直接链接" title="模型下载策略的直接链接">​</a></h3>
-<p>模型存在 NVMe 上，用 Init Container 从 HuggingFace 镜像站下载：</p>
-<div class="language-yaml codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-yaml codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token key atrule" style="color:hsl(35, 99%, 36%)">initContainers</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">-</span><span class="token plain"> </span><span class="token key atrule" style="color:hsl(35, 99%, 36%)">name</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">:</span><span class="token plain"> model</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">-</span><span class="token plain">downloader</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">    </span><span class="token key atrule" style="color:hsl(35, 99%, 36%)">command</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">      </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">-</span><span class="token plain"> sh</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">      </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">-</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">-</span><span class="token plain">c</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">      </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">-</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">|</span><span class="token scalar string" style="color:hsl(119, 34%, 47%)"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token scalar string" style="color:hsl(119, 34%, 47%)">        if [ -z "$(ls -A $MODEL_DIR)" ]; then</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token scalar string" style="color:hsl(119, 34%, 47%)">          huggingface-cli download $MODEL_NAME --local-dir $MODEL_DIR</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token scalar string" style="color:hsl(119, 34%, 47%)">        fi</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p><strong>坑</strong>：<code>ls -A</code> 检查目录非空就跳过下载。如果上次下载中断，目录存在但文件不完整，vLLM 启动时报 "Cannot find model weights"。解决方案：加一个完整性校验，或者在下载完成后写一个 <code>.done</code> 标记文件。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="vllm-关键配置">vLLM 关键配置<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#vllm-%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE" class="hash-link" aria-label="vLLM 关键配置的直接链接" title="vLLM 关键配置的直接链接">​</a></h2>
-<p>vLLM 是目前最成熟的开源推理框架。核心配置：</p>
-<div class="language-bash codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-bash codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">python </span><span class="token parameter variable" style="color:hsl(221, 87%, 60%)">-m</span><span class="token plain"> vllm.entrypoints.openai.api_server </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  </span><span class="token parameter variable" style="color:hsl(221, 87%, 60%)">--model</span><span class="token plain"> </span><span class="token variable" style="color:hsl(221, 87%, 60%)">$MODEL_PATH</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  --served-model-name </span><span class="token variable" style="color:hsl(221, 87%, 60%)">$MODEL_NAME</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  --max-model-len </span><span class="token number" style="color:hsl(35, 99%, 36%)">128000</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  --gpu-memory-utilization </span><span class="token number" style="color:hsl(35, 99%, 36%)">0.92</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  --kv-cache-dtype fp8 </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  --enable-prefix-caching </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  --enable-chunked-prefill </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">  --tensor-parallel-size </span><span class="token number" style="color:hsl(35, 99%, 36%)">1</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>逐个解释：</p>
-<ul>
-<li><code>--kv-cache-dtype fp8</code>：KV Cache 用 FP8 存储，显存占用减半，质量几乎无损。这是 L40S 上的必选项。</li>
-<li><code>--gpu-memory-utilization 0.92</code>：vLLM 预分配 92% 显存给模型+KV Cache。留 8% 给 CUDA context。</li>
-<li><code>--enable-prefix-caching</code>：相同前缀的请求共享 KV Cache，多轮对话场景提升明显。</li>
-<li><code>--enable-chunked-prefill</code>：长文本分块预填充，避免单个长请求阻塞其他请求。</li>
-<li><code>--max-model-len</code>：最大上下文长度。这个值直接影响 KV Cache 大小，设太大会 OOM。</li>
-</ul>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="enforce-eager什么时候需要">enforce-eager：什么时候需要<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#enforce-eager%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81" class="hash-link" aria-label="enforce-eager：什么时候需要的直接链接" title="enforce-eager：什么时候需要的直接链接">​</a></h3>
-<p>默认情况下 vLLM 会用 CUDA Graph 加速推理。但有些模型架构不兼容：</p>
-<ul>
-<li><strong>Qwen3.6 的 Mamba/DeltaNet 混合架构</strong>：Mamba cache 和 CUDA Graph 不兼容，必须 <code>--enforce-eager</code></li>
-<li><strong>MoE + BF16 + Tensor Parallel</strong>：某些组合下 CUDA Graph capture 会 OOM</li>
-</ul>
-<p><code>--enforce-eager</code> 的代价是 TPOT 增加约 40%（Qwen3.6: 88ms vs Qwen3.5: 53ms）。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="部署架构">部署架构<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84" class="hash-link" aria-label="部署架构的直接链接" title="部署架构的直接链接">​</a></h2>
-<p>3 张 L40S，每张卡独立部署一个模型，做横向对比：</p>
-<div class="language-javascript codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-javascript codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token constant" style="color:hsl(35, 99%, 36%)">EKS</span><span class="token plain"> </span><span class="token constant" style="color:hsl(35, 99%, 36%)">GPU</span><span class="token plain"> </span><span class="token function maybe-class-name" style="color:hsl(221, 87%, 60%)">Node</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token number" style="color:hsl(35, 99%, 36%)">3</span><span class="token plain">×</span><span class="token constant" style="color:hsl(35, 99%, 36%)">L40S</span><span class="token plain"> 48GB</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">├── </span><span class="token constant" style="color:hsl(35, 99%, 36%)">GPU</span><span class="token plain"> </span><span class="token number" style="color:hsl(35, 99%, 36%)">0</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain"> </span><span class="token maybe-class-name">Qwen3</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token number" style="color:hsl(35, 99%, 36%)">6</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token plain">27B</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token constant" style="color:hsl(35, 99%, 36%)">FP8</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">+</span><span class="token plain"> </span><span class="token maybe-class-name">Embedding</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token number" style="color:hsl(35, 99%, 36%)">0</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">6B</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">├── </span><span class="token constant" style="color:hsl(35, 99%, 36%)">GPU</span><span class="token plain"> </span><span class="token number" style="color:hsl(35, 99%, 36%)">1</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain"> </span><span class="token maybe-class-name">Qwen3</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token number" style="color:hsl(35, 99%, 36%)">6</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token plain">35B</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token constant" style="color:hsl(35, 99%, 36%)">A3B</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token constant" style="color:hsl(35, 99%, 36%)">FP8</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">+</span><span class="token plain"> </span><span class="token maybe-class-name">Embedding</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token number" style="color:hsl(35, 99%, 36%)">0</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">6B</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">├── </span><span class="token constant" style="color:hsl(35, 99%, 36%)">GPU</span><span class="token plain"> </span><span class="token number" style="color:hsl(35, 99%, 36%)">2</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain"> </span><span class="token maybe-class-name">Gemma4</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token plain">31B</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token constant" style="color:hsl(35, 99%, 36%)">FP8</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">+</span><span class="token plain"> </span><span class="token maybe-class-name">Embedding</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token number" style="color:hsl(35, 99%, 36%)">0</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">6B</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">└── </span><span class="token maybe-class-name">LiteLLM</span><span class="token plain"> → 统一 </span><span class="token constant" style="color:hsl(35, 99%, 36%)">API</span><span class="token plain"> 网关，路由到各模型</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>核心思路是<strong>单卡部署</strong>：每张卡跑一个 LLM + 一个 Embedding 模型，通过 LiteLLM 做统一路由。3 张卡 3 个模型并行跑，方便做性能和质量的横向对比。这个"一卡双模型"的方案踩了非常多坑，下一篇详细讲。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="小结">小结<a href="https://www.real-tech.online/blog/l40s-llm-infra-setup#%E5%B0%8F%E7%BB%93" class="hash-link" aria-label="小结的直接链接" title="小结的直接链接">​</a></h2>
-<p>搭建 GPU 推理基础设施，核心是三件事：</p>
-<ol>
-<li><strong>GPU Operator 自动化</strong>——不要手动装驱动</li>
-<li><strong>NVMe 存储</strong>——模型文件必须在本地盘，EBS 太慢</li>
-<li><strong>vLLM 配置调优</strong>——<code>kv-cache-dtype=fp8</code> 是 L40S 上的必选项</li>
-</ol>
-<p>下一篇讲多模型 GPU 共享的显存优化，那才是真正的地狱。</p>]]></content:encoded>
-            <category>系列：L40S大模型部署</category>
-            <category>GPU</category>
-            <category>vLLM</category>
-            <category>EKS</category>
-            <category>DevOps</category>
         </item>
     </channel>
 </rss>
