@@ -2,12 +2,137 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.real-tech.online/blog</id>
     <title>阿男说</title>
-    <updated>2026-06-15T00:00:00.000Z</updated>
+    <updated>2026-06-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.real-tech.online/blog"/>
     <subtitle>阿男说 Blog</subtitle>
     <icon>https://www.real-tech.online/img/favicon.ico</icon>
     <rights>Copyright © 2026 阿男说 Built with Docusaurus.</rights>
+    <entry>
+        <title type="html"><![CDATA[海外需求雷达日报 - 2026-06-22]]></title>
+        <id>https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22</id>
+        <link href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22"/>
+        <updated>2026-06-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[今日关注：O-1签证AI商业计划书（零竞品蓝海）；HARO外链自动化AI Agent；Windows离线AI听写工具。每日扫描 Product Hunt 发现独立开发者可复制的 AI 工具与 SaaS 机会。]]></summary>
+        <content type="html"><![CDATA[<p>每日扫描 Product Hunt 发现值得关注的海外 AI 工具与独立开发机会，重点关注一人可做、SEO 可积累、订阅可变现的方向。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日最值得关注机会top-3">🔥 今日最值得关注机会（Top 3）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#-%E4%BB%8A%E6%97%A5%E6%9C%80%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8%E6%9C%BA%E4%BC%9Atop-3" class="hash-link" aria-label="🔥 今日最值得关注机会（Top 3）的直接链接" title="🔥 今日最值得关注机会（Top 3）的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="1-plansera-ai--移民法律文书自动化-">1. Plansera AI — 移民法律文书自动化 🟢<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#1-plansera-ai--%E7%A7%BB%E6%B0%91%E6%B3%95%E5%BE%8B%E6%96%87%E4%B9%A6%E8%87%AA%E5%8A%A8%E5%8C%96-" class="hash-link" aria-label="1. Plansera AI — 移民法律文书自动化 🟢的直接链接" title="1. Plansera AI — 移民法律文书自动化 🟢的直接链接">​</a></h3>
+<ul>
+<li><strong>URL:</strong> <a href="https://plansera.ai/" target="_blank" rel="noopener noreferrer">https://plansera.ai</a></li>
+<li><strong>核心功能:</strong> AI 律师助理自动访谈客户、读取上传文件（银行流水/租约/发票）、检查 E-2 签证资格、生成提交就绪的商业计划书（PDF + Word）</li>
+<li><strong>AI 模式:</strong> AI worker（事件驱动：客户上传材料 → AI 自动访谈+读取+生成；人工只审批例外）</li>
+<li><strong>竞争密度:</strong> 极低。Lawyaw（法律模板，非 AI worker）、Clio Draft（通用文档，非 E-2 专用）、传统移民律师人工撰写。核心搜索词 "E-2 visa business plan service" 前 10 结果几乎全是律所网站和 USCIS 官网，无 SaaS 产品</li>
+<li><strong>窗口判断:</strong> 🟢 还开着</li>
+<li><strong>窗口原因:</strong> 法律 AI 赛道刚起步，垂直法律文书领域几乎空白。2025-2026 是「法律文书 AI worker」窗口，1 年后会有 5+ 竞品进入</li>
+<li><strong>SEO 潜力:</strong> 极高。长尾关键词丰富："E-2 visa business plan template"、"how to write E-2 business plan"、"E-2 visa financial projections"。可做 50+ 州的 E-2 申请指南内容矩阵</li>
+<li><strong>MVP 难度:</strong> 中。核心是 LLM prompt engineering + 文档上传解析 + PDF 生成。1 人 2 周可做其他签证类型的 MVP（L-1/O-1 等）</li>
+<li><strong>商业化潜力:</strong> 极高。$100/plan 单价，目标客户是移民律师（高付费意愿）。可扩展 L-1、O-1、EB-1 等签证类型</li>
+<li><strong>差异化切角:</strong> 不要做 E-2（竞品已有），做「O-1 杰出人才签证 AI 商业计划书」—— 同样模式但零竞品，且 O-1 申请人通常有更强付费能力</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="2-blazly-backlinker--seo-外链自动化-">2. Blazly Backlinker — SEO 外链自动化 🟡<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#2-blazly-backlinker--seo-%E5%A4%96%E9%93%BE%E8%87%AA%E5%8A%A8%E5%8C%96-" class="hash-link" aria-label="2. Blazly Backlinker — SEO 外链自动化 🟡的直接链接" title="2. Blazly Backlinker — SEO 外链自动化 🟡的直接链接">​</a></h3>
+<ul>
+<li><strong>URL:</strong> <a href="https://www.producthunt.com/products/blazly-backlinker" target="_blank" rel="noopener noreferrer">https://www.producthunt.com/products/blazly-backlinker</a></li>
+<li><strong>核心功能:</strong> 全自动外链生成（RSS tagline: "Automate your entire backlink generation"）</li>
+<li><strong>AI 模式:</strong> AI worker（事件驱动：设定策略 → AI 自动发现机会、生成 outreach 内容、追踪外链状态；人工审批例外）</li>
+<li><strong>竞争密度:</strong> 中高。Ahrefs（$100M ARR，有外链工具但不是全自动）、BuzzStream（outreach 管理）、Pitchbox（$10M+）、Respona（$5M+）。但都是「人操作软件」模式，不是 AI worker 全自动</li>
+<li><strong>窗口判断:</strong> 🟡 快关闭</li>
+<li><strong>窗口原因:</strong> SEO 工具赛道拥挤但 AI worker 模式的 SEO 工具刚出现。6 个月内会有 3-5 个 AI-native 竞品。现在切入需要极强的差异化</li>
+<li><strong>SEO 潜力:</strong> 极高。backlink 相关长尾词数以万计："how to get backlinks"（22K MSV）、"free backlink generator"、"backlink outreach template"、"do follow backlinks list"。pSEO 极度适合：自动生成「X industry backlink opportunities」页面</li>
+<li><strong>MVP 难度:</strong> 中。核心是 AI outreach 生成 + 外链机会发现 + 状态追踪。1 人 3 周可做 MVP</li>
+<li><strong>商业化潜力:</strong> 高。SEO 从业者付费意愿极高，$29-99/月订阅模型成熟。有 agency 版可收 $199-499/月</li>
+<li><strong>差异化切角:</strong> 不做通用外链工具，做「AI 自动外链建设 for 独立开发者/小 SaaS」—— 专注 HARO/PR 外链自动化，AI 自动监测记者请求并生成专家回复。这个 niche 竞品弱（现有：HARO 本身 + SourceBottle），且结果可量化</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="3-mutter-ai-dictation--隐私优先离线-ai-听写-">3. Mutter AI Dictation — 隐私优先离线 AI 听写 🟢<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#3-mutter-ai-dictation--%E9%9A%90%E7%A7%81%E4%BC%98%E5%85%88%E7%A6%BB%E7%BA%BF-ai-%E5%90%AC%E5%86%99-" class="hash-link" aria-label="3. Mutter AI Dictation — 隐私优先离线 AI 听写 🟢的直接链接" title="3. Mutter AI Dictation — 隐私优先离线 AI 听写 🟢的直接链接">​</a></h3>
+<ul>
+<li><strong>URL:</strong> <a href="https://www.producthunt.com/products/mutter-ai-dictation" target="_blank" rel="noopener noreferrer">https://www.producthunt.com/products/mutter-ai-dictation</a></li>
+<li><strong>核心功能:</strong> 离线运行的私有 AI 语音听写（RSS tagline: "Private AI dictation that lets you operate offline"）</li>
+<li><strong>AI 模式:</strong> AI worker / wrapper 混合（事件驱动：语音输入 → AI 自动转写；用户需要触发录音但 AI 在后台自主运行）</li>
+<li><strong>竞争密度:</strong> 低。MacWhisper（$14，Mac 本地 Whisper 听写，月活 ~50K）、Otter.ai（云端，非离线）、Superwhisper（$25，功能更全）。纯「离线+隐私」定位的竞品极少</li>
+<li><strong>窗口判断:</strong> 🟢 还开着</li>
+<li><strong>窗口原因:</strong> Apple Intelligence 的 offline 听写还未大规模普及，且跨平台需求（Windows/Linux）完全没有被满足。6-12 个月窗口</li>
+<li><strong>SEO 潜力:</strong> 中高。"offline dictation software"（1.9K MSV）、"private voice to text"、"AI dictation no internet"、"local speech to text"。可做「隐私听写 vs 云端听写」对比内容矩阵</li>
+<li><strong>MVP 难度:</strong> 低。Whisper.cpp + Electron 壳 = 1 周 MVP。核心差异化在「离线隐私」定位</li>
+<li><strong>商业化潜力:</strong> 中。买断制 $19-49 可行，订阅制较难（用户对离线软件有买断预期）。可做 Windows/Linux 版本弥补 Mac 市场竞争</li>
+<li><strong>差异化切角:</strong> 做「Windows + Linux 离线 AI 听写」—— 当前所有竞品几乎都是 Mac-only，Windows 用户完全没有好的本地 AI 听写工具。用 Whisper.cpp 跨平台编译 + Flutter UI</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日发现的长尾关键词机会">🔑 今日发现的长尾关键词机会<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#-%E4%BB%8A%E6%97%A5%E5%8F%91%E7%8E%B0%E7%9A%84%E9%95%BF%E5%B0%BE%E5%85%B3%E9%94%AE%E8%AF%8D%E6%9C%BA%E4%BC%9A" class="hash-link" aria-label="🔑 今日发现的长尾关键词机会的直接链接" title="🔑 今日发现的长尾关键词机会的直接链接">​</a></h2>
+<table><thead><tr><th>关键词</th><th>搜索意图</th><th>SEO 难度</th><th>pSEO 适合</th></tr></thead><tbody><tr><td>E-2 visa business plan sample</td><td>找模板/范文</td><td>低</td><td>⭐⭐⭐</td></tr><tr><td>O-1 visa business plan AI</td><td>找自动化工具</td><td>极低</td><td>⭐⭐</td></tr><tr><td>how to find backlink opportunities</td><td>学习方法</td><td>中</td><td>⭐⭐⭐</td></tr><tr><td>automated HARO pitching tool</td><td>找工具</td><td>低</td><td>⭐⭐⭐</td></tr><tr><td>offline dictation Windows</td><td>找软件</td><td>低</td><td>⭐⭐</td></tr><tr><td>E-2 visa financial projection template</td><td>找模板</td><td>极低</td><td>⭐⭐⭐</td></tr><tr><td>backlink outreach email examples</td><td>找模板/参考</td><td>中</td><td>⭐⭐⭐</td></tr><tr><td>private speech to text no cloud</td><td>找隐私工具</td><td>低</td><td>⭐⭐</td></tr><tr><td>local whisper dictation Linux</td><td>找安装教程</td><td>极低</td><td>⭐⭐</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日发现的可复制模式">📐 今日发现的可复制模式<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#-%E4%BB%8A%E6%97%A5%E5%8F%91%E7%8E%B0%E7%9A%84%E5%8F%AF%E5%A4%8D%E5%88%B6%E6%A8%A1%E5%BC%8F" class="hash-link" aria-label="📐 今日发现的可复制模式的直接链接" title="📐 今日发现的可复制模式的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-1ai-法律文书工厂模式plansera-验证">模式 1：「AI 法律文书工厂」模式（Plansera 验证）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#%E6%A8%A1%E5%BC%8F-1ai-%E6%B3%95%E5%BE%8B%E6%96%87%E4%B9%A6%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8Fplansera-%E9%AA%8C%E8%AF%81" class="hash-link" aria-label="模式 1：「AI 法律文书工厂」模式（Plansera 验证）的直接链接" title="模式 1：「AI 法律文书工厂」模式（Plansera 验证）的直接链接">​</a></h3>
+<p><strong>核心逻辑：</strong> 找一个高度标准化、有明确格式要求的法律/行政文书类型 → AI 自动访谈 + 读取上传文件 + 生成合规文档 → 按次收费 $50-200/份。
+<strong>为什么有效：</strong></p>
+<ul>
+<li>客户有明确的付费触发点（需要交文件）</li>
+<li>AI worker 减少律师 80% 的初稿时间</li>
+<li>每个文档类型都是独立的 SEO 池</li>
+<li>可横向扩展到 10+ 文书类型（O-1、L-1、EB-1、离婚协议、租约 review）</li>
+<li>错误成本可控（律师最终审批）</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-2信息获取自动化模式haropr-外链切角">模式 2：「信息获取自动化」模式（HARO/PR 外链切角）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#%E6%A8%A1%E5%BC%8F-2%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96%E8%87%AA%E5%8A%A8%E5%8C%96%E6%A8%A1%E5%BC%8Fharopr-%E5%A4%96%E9%93%BE%E5%88%87%E8%A7%92" class="hash-link" aria-label="模式 2：「信息获取自动化」模式（HARO/PR 外链切角）的直接链接" title="模式 2：「信息获取自动化」模式（HARO/PR 外链切角）的直接链接">​</a></h3>
+<p><strong>核心逻辑：</strong> 监测公开信息源（HARO、Twitter、Reddit）→ AI 判断是否与你的 expertise 匹配 → 自动生成高质量回复 → 获得外链/曝光。
+<strong>为什么有效：</strong></p>
+<ul>
+<li>输入源是公开流（可爬取）</li>
+<li>AI 判断和生成质量已足够好</li>
+<li>结果可量化（获得多少外链）</li>
+<li>可做 content flywheel：每次回复 = 一篇博客内容</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-3跨平台填补模式windows-离线听写">模式 3：「跨平台填补」模式（Windows 离线听写）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#%E6%A8%A1%E5%BC%8F-3%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%A1%AB%E8%A1%A5%E6%A8%A1%E5%BC%8Fwindows-%E7%A6%BB%E7%BA%BF%E5%90%AC%E5%86%99" class="hash-link" aria-label="模式 3：「跨平台填补」模式（Windows 离线听写）的直接链接" title="模式 3：「跨平台填补」模式（Windows 离线听写）的直接链接">​</a></h3>
+<p><strong>核心逻辑：</strong> 找一个在 Mac 上已经有成功产品的赛道 → 做 Windows/Linux 版本 → 用「跨平台」作为核心差异。
+<strong>为什么有效：</strong></p>
+<ul>
+<li>市场需求已被 Mac 竞品验证</li>
+<li>Windows 用户群规模 4x+</li>
+<li>SEO 长尾：竞品品牌名 + "Windows alternative"</li>
+<li>MVP 用跨平台框架（Flutter/Electron）一次开发</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日不建议进入的方向">⛔ 今日不建议进入的方向<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#-%E4%BB%8A%E6%97%A5%E4%B8%8D%E5%BB%BA%E8%AE%AE%E8%BF%9B%E5%85%A5%E7%9A%84%E6%96%B9%E5%90%91" class="hash-link" aria-label="⛔ 今日不建议进入的方向的直接链接" title="⛔ 今日不建议进入的方向的直接链接">​</a></h2>
+<table><thead><tr><th>方向</th><th>原因</th></tr></thead><tbody><tr><td>AI coding agent 平台（Foglamp、MeshPilot、Agent 37）</td><td>过度竞争（Cursor、Copilot、Claude Code、Windsurf 等 20+ 产品），巨头垄断，CAC 极高</td></tr><tr><td>AI agent 基础设施（pumaDB、API to MCP）</td><td>面向开发者，变现周期长，需要大量文档和支持。且 OpenAI/Anthropic 自身在做</td></tr><tr><td>Mac-only 小工具（Notchkin、QuackScreen、Snap Deck）</td><td>SEO 池极小（无搜索需求），依赖 PH/社交病毒传播，无重复使用性</td></tr><tr><td>LLM 基础模型（Laguna by Poolside、Mellum by JetBrains）</td><td>需要 $100M+ 融资，完全不可一人做</td></tr><tr><td>macOS menubar 应用（Pitchbar、DeskArcade）</td><td>市场极小，每人付费意愿 $1-5，无订阅价值</td></tr><tr><td>AI 视频生成（Pixlie）</td><td>极度拥挤（Runway、Pika、Sora、Kling 等 15+），CAC 飙升，差异化难</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日最值得尝试的-mvp">🚀 今日最值得尝试的 MVP<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#-%E4%BB%8A%E6%97%A5%E6%9C%80%E5%80%BC%E5%BE%97%E5%B0%9D%E8%AF%95%E7%9A%84-mvp" class="hash-link" aria-label="🚀 今日最值得尝试的 MVP的直接链接" title="🚀 今日最值得尝试的 MVP的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="首选o-1-签证-ai-商业计划书生成器">【首选】O-1 签证 AI 商业计划书生成器<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#%E9%A6%96%E9%80%89o-1-%E7%AD%BE%E8%AF%81-ai-%E5%95%86%E4%B8%9A%E8%AE%A1%E5%88%92%E4%B9%A6%E7%94%9F%E6%88%90%E5%99%A8" class="hash-link" aria-label="【首选】O-1 签证 AI 商业计划书生成器的直接链接" title="【首选】O-1 签证 AI 商业计划书生成器的直接链接">​</a></h3>
+<ul>
+<li><strong>产品方向:</strong> 复制 Plansera 的 E-2 模式到 O-1 签证（杰出人才），AI 自动访谈+文档生成</li>
+<li><strong>最小功能:</strong> 对话式信息收集 → AI 检查 O-1 资格 → 生成 PDF 商业计划书 → Stripe $99/plan</li>
+<li><strong>推荐技术栈:</strong> Next.js + Vercel + OpenAI API + PDF 生成（react-pdf）+ Stripe</li>
+<li><strong>开发时间:</strong> 2 周（1 人全职）</li>
+<li><strong>SEO 切入口:</strong> "O-1 visa business plan"、"O-1 visa business plan sample"、"how to write O-1 business plan" — 全部零竞争</li>
+<li><strong>内容矩阵方向:</strong>
+<ul>
+<li>按行业分类：O-1 for artists / engineers / founders / researchers</li>
+<li>按国家分类：O-1 from India / China / UK / Brazil</li>
+<li>50+ 篇 SEO 博客 + 模板下载（lead magnet）</li>
+<li>多语言：中/韩/印地语版本</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="备选haro-外链自动化-ai-agent">【备选】HARO 外链自动化 AI Agent<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#%E5%A4%87%E9%80%89haro-%E5%A4%96%E9%93%BE%E8%87%AA%E5%8A%A8%E5%8C%96-ai-agent" class="hash-link" aria-label="【备选】HARO 外链自动化 AI Agent的直接链接" title="【备选】HARO 外链自动化 AI Agent的直接链接">​</a></h3>
+<ul>
+<li><strong>产品方向:</strong> 自动监测 HARO/Connectively 记者请求 → AI 生成专家回复 → 自动提交</li>
+<li><strong>最小功能:</strong> HARO RSS 监测 → OpenAI 匹配用户 expertise → 生成回复草稿 → 一键发送</li>
+<li><strong>推荐技术栈:</strong> Python + FastAPI + OpenAI + Email (SendGrid) + Supabase</li>
+<li><strong>开发时间:</strong> 2 周</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-决策矩阵">📊 决策矩阵<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22#-%E5%86%B3%E7%AD%96%E7%9F%A9%E9%98%B5" class="hash-link" aria-label="📊 决策矩阵的直接链接" title="📊 决策矩阵的直接链接">​</a></h2>
+<table><thead><tr><th></th><th style="text-align:center">O-1 签证计划书</th><th style="text-align:center">HARO 外链自动化</th><th style="text-align:center">Windows 离线听写</th></tr></thead><tbody><tr><td>竞争密度</td><td style="text-align:center">🟢 0 竞品</td><td style="text-align:center">🟡 3-5 个弱竞品</td><td style="text-align:center">🟡 MacWhisper 占 Mac</td></tr><tr><td>窗口期</td><td style="text-align:center">🟢 12-18 个月</td><td style="text-align:center">🟡 6-12 个月</td><td style="text-align:center">🟢 12+ 个月</td></tr><tr><td>SEO 潜力</td><td style="text-align:center">🟢 零竞争长尾</td><td style="text-align:center">🟢 蓝海 pSEO</td><td style="text-align:center">🟡 搜索量中等</td></tr><tr><td>MVP 难度</td><td style="text-align:center">🟡 2 周</td><td style="text-align:center">🟡 2 周</td><td style="text-align:center">🟢 1 周</td></tr><tr><td>商业化</td><td style="text-align:center">🟢 $99/plan 高单价</td><td style="text-align:center">🟡 $29-49/月订阅</td><td style="text-align:center">🟡 $19-49 买断</td></tr><tr><td><strong>优先级</strong></td><td style="text-align:center"><strong>🥇 P0</strong></td><td style="text-align:center"><strong>🥈 P1</strong></td><td style="text-align:center"><strong>🥉 P2</strong></td></tr></tbody></table>
+<hr>
+<p><em>扫描时间: 2026-06-22 · 数据来源: Product Hunt RSS Feed (category: AI) · 共筛选 43 个产品，3 个进入深度分析 · ⚠️ Google Drive 上传失败（OAuth token 过期，需重新认证）</em></p>]]></content>
+        <author>
+            <name>阿男</name>
+            <uri>https://real-tech.online</uri>
+        </author>
+        <category label="海外需求雷达" term="海外需求雷达"/>
+        <category label="Product Hunt" term="Product Hunt"/>
+        <category label="indie hacker" term="indie hacker"/>
+        <category label="AI工具" term="AI工具"/>
+        <category label="SaaS机会" term="SaaS机会"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[海外需求雷达日报 - 2026-06-15]]></title>
         <id>https://www.real-tech.online/blog/overseas-demand-radar-2026-06-15</id>
@@ -2584,79 +2709,5 @@ YouTube 上有无限的学习素材，但学习者需要的是：1) 找合适难
         <category label="vLLM" term="vLLM"/>
         <category label="性能测试" term="性能测试"/>
         <category label="LLM" term="LLM"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[L40S 大模型部署实录②：48GB 显存塞两个模型——7 个让我崩溃的坑]]></title>
-        <id>https://www.real-tech.online/blog/l40s-gpu-memory-optimization</id>
-        <link href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization"/>
-        <updated>2026-04-30T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[在单张 L40S 48GB 上同时运行 LLM + Embedding 模型的显存优化实战：7 种 OOM 失败模式和最终解决方案。]]></summary>
-        <content type="html"><![CDATA[<p><code>Free memory: 0.41 GiB</code>。这是我第一次尝试在一张卡上跑两个模型时，vLLM 启动日志里的数字。然后它 crash 了。从第一次 OOM 到三组模型稳定运行，中间经历了 7 种不同的失败姿势。这篇是完整的踩坑记录。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="目标一卡双模型">目标：一卡双模型<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E7%9B%AE%E6%A0%87%E4%B8%80%E5%8D%A1%E5%8F%8C%E6%A8%A1%E5%9E%8B" class="hash-link" aria-label="目标：一卡双模型的直接链接" title="目标：一卡双模型的直接链接">​</a></h2>
-<p>需求很明确：每张 L40S 上跑一个 LLM（用于对话/推理）+ 一个 Embedding 模型（用于 RAG 检索）。三张卡，三组模型。</p>
-<p>看起来显存够用：</p>
-<div class="language-javascript codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-javascript codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token constant" style="color:hsl(35, 99%, 36%)">LLM</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token plain">27B </span><span class="token constant" style="color:hsl(35, 99%, 36%)">FP8</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain">     </span><span class="token operator" style="color:hsl(221, 87%, 60%)">~</span><span class="token plain">28GB 权重 </span><span class="token operator" style="color:hsl(221, 87%, 60%)">+</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">~</span><span class="token plain">10GB </span><span class="token constant" style="color:hsl(35, 99%, 36%)">KV</span><span class="token plain"> </span><span class="token maybe-class-name">Cache</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">~</span><span class="token plain">38GB</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token function maybe-class-name" style="color:hsl(221, 87%, 60%)">Embedding</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token number" style="color:hsl(35, 99%, 36%)">0</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">6B</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain">  </span><span class="token operator" style="color:hsl(221, 87%, 60%)">~</span><span class="token number" style="color:hsl(35, 99%, 36%)">1</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">2GB 权重 </span><span class="token operator" style="color:hsl(221, 87%, 60%)">+</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">~</span><span class="token number" style="color:hsl(35, 99%, 36%)">0</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">3GB </span><span class="token constant" style="color:hsl(35, 99%, 36%)">KV</span><span class="token plain"> </span><span class="token maybe-class-name">Cache</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">~</span><span class="token number" style="color:hsl(35, 99%, 36%)">1</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">5GB</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token literal-property property" style="color:hsl(5, 74%, 59%)">总计</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain">              </span><span class="token operator" style="color:hsl(221, 87%, 60%)">~</span><span class="token number" style="color:hsl(35, 99%, 36%)">39</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">5GB </span><span class="token operator" style="color:hsl(221, 87%, 60%)">/</span><span class="token plain"> 48GB，还剩 </span><span class="token number" style="color:hsl(35, 99%, 36%)">8</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">.</span><span class="token plain">5GB</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>实际情况远没这么简单。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="坑-1k8s-gpu-隔离两个容器不能各声明一张卡">坑 1：K8s GPU 隔离——两个容器不能各声明一张卡<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E5%9D%91-1k8s-gpu-%E9%9A%94%E7%A6%BB%E4%B8%A4%E4%B8%AA%E5%AE%B9%E5%99%A8%E4%B8%8D%E8%83%BD%E5%90%84%E5%A3%B0%E6%98%8E%E4%B8%80%E5%BC%A0%E5%8D%A1" class="hash-link" aria-label="坑 1：K8s GPU 隔离——两个容器不能各声明一张卡的直接链接" title="坑 1：K8s GPU 隔离——两个容器不能各声明一张卡的直接链接">​</a></h2>
-<p>最初的想法：Pod 里两个容器，各声明 <code>nvidia.com/gpu: 1</code>。</p>
-<p><strong>错了。</strong> K8s NVIDIA Device Plugin 按容器分配 GPU，不是按 Pod。两个容器各声明 1 张 GPU = Pod 需要 2 张 GPU。</p>
-<p>正确做法：只有 Embedding 容器声明 <code>nvidia.com/gpu: 1</code>，LLM 容器不声明 GPU，通过 <code>NVIDIA_VISIBLE_DEVICES=all</code> 访问所有 GPU。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="坑-2nvidia_visible_devicesall-看到的是所有卡">坑 2：NVIDIA_VISIBLE_DEVICES=all 看到的是所有卡<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E5%9D%91-2nvidia_visible_devicesall-%E7%9C%8B%E5%88%B0%E7%9A%84%E6%98%AF%E6%89%80%E6%9C%89%E5%8D%A1" class="hash-link" aria-label="坑 2：NVIDIA_VISIBLE_DEVICES=all 看到的是所有卡的直接链接" title="坑 2：NVIDIA_VISIBLE_DEVICES=all 看到的是所有卡的直接链接">​</a></h2>
-<p>LLM 容器设了 <code>NVIDIA_VISIBLE_DEVICES=all</code> 后，它能看到节点上<strong>所有 GPU</strong>，不只是 Embedding 拿到的那张。vLLM 默认用 <code>cuda:0</code>，但 <code>cuda:0</code> 可能是别的 Pod 正在用的卡。</p>
-<p>结果：vLLM 启动时发现 <code>cuda:0</code> 只剩 0.41GB 可用显存，直接 crash。</p>
-<div class="language-javascript codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-javascript codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token known-class-name class-name" style="color:hsl(35, 99%, 36%)">ValueError</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain"> </span><span class="token maybe-class-name">Free</span><span class="token plain"> memory on device cuda</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token number" style="color:hsl(35, 99%, 36%)">0</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token number" style="color:hsl(35, 99%, 36%)">0.41</span><span class="token operator" style="color:hsl(221, 87%, 60%)">/</span><span class="token number" style="color:hsl(35, 99%, 36%)">44.39</span><span class="token plain"> </span><span class="token maybe-class-name">GiB</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token plain"> </span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain">is less than desired </span><span class="token constant" style="color:hsl(35, 99%, 36%)">GPU</span><span class="token plain"> memory </span><span class="token function" style="color:hsl(221, 87%, 60%)">utilization</span><span class="token plain"> </span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token number" style="color:hsl(35, 99%, 36%)">0.55</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">,</span><span class="token plain"> </span><span class="token number" style="color:hsl(35, 99%, 36%)">24.42</span><span class="token plain"> </span><span class="token maybe-class-name">GiB</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p><strong>解决方案：GPU UUID 文件协调</strong></p>
-<p>Embedding 容器启动后，把自己拿到的 GPU UUID 写到共享 Volume：</p>
-<div class="language-bash codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-bash codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token comment" style="color:hsl(230, 4%, 64%)"># Embedding 启动脚本</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">GPU_UUID</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token variable" style="color:hsl(221, 87%, 60%)">$(</span><span class="token variable" style="color:hsl(221, 87%, 60%)">nvidia-smi --query-gpu</span><span class="token variable operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token variable" style="color:hsl(221, 87%, 60%)">gpu_uuid </span><span class="token variable parameter variable" style="color:hsl(221, 87%, 60%)">--format</span><span class="token variable operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token variable" style="color:hsl(221, 87%, 60%)">csv,noheader</span><span class="token variable" style="color:hsl(221, 87%, 60%)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token builtin class-name" style="color:hsl(35, 99%, 36%)">echo</span><span class="token plain"> </span><span class="token string" style="color:hsl(119, 34%, 47%)">"</span><span class="token string variable" style="color:hsl(221, 87%, 60%)">$GPU_UUID</span><span class="token string" style="color:hsl(119, 34%, 47%)">"</span><span class="token plain"> </span><span class="token operator" style="color:hsl(221, 87%, 60%)">&gt;</span><span class="token plain"> /mnt/models/.gpu-uuid-</span><span class="token variable" style="color:hsl(221, 87%, 60%)">$MODEL_NAME</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>LLM 容器读取 UUID，转换成物理索引：</p>
-<div class="language-bash codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-bash codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token comment" style="color:hsl(230, 4%, 64%)"># LLM 启动脚本</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">GPU_UUID</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token variable" style="color:hsl(221, 87%, 60%)">$(</span><span class="token variable function" style="color:hsl(221, 87%, 60%)">cat</span><span class="token variable" style="color:hsl(221, 87%, 60%)"> /mnt/models/.gpu-uuid-$MODEL_NAME</span><span class="token variable" style="color:hsl(221, 87%, 60%)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">GPU_INDEX</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token variable" style="color:hsl(221, 87%, 60%)">$(</span><span class="token variable" style="color:hsl(221, 87%, 60%)">nvidia-smi --query-gpu</span><span class="token variable operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token variable" style="color:hsl(221, 87%, 60%)">index,gpu_uuid </span><span class="token variable parameter variable" style="color:hsl(221, 87%, 60%)">--format</span><span class="token variable operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token variable" style="color:hsl(221, 87%, 60%)">csv,noheader </span><span class="token variable punctuation" style="color:hsl(119, 34%, 47%)">\</span><span class="token variable" style="color:hsl(221, 87%, 60%)"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token variable" style="color:hsl(221, 87%, 60%)">  </span><span class="token variable operator" style="color:hsl(221, 87%, 60%)">|</span><span class="token variable" style="color:hsl(221, 87%, 60%)"> </span><span class="token variable function" style="color:hsl(221, 87%, 60%)">grep</span><span class="token variable" style="color:hsl(221, 87%, 60%)"> </span><span class="token variable string" style="color:hsl(119, 34%, 47%)">"</span><span class="token variable string variable" style="color:hsl(221, 87%, 60%)">$GPU_UUID</span><span class="token variable string" style="color:hsl(119, 34%, 47%)">"</span><span class="token variable" style="color:hsl(221, 87%, 60%)"> </span><span class="token variable operator" style="color:hsl(221, 87%, 60%)">|</span><span class="token variable" style="color:hsl(221, 87%, 60%)"> </span><span class="token variable function" style="color:hsl(221, 87%, 60%)">cut</span><span class="token variable" style="color:hsl(221, 87%, 60%)"> -d</span><span class="token variable string" style="color:hsl(119, 34%, 47%)">','</span><span class="token variable" style="color:hsl(221, 87%, 60%)"> </span><span class="token variable parameter variable" style="color:hsl(221, 87%, 60%)">-f1</span><span class="token variable" style="color:hsl(221, 87%, 60%)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token builtin class-name" style="color:hsl(35, 99%, 36%)">export</span><span class="token plain"> </span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">CUDA_VISIBLE_DEVICES</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token variable" style="color:hsl(221, 87%, 60%)">$GPU_INDEX</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="坑-3cuda_visible_devices-不接受-uuid">坑 3：CUDA_VISIBLE_DEVICES 不接受 UUID<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E5%9D%91-3cuda_visible_devices-%E4%B8%8D%E6%8E%A5%E5%8F%97-uuid" class="hash-link" aria-label="坑 3：CUDA_VISIBLE_DEVICES 不接受 UUID的直接链接" title="坑 3：CUDA_VISIBLE_DEVICES 不接受 UUID的直接链接">​</a></h2>
-<p>一开始我直接把 UUID 传给 <code>CUDA_VISIBLE_DEVICES</code>：</p>
-<div class="language-bash codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-bash codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token builtin class-name" style="color:hsl(35, 99%, 36%)">export</span><span class="token plain"> </span><span class="token assign-left variable" style="color:hsl(221, 87%, 60%)">CUDA_VISIBLE_DEVICES</span><span class="token operator" style="color:hsl(221, 87%, 60%)">=</span><span class="token plain">GPU-47ecdc0c-acfd-cb3a-2768-b3da530ff5c1</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>vLLM 报错：</p>
-<div class="language-javascript codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-javascript codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token known-class-name class-name" style="color:hsl(35, 99%, 36%)">ValueError</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain"> invalid literal </span><span class="token keyword control-flow" style="color:hsl(301, 63%, 40%)">for</span><span class="token plain"> </span><span class="token function" style="color:hsl(221, 87%, 60%)">int</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">(</span><span class="token punctuation" style="color:hsl(119, 34%, 47%)">)</span><span class="token plain"> </span><span class="token keyword" style="color:hsl(301, 63%, 40%)">with</span><span class="token plain"> base </span><span class="token number" style="color:hsl(35, 99%, 36%)">10</span><span class="token operator" style="color:hsl(221, 87%, 60%)">:</span><span class="token plain"> </span><span class="token string" style="color:hsl(119, 34%, 47%)">'GPU-47ecdc...'</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>必须转成整数索引（0/1/2/3）。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="坑-4gpu-memory-utilization-是各算各的">坑 4：gpu-memory-utilization 是各算各的<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E5%9D%91-4gpu-memory-utilization-%E6%98%AF%E5%90%84%E7%AE%97%E5%90%84%E7%9A%84" class="hash-link" aria-label="坑 4：gpu-memory-utilization 是各算各的的直接链接" title="坑 4：gpu-memory-utilization 是各算各的的直接链接">​</a></h2>
-<p>两个 vLLM 进程各自独立计算 <code>gpu-memory-utilization</code>，都是基于<strong>整卡 48GB</strong> 算的。</p>
-<p>如果 Embedding 设 0.08（3.8GB），LLM 设 0.92（43.2GB），加起来 47GB，看起来刚好。但每个进程还有 ~0.5GB 的 CUDA context 开销，实际总需求超过 48GB → OOM。</p>
-<p><strong>最终配置</strong>：Embedding 0.08 + LLM 0.87 = 0.95，留 5% 给双 CUDA context。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="坑-5moe-模型加载全部参数">坑 5：MoE 模型加载全部参数<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E5%9D%91-5moe-%E6%A8%A1%E5%9E%8B%E5%8A%A0%E8%BD%BD%E5%85%A8%E9%83%A8%E5%8F%82%E6%95%B0" class="hash-link" aria-label="坑 5：MoE 模型加载全部参数的直接链接" title="坑 5：MoE 模型加载全部参数的直接链接">​</a></h2>
-<p>Qwen3.6-35B-A3B-FP8 标称"3B 活跃参数"，但它有 128 个 Expert，总参数 35B。vLLM 加载时把<strong>全部 35B 权重</strong>（~34GB）都放到 GPU 上，不是只放 3B。</p>
-<p>这意味着 35B MoE 在单卡 48GB 上非常紧张：34GB 权重 + CUDA context + KV Cache，几乎没有余量。最终只分配到 2.3GB KV Cache（约 53K tokens），勉强能用。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="坑-6qwen36-的-torchcompile-吃显存">坑 6：Qwen3.6 的 torch.compile 吃显存<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E5%9D%91-6qwen36-%E7%9A%84-torchcompile-%E5%90%83%E6%98%BE%E5%AD%98" class="hash-link" aria-label="坑 6：Qwen3.6 的 torch.compile 吃显存的直接链接" title="坑 6：Qwen3.6 的 torch.compile 吃显存的直接链接">​</a></h2>
-<p>Qwen3.6 加载完 34GB 权重后，torch.compile 阶段会额外占用显存做 CUDA Graph capture。在 48GB 卡上，这个阶段直接 OOM。</p>
-<p>尝试过的方案：</p>
-<ol>
-<li><code>--compilation-config '{"cudagraph_capture_sizes": [1,2,4,8]}'</code> — 减少 capture 数量，从 51 个降到 4 个。但 Helm YAML 转义 JSON 时出错，没生效。</li>
-<li><code>--enforce-eager</code> — 完全跳过 torch.compile 和 CUDA Graph。<strong>这个有效。</strong></li>
-</ol>
-<p>代价是推理速度下降：TPOT 从理论的 ~55ms 涨到 88ms。但至少能跑起来。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="坑-7probe-超时">坑 7：Probe 超时<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E5%9D%91-7probe-%E8%B6%85%E6%97%B6" class="hash-link" aria-label="坑 7：Probe 超时的直接链接" title="坑 7：Probe 超时的直接链接">​</a></h2>
-<p>多容器 Pod 的 LLM 容器有 90 秒启动延迟（等 Embedding 先启动），加上模型加载时间，总启动时间可能超过 5 分钟。</p>
-<p>Kubernetes 的 liveness probe 默认 <code>initialDelaySeconds</code> 太短，模型还没加载完就被 kill 了，进入 CrashLoopBackOff。</p>
-<p>最终配置：</p>
-<table><thead><tr><th>模型</th><th style="text-align:center">initialDelaySeconds</th></tr></thead><tbody><tr><td>27B Dense</td><td style="text-align:center">180s</td></tr><tr><td>35B MoE + MTP</td><td style="text-align:center">600s</td></tr><tr><td>31B Dense</td><td style="text-align:center">360s</td></tr></tbody></table>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="最终显存分布">最终显存分布<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E6%9C%80%E7%BB%88%E6%98%BE%E5%AD%98%E5%88%86%E5%B8%83" class="hash-link" aria-label="最终显存分布的直接链接" title="最终显存分布的直接链接">​</a></h2>
-<p>三组模型全部 2/2 Running，0 restarts 后的 <code>nvidia-smi</code>：</p>
-<table><thead><tr><th>GPU</th><th>已用</th><th>剩余</th><th>Pod</th></tr></thead><tbody><tr><td>0</td><td>44,600 MiB (96.8%)</td><td>859 MiB</td><td>Qwen3.6-27B + Embedding</td></tr><tr><td>1</td><td>44,322 MiB (96.2%)</td><td>1,136 MiB</td><td>Qwen3.6-35B + Embedding</td></tr><tr><td>2</td><td>44,398 MiB (96.5%)</td><td>1,060 MiB</td><td>Gemma4-31B + Embedding</td></tr></tbody></table>
-<p>三张卡都用到了 96% 以上。这就是为什么调参过程如此痛苦——每一个百分点的显存分配都可能决定模型能不能启动。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="经验总结">经验总结<a href="https://www.real-tech.online/blog/l40s-gpu-memory-optimization#%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93" class="hash-link" aria-label="经验总结的直接链接" title="经验总结的直接链接">​</a></h2>
-<ol>
-<li><strong>K8s 里多容器共享 GPU，只能一个容器声明 GPU 资源</strong>，另一个用 <code>NVIDIA_VISIBLE_DEVICES=all</code> + UUID 文件协调</li>
-<li><strong>gpu-memory-utilization 是各算各的</strong>，两个进程加起来不能超过 0.95</li>
-<li><strong>MoE 模型按总参数算显存</strong>，不是活跃参数</li>
-<li><strong>enforce-eager 是最后的救命稻草</strong>，牺牲速度换稳定性</li>
-<li><strong>Probe 超时要按最慢的模型配置</strong>，35B MoE 需要 10 分钟</li>
-</ol>
-<p>下一篇讲性能基准测试——同样的硬件，不同模型的吞吐差异有多大。</p>]]></content>
-        <author>
-            <name>阿男</name>
-            <uri>https://real-tech.online</uri>
-        </author>
-        <category label="系列：L40S大模型部署" term="系列：L40S大模型部署"/>
-        <category label="GPU" term="GPU"/>
-        <category label="vLLM" term="vLLM"/>
-        <category label="显存优化" term="显存优化"/>
-        <category label="Kubernetes" term="Kubernetes"/>
     </entry>
 </feed>
