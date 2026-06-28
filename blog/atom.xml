@@ -2,12 +2,167 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://www.real-tech.online/blog</id>
     <title>阿男说</title>
-    <updated>2026-06-22T00:00:00.000Z</updated>
+    <updated>2026-06-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://www.real-tech.online/blog"/>
     <subtitle>阿男说 Blog</subtitle>
     <icon>https://www.real-tech.online/img/favicon.ico</icon>
     <rights>Copyright © 2026 阿男说 Built with Docusaurus.</rights>
+    <entry>
+        <title type="html"><![CDATA[海外需求雷达日报 - 2026-06-29]]></title>
+        <id>https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29</id>
+        <link href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29"/>
+        <updated>2026-06-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[今日关注：AI 智能图片压缩工具；AI 自动化测试修复；本地语义搜索。每日扫描 Product Hunt 发现独立开发者可复制的 AI 工具与 SaaS 机会。]]></summary>
+        <content type="html"><![CDATA[<p>每日扫描 Product Hunt 发现值得关注的海外 AI 工具与独立开发机会，重点关注一人可做、SEO 可积累、订阅可变现的方向。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日最值得关注机会top-3">🔥 今日最值得关注机会（Top 3）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#-%E4%BB%8A%E6%97%A5%E6%9C%80%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8%E6%9C%BA%E4%BC%9Atop-3" class="hash-link" aria-label="🔥 今日最值得关注机会（Top 3）的直接链接" title="🔥 今日最值得关注机会（Top 3）的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="1-getcompress--无损媒体压缩工具-">1. GetCompress — 无损媒体压缩工具 🟢<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#1-getcompress--%E6%97%A0%E6%8D%9F%E5%AA%92%E4%BD%93%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7-" class="hash-link" aria-label="1. GetCompress — 无损媒体压缩工具 🟢的直接链接" title="1. GetCompress — 无损媒体压缩工具 🟢的直接链接">​</a></h3>
+<ul>
+<li>URL: <a href="https://www.producthunt.com/products/getcompress" target="_blank" rel="noopener noreferrer">https://www.producthunt.com/products/getcompress</a></li>
+<li>核心功能: 无损媒体压缩，无需切换上下文（无需打开多个工具）</li>
+<li>AI 模式: AI wrapper（人操作 AI 增强界面 — 用户上传文件 → AI 选择最优压缩策略 → 输出压缩结果）。可演进方向：AI worker 自动监控文件夹，新文件自动压缩。</li>
+<li>竞争密度: TinyPNG（月流量 10M+）、CompressJPEG（5M+）、Squoosh（Google 开源）、ILoveIMG（8M+）、CloudConvert（3M+）— 约 15+ 个成熟竞品，但多数是传统模式</li>
+<li>窗口判断: 🟢 还开着</li>
+<li>窗口原因: 现有竞品都是 2015-2020 建立的传统工具，AI 驱动的智能压缩（自动选格式/质量/尺寸）是差异化机会，竞品在 SEO 上占据的是 "compress PNG" 而不是 "AI compress image"</li>
+<li>SEO 潜力: 极高。核心词 "compress image" 月搜索 200K+，"compress PNG" 50K+，"compress video online" 100K+。Long-tail 机会："compress image without losing quality AI"、"batch compress images for web"、"compress PDF to 100KB"</li>
+<li>MVP 难度: 低。前端上传 + sharp/ffmpeg wasm 处理，2-3 天可出 MVP。</li>
+<li>商业化潜力: 中等。Freemium（免费 5 次/天 + 付费无限），单用户 $5-10/月。但 ARPU 低，需大量用户或 B2B pricing。</li>
+<li>差异化切角: AI 驱动的"一键最优压缩" — 用户不需要选择格式/质量，AI 根据用途（web/social/print）自动决策，竞品挡不住因为它们在手动优化范式里。</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="2-blop--ai-自动化测试-">2. Blop — AI 自动化测试 🟡<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#2-blop--ai-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95-" class="hash-link" aria-label="2. Blop — AI 自动化测试 🟡的直接链接" title="2. Blop — AI 自动化测试 🟡的直接链接">​</a></h3>
+<ul>
+<li>URL: <a href="https://www.producthunt.com/products/blop-ai" target="_blank" rel="noopener noreferrer">https://www.producthunt.com/products/blop-ai</a></li>
+<li>核心功能: 描述你的应用，Blop 自动生成测试并修复失败的测试</li>
+<li>AI 模式: <strong>AI worker</strong>（事件驱动 — 代码变更触发测试生成/修复 → AI 自动执行 → 长期后台运行）。用户只需要审批例外。</li>
+<li>竞争密度: Playwright（开源 70K+ stars）、Cypress（47K+）、Testim（$56M 融资）、Mabl（$76M）、Sauce Labs（$151M）。但 AI-native 测试修复仍早期，直接竞品 &lt; 5 个（如 DiffBlue、Symflower）</li>
+<li>窗口判断: 🟡 快关闭</li>
+<li>窗口原因: 代码生成赛道 GitHub Copilot/Cursor 已成熟，测试生成是下一个战场，大厂和 VC-backed 公司正在涌入。窗口期 3-6 个月。</li>
+<li>SEO 潜力: 中高。关键词 "AI test generation"（月搜索 2K+）、"automated test repair"（1K+）、"AI unit test generator"。Long-tail: "AI automatically fix flaky tests"、"generate tests from requirements AI"</li>
+<li>MVP 难度: 中。需要 AST 解析、测试框架集成、LLM prompt engineering。1-2 周可出支持 1 个框架的 MVP。</li>
+<li>商业化潜力: 高。B2B SaaS $29-99/seat/月，test automation 是公认的刚需。<strong>买单方（CTO/VP Eng）和受益方（开发者省时间）对齐</strong> — 开发者想省时间，CTO 想提质量。</li>
+<li>差异化切角: 不是"生成测试"，而是"测试坏了 AI 自动修" — 解决 flaky test 这个每个团队的真正痛点。现有竞品做生成，少有人做自动修复。</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="3-dotient--本地语义搜索引擎-">3. Dotient — 本地语义搜索引擎 🟡<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#3-dotient--%E6%9C%AC%E5%9C%B0%E8%AF%AD%E4%B9%89%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E-" class="hash-link" aria-label="3. Dotient — 本地语义搜索引擎 🟡的直接链接" title="3. Dotient — 本地语义搜索引擎 🟡的直接链接">​</a></h3>
+<ul>
+<li>URL: <a href="https://www.producthunt.com/products/dotient" target="_blank" rel="noopener noreferrer">https://www.producthunt.com/products/dotient</a></li>
+<li>核心功能: 本地语义搜索应用 — 在本地文件/笔记中用自然语言搜索</li>
+<li>AI 模式: AI wrapper（人操作搜索界面）。可演进方向：AI worker 自动索引新文件、自动标记、自动关联。</li>
+<li>竞争密度: Spotlight/Alfred（macOS 内置，亿级用户）、Everything（Windows）、Recoll（开源）。语义搜索竞品：不到 5 个独立产品（如 Rewind.ai 但那是录屏）</li>
+<li>窗口判断: 🟡 快关闭</li>
+<li>窗口原因: Apple Intelligence 已内置语义搜索能力（macOS Sequoia），Windows Copilot 也在推进。本地语义搜索正从独立产品变成 OS 功能。但跨平台 + 可定制的工作流仍是机会。</li>
+<li>SEO 潜力: 中。关键词 "semantic search tool"（月搜索 5K+）、"local file search AI"（1K+）、"search files by meaning"。pSEO 适合度中等 — 可做 "best X file search" 类对比页面。</li>
+<li>MVP 难度: 中。Electron app + local embedding（all-MiniLM-L6-v2）+ FAISS/Chroma。1-2 周可出基本版。</li>
+<li>商业化潜力: 低-中。消费者产品，付费意愿弱。$5-10/月一次性付费模式。但可作为 SEO 引流工具 → 导流到其他产品。</li>
+<li>差异化切角: 开源核心 + 付费云同步（本地索引云端备份），用开源建立信任（隐私敏感品类），竞品大多数是闭源商业软件。</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日发现的长尾关键词机会">🔑 今日发现的长尾关键词机会<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#-%E4%BB%8A%E6%97%A5%E5%8F%91%E7%8E%B0%E7%9A%84%E9%95%BF%E5%B0%BE%E5%85%B3%E9%94%AE%E8%AF%8D%E6%9C%BA%E4%BC%9A" class="hash-link" aria-label="🔑 今日发现的长尾关键词机会的直接链接" title="🔑 今日发现的长尾关键词机会的直接链接">​</a></h2>
+<table><thead><tr><th>关键词</th><th>搜索意图</th><th>SEO 难度</th><th>pSEO 适合</th></tr></thead><tbody><tr><td>compress image without losing quality AI</td><td>工具型（找压缩工具）</td><td>低-中</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>batch compress images for web performance</td><td>工具型（批量处理）</td><td>低</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>AI automatically fix flaky tests</td><td>信息型（寻找解决方案）</td><td>低</td><td>⭐⭐⭐⭐</td></tr><tr><td>automated test repair tool</td><td>工具型（产品搜索）</td><td>低-中</td><td>⭐⭐⭐⭐</td></tr><tr><td>local semantic search for developers</td><td>工具型（寻找产品）</td><td>低</td><td>⭐⭐⭐</td></tr><tr><td>compress PDF to exact size KB</td><td>工具型（精确压缩）</td><td>低-中</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>best image format for web 2026</td><td>信息型（技术选型）</td><td>中</td><td>⭐⭐⭐⭐</td></tr><tr><td>AI unit test generator typescript</td><td>工具型（语言特定）</td><td>低-中</td><td>⭐⭐⭐⭐⭐</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日发现的可复制模式">📐 今日发现的可复制模式<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#-%E4%BB%8A%E6%97%A5%E5%8F%91%E7%8E%B0%E7%9A%84%E5%8F%AF%E5%A4%8D%E5%88%B6%E6%A8%A1%E5%BC%8F" class="hash-link" aria-label="📐 今日发现的可复制模式的直接链接" title="📐 今日发现的可复制模式的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-1ai-增强的工具型-saas-替换传统工具">模式 1：AI 增强的工具型 SaaS 替换传统工具<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#%E6%A8%A1%E5%BC%8F-1ai-%E5%A2%9E%E5%BC%BA%E7%9A%84%E5%B7%A5%E5%85%B7%E5%9E%8B-saas-%E6%9B%BF%E6%8D%A2%E4%BC%A0%E7%BB%9F%E5%B7%A5%E5%85%B7" class="hash-link" aria-label="模式 1：AI 增强的工具型 SaaS 替换传统工具的直接链接" title="模式 1：AI 增强的工具型 SaaS 替换传统工具的直接链接">​</a></h3>
+<p>GetCompress 代表的模式：传统工具型产品（压缩/转换/生成）+ AI 决策层 = 差异化。</p>
+<p><strong>为什么有效：</strong></p>
+<ul>
+<li>传统工具型产品 SEO 已被占据，但 AI 关键词（"AI compress"、"smart compress"）仍是空白</li>
+<li>用户不需要新品类教育 — 他们已经在搜索 "compress image"</li>
+<li>AI 增加的"智能决策"层（自动选格式/质量/尺寸）是传统竞品无法快速复制的</li>
+</ul>
+<p><strong>可复制到：</strong></p>
+<ul>
+<li>PDF 工具（AI merge/split/rotate）</li>
+<li>代码格式化工具（AI formatter — 理解上下文选最佳格式）</li>
+<li>图片编辑工具（AI background remover + 智能裁剪）</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-2devtools-的-ai-worker-化">模式 2：DevTools 的 AI Worker 化<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#%E6%A8%A1%E5%BC%8F-2devtools-%E7%9A%84-ai-worker-%E5%8C%96" class="hash-link" aria-label="模式 2：DevTools 的 AI Worker 化的直接链接" title="模式 2：DevTools 的 AI Worker 化的直接链接">​</a></h3>
+<p>Blop 代表的模式：DevTools 从"开发者用的工具"变成"AI 自动运行的 worker"。</p>
+<p><strong>为什么有效：</strong></p>
+<ul>
+<li>开发者是技术用户，对 AI 接受度高</li>
+<li>错误成本低（测试失败不会影响生产）</li>
+<li>买单方=受益方（开发者自己既想省时间，又能决定买什么工具）</li>
+<li>CI/CD pipeline 天然是 event-driven 场景</li>
+</ul>
+<p><strong>可复制到：</strong></p>
+<ul>
+<li>AI code review（PR → AI review → 自动 approve/reject 小改动）</li>
+<li>AI dependency updater（新版发布 → AI 检查 breaking changes → 自动 PR）</li>
+<li>AI performance optimizer（build → AI 分析 bundle → 自动建议/修复）</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日不建议进入的方向">⛔ 今日不建议进入的方向<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#-%E4%BB%8A%E6%97%A5%E4%B8%8D%E5%BB%BA%E8%AE%AE%E8%BF%9B%E5%85%A5%E7%9A%84%E6%96%B9%E5%90%91" class="hash-link" aria-label="⛔ 今日不建议进入的方向的直接链接" title="⛔ 今日不建议进入的方向的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="1-ai-agent-平台--framework">1. AI Agent 平台 / Framework<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#1-ai-agent-%E5%B9%B3%E5%8F%B0--framework" class="hash-link" aria-label="1. AI Agent 平台 / Framework的直接链接" title="1. AI Agent 平台 / Framework的直接链接">​</a></h3>
+<ul>
+<li>原因：Lyto、Persona.js、Zaro、Sidegent 等扎堆出现。巨头（OpenAI、Anthropic、Google）+ 开源（LangChain、CrewAI）全面覆盖。独立开发者没有分发优势。</li>
+<li>PH 本周至少 8 个 agent 相关产品上线 — 供应严重过剩。</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="2-ai-ppt演示工具">2. AI PPT/演示工具<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#2-ai-ppt%E6%BC%94%E7%A4%BA%E5%B7%A5%E5%85%B7" class="hash-link" aria-label="2. AI PPT/演示工具的直接链接" title="2. AI PPT/演示工具的直接链接">​</a></h3>
+<ul>
+<li>原因：Folio AI、AI Slide Editor by CubeOne、Gamma、Beautiful.ai、Tome。Microsoft Copilot 已内置到 PowerPoint。赛道极度拥挤。</li>
+<li>差异化难：PPT 生成质量取决于底层模型，所有产品用同一个 GPT/Claude。</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="3-mac-only-工具">3. Mac-Only 工具<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#3-mac-only-%E5%B7%A5%E5%85%B7" class="hash-link" aria-label="3. Mac-Only 工具的直接链接" title="3. Mac-Only 工具的直接链接">​</a></h3>
+<ul>
+<li>原因：RetroMac（Mac 时间机器）、Aurora Notch（Mac notch workspace）— 市场天花板低，SEO 难做。除非产品能跨平台或做成 Web 版。</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="4-纯-ai-chat-前端">4. 纯 AI Chat 前端<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#4-%E7%BA%AF-ai-chat-%E5%89%8D%E7%AB%AF" class="hash-link" aria-label="4. 纯 AI Chat 前端的直接链接" title="4. 纯 AI Chat 前端的直接链接">​</a></h3>
+<ul>
+<li>原因：Cewsco（all-in-one AI assistant）— 同质化极度严重。用户粘性建立在模型能力而非产品体验上。一旦底层模型升级，产品就被替代。</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="5-实时分析工具">5. 实时分析工具<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#5-%E5%AE%9E%E6%97%B6%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7" class="hash-link" aria-label="5. 实时分析工具的直接链接" title="5. 实时分析工具的直接链接">​</a></h3>
+<ul>
+<li>原因：Sleek Analytics — Plausible、Fathom、Simple Analytics、Umami、Google Analytics。隐私友好分析赛道已有 10+ 成熟产品。CAC 高，ARPU 低（$9-19/月），单位经济学差。</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日最值得尝试的-mvp">🚀 今日最值得尝试的 MVP<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#-%E4%BB%8A%E6%97%A5%E6%9C%80%E5%80%BC%E5%BE%97%E5%B0%9D%E8%AF%95%E7%9A%84-mvp" class="hash-link" aria-label="🚀 今日最值得尝试的 MVP的直接链接" title="🚀 今日最值得尝试的 MVP的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="方向ai-智能图片压缩工具参考-getcompress-模式">方向：AI 智能图片压缩工具（参考 GetCompress 模式）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#%E6%96%B9%E5%90%91ai-%E6%99%BA%E8%83%BD%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7%E5%8F%82%E8%80%83-getcompress-%E6%A8%A1%E5%BC%8F" class="hash-link" aria-label="方向：AI 智能图片压缩工具（参考 GetCompress 模式）的直接链接" title="方向：AI 智能图片压缩工具（参考 GetCompress 模式）的直接链接">​</a></h3>
+<p><strong>最小功能：</strong></p>
+<ul>
+<li>Web 端上传图片（拖拽）</li>
+<li>AI 自动检测图片用途（web/social/print/email）</li>
+<li>自动选择最优格式（WebP/AVIF/PNG/JPEG）+ 质量参数</li>
+<li>一键下载 + 显示压缩比</li>
+<li>5 个 pSEO 着陆页（每种用途 1 个 + 格式对比 1 个）</li>
+</ul>
+<p><strong>推荐技术栈：</strong></p>
+<ul>
+<li>前端：Next.js + Tailwind + Vercel</li>
+<li>图片处理：sharp（Node.js）或 browser-side WebAssembly</li>
+<li>AI 决策：简单的规则引擎 + LLM fallback（OpenAI API，成本极低）</li>
+<li>存储：临时处理，不需持久化（降低成本）</li>
+</ul>
+<p><strong>开发时间估计：3-5 天</strong></p>
+<p><strong>SEO 切入口：</strong></p>
+<ul>
+<li>主站：<code>aicompress.io</code>（或类似）</li>
+<li>内容页：<code>/compress-image-for-web</code>、<code>/compress-image-for-social-media</code>、<code>/png-vs-webp-vs-avif</code></li>
+<li>工具页：<code>/tools/batch-compress</code>、<code>/tools/compress-pdf</code></li>
+<li>博客：每周 2 篇对比/教程文章</li>
+</ul>
+<p><strong>内容矩阵方向：</strong></p>
+<ul>
+<li>"Image compression guide 2026"（对比型长文）</li>
+<li>"PNG vs WebP vs AVIF: which format for your use case"</li>
+<li>"How to compress images without losing quality"</li>
+<li>多语言扩展：先做英文 → 西班牙语/葡萄牙语（竞争少）</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-决策矩阵">📊 决策矩阵<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29#-%E5%86%B3%E7%AD%96%E7%9F%A9%E9%98%B5" class="hash-link" aria-label="📊 决策矩阵的直接链接" title="📊 决策矩阵的直接链接">​</a></h2>
+<table><thead><tr><th></th><th style="text-align:center">AI 图片压缩</th><th style="text-align:center">AI 自动化测试</th><th style="text-align:center">本地语义搜索</th></tr></thead><tbody><tr><td>竞争密度</td><td style="text-align:center">⭐⭐（多但老）</td><td style="text-align:center">⭐⭐⭐（VC 涌入中）</td><td style="text-align:center">⭐（少但巨头威胁）</td></tr><tr><td>窗口期</td><td style="text-align:center">🟢 开着</td><td style="text-align:center">🟡 3-6月</td><td style="text-align:center">🟡 6-12月</td></tr><tr><td>SEO 潜力</td><td style="text-align:center">⭐⭐⭐⭐⭐</td><td style="text-align:center">⭐⭐⭐</td><td style="text-align:center">⭐⭐</td></tr><tr><td>MVP 难度</td><td style="text-align:center">⭐（3-5天）</td><td style="text-align:center">⭐⭐⭐（1-2周）</td><td style="text-align:center">⭐⭐（1周）</td></tr><tr><td>商业化确定性</td><td style="text-align:center">⭐⭐（ARPU低）</td><td style="text-align:center">⭐⭐⭐⭐（B2B强）</td><td style="text-align:center">⭐（消费者付费弱）</td></tr><tr><td><strong>优先级</strong></td><td style="text-align:center"><strong>#1 立即执行</strong></td><td style="text-align:center"><strong>#2 研究后执行</strong></td><td style="text-align:center"><strong>#3 观望</strong></td></tr></tbody></table>
+<hr>
+<p><em>报告生成时间：2026-06-29 | 数据来源：Product Hunt RSS Feed | 分析框架：海外需求雷达 v1.0</em></p>]]></content>
+        <author>
+            <name>阿男</name>
+            <uri>https://real-tech.online</uri>
+        </author>
+        <category label="海外需求雷达" term="海外需求雷达"/>
+        <category label="Product Hunt" term="Product Hunt"/>
+        <category label="indie hacker" term="indie hacker"/>
+        <category label="AI工具" term="AI工具"/>
+        <category label="SaaS机会" term="SaaS机会"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[海外需求雷达日报 - 2026-06-22]]></title>
         <id>https://www.real-tech.online/blog/overseas-demand-radar-2026-06-22</id>
@@ -2642,72 +2797,5 @@ YouTube 上有无限的学习素材，但学习者需要的是：1) 找合适难
         <category label="模型评测" term="模型评测"/>
         <category label="vLLM" term="vLLM"/>
         <category label="AI" term="AI"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[L40S 大模型部署实录③：同一张卡跑三个模型，速度差了 8 倍]]></title>
-        <id>https://www.real-tech.online/blog/l40s-model-benchmark</id>
-        <link href="https://www.real-tech.online/blog/l40s-model-benchmark"/>
-        <updated>2026-05-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[L40S 单卡性能实测对比：Qwen3.5-27B 18tok/s vs Qwen3.6-35B 11tok/s vs gemma-4-26B 93tok/s，模型选型的真实数据参考。]]></summary>
-        <content type="html"><![CDATA[<p>Qwen3.5-27B：18 tok/s。Qwen3.6-35B：11 tok/s。gemma-4-26B 双卡：93 tok/s。同样是 L40S，模型选错速度差 8 倍。这篇用真实测试数据告诉你，哪个模型值得你的 GPU 时间。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="测试方法">测试方法<a href="https://www.real-tech.online/blog/l40s-model-benchmark#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95" class="hash-link" aria-label="测试方法的直接链接" title="测试方法的直接链接">​</a></h2>
-<p>自己写了一个 benchmark 脚本（<code>bench_model.py</code>），核心逻辑：</p>
-<ul>
-<li><strong>Warm-up</strong>：每个场景先跑 2 次预热，不计入统计</li>
-<li><strong>多次运行</strong>：每个场景跑 3 次，取中位数</li>
-<li><strong>测试矩阵</strong>：4 种输入长度（512/2K/8K/32K）× 4 种并发度（1/2/4/8）</li>
-<li><strong>输出固定 512 tokens</strong></li>
-<li><strong>指标</strong>：TPS（tokens/s）、TTFT（首 token 延迟）、TPOT（每 token 延迟）</li>
-</ul>
-<p>所有测试在同一节点上完成，3 张卡各跑一个模型并行测试。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="测试环境">测试环境<a href="https://www.real-tech.online/blog/l40s-model-benchmark#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83" class="hash-link" aria-label="测试环境的直接链接" title="测试环境的直接链接">​</a></h2>
-<table><thead><tr><th>项目</th><th>配置</th></tr></thead><tbody><tr><td>GPU</td><td>单卡 NVIDIA L40S 48GB</td></tr><tr><td>vLLM</td><td>v0.19.1（Qwen3.5/Gemma4），latest（Qwen3.6）</td></tr><tr><td>优化</td><td><code>--kv-cache-dtype=fp8 --enable-prefix-caching --enable-chunked-prefill</code></td></tr></tbody></table>
-<p>三个模型的关键差异：</p>
-<table><thead><tr><th>模型</th><th>架构</th><th>精度</th><th style="text-align:center">权重大小</th><th style="text-align:center">max-model-len</th><th style="text-align:center">CUDA Graph</th></tr></thead><tbody><tr><td>Qwen3.5-27B-FP8</td><td>Dense</td><td>FP8</td><td style="text-align:center">~28GB</td><td style="text-align:center">128K</td><td style="text-align:center">✅</td></tr><tr><td>Qwen3.6-35B-A3B-FP8</td><td>MoE 128E/8A</td><td>FP8</td><td style="text-align:center">~34GB</td><td style="text-align:center">64K</td><td style="text-align:center">❌ enforce-eager</td></tr><tr><td>Gemma4-31B-FP8</td><td>Dense</td><td>FP8</td><td style="text-align:center">~31GB</td><td style="text-align:center">128K</td><td style="text-align:center">✅</td></tr></tbody></table>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="单请求吞吐c1">单请求吞吐（c=1）<a href="https://www.real-tech.online/blog/l40s-model-benchmark#%E5%8D%95%E8%AF%B7%E6%B1%82%E5%90%9E%E5%90%90c1" class="hash-link" aria-label="单请求吞吐（c=1）的直接链接" title="单请求吞吐（c=1）的直接链接">​</a></h2>
-<p>最基础的指标——一个请求，模型能跑多快：</p>
-<table><thead><tr><th>模型</th><th style="text-align:center">512 输入</th><th style="text-align:center">2K 输入</th><th style="text-align:center">8K 输入</th><th style="text-align:center">32K 输入</th></tr></thead><tbody><tr><td>Qwen3.5-27B</td><td style="text-align:center"><strong>18.1</strong> tok/s</td><td style="text-align:center"><strong>18.5</strong> tok/s</td><td style="text-align:center"><strong>18.3</strong> tok/s</td><td style="text-align:center"><strong>16.2</strong> tok/s</td></tr><tr><td>Qwen3.6-35B</td><td style="text-align:center">11.0 tok/s</td><td style="text-align:center">11.1 tok/s</td><td style="text-align:center">10.9 tok/s</td><td style="text-align:center">❌ OOM</td></tr><tr><td>Gemma4-31B</td><td style="text-align:center">17.4 tok/s</td><td style="text-align:center">17.2 tok/s</td><td style="text-align:center">16.7 tok/s</td><td style="text-align:center">❌ OOM</td></tr></tbody></table>
-<p><strong>关键发现</strong>：</p>
-<ol>
-<li><strong>Qwen3.5 最快</strong>，18 tok/s 稳定输出，32K 长文本也只降到 16.2</li>
-<li><strong>Gemma4 接近 Qwen3.5</strong>，但 32K 输入 OOM（31B 权重占了太多显存，KV Cache 不够）</li>
-<li><strong>Qwen3.6 最慢</strong>，只有 11 tok/s。原因是 <code>enforce-eager</code>（没有 CUDA Graph 加速）+ MoE 架构的 Expert 路由开销</li>
-</ol>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="并发吞吐c8">并发吞吐（c=8）<a href="https://www.real-tech.online/blog/l40s-model-benchmark#%E5%B9%B6%E5%8F%91%E5%90%9E%E5%90%90c8" class="hash-link" aria-label="并发吞吐（c=8）的直接链接" title="并发吞吐（c=8）的直接链接">​</a></h2>
-<p>8 个并发请求同时打：</p>
-<table><thead><tr><th>模型</th><th style="text-align:center">512 输入</th><th style="text-align:center">2K 输入</th><th style="text-align:center">8K 输入</th></tr></thead><tbody><tr><td>Qwen3.5-27B</td><td style="text-align:center">130.3 tok/s</td><td style="text-align:center">130.1 tok/s</td><td style="text-align:center">100.8 tok/s</td></tr><tr><td>Qwen3.6-35B</td><td style="text-align:center">83.6 tok/s</td><td style="text-align:center">82.0 tok/s</td><td style="text-align:center">80.9 tok/s</td></tr><tr><td>Gemma4-31B</td><td style="text-align:center"><strong>132.0</strong> tok/s</td><td style="text-align:center"><strong>129.5</strong> tok/s</td><td style="text-align:center"><strong>126.2</strong> tok/s</td></tr></tbody></table>
-<p><strong>Gemma4 在高并发下反超 Qwen3.5</strong>！原因是 Gemma4 的 KV Cache 更大（7GB vs Qwen3.5 的 10GB），在 8K 输入时 Qwen3.5 开始受 KV Cache 容量限制，吞吐下降到 100.8。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="延迟指标">延迟指标<a href="https://www.real-tech.online/blog/l40s-model-benchmark#%E5%BB%B6%E8%BF%9F%E6%8C%87%E6%A0%87" class="hash-link" aria-label="延迟指标的直接链接" title="延迟指标的直接链接">​</a></h2>
-<table><thead><tr><th>模型</th><th style="text-align:center">TTFT (512in, c=1)</th><th style="text-align:center">TTFT (8Kin, c=1)</th><th style="text-align:center">TPOT (c=1)</th><th style="text-align:center">TPOT (c=8)</th></tr></thead><tbody><tr><td>Qwen3.5</td><td style="text-align:center">1,224 ms</td><td style="text-align:center">1,599 ms</td><td style="text-align:center"><strong>53.0 ms</strong></td><td style="text-align:center">57.3 ms</td></tr><tr><td>Qwen3.6</td><td style="text-align:center">1,148 ms</td><td style="text-align:center">1,839 ms</td><td style="text-align:center">88.3 ms</td><td style="text-align:center">92.3 ms</td></tr><tr><td>Gemma4</td><td style="text-align:center"><strong>1,025 ms</strong></td><td style="text-align:center">1,675 ms</td><td style="text-align:center">55.4 ms</td><td style="text-align:center">57.8 ms</td></tr></tbody></table>
-<ul>
-<li><strong>TTFT</strong>（首 token 延迟）：Gemma4 最快，因为 prefill 阶段 Dense 架构比 MoE 高效</li>
-<li><strong>TPOT</strong>（每 token 延迟）：Qwen3.5 最低 53ms，Qwen3.6 因为 enforce-eager 高达 88ms</li>
-</ul>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="并发扩展性">并发扩展性<a href="https://www.real-tech.online/blog/l40s-model-benchmark#%E5%B9%B6%E5%8F%91%E6%89%A9%E5%B1%95%E6%80%A7" class="hash-link" aria-label="并发扩展性的直接链接" title="并发扩展性的直接链接">​</a></h2>
-<p>所有模型都展现了近线性的并发扩展：</p>
-<table><thead><tr><th>模型</th><th style="text-align:center">c=1</th><th style="text-align:center">c=2</th><th style="text-align:center">c=4</th><th style="text-align:center">c=8</th><th style="text-align:center">扩展比</th></tr></thead><tbody><tr><td>Qwen3.5</td><td style="text-align:center">18.1</td><td style="text-align:center">36.9</td><td style="text-align:center">73.1</td><td style="text-align:center">130.3</td><td style="text-align:center">7.2× ✅</td></tr><tr><td>Qwen3.6</td><td style="text-align:center">11.0</td><td style="text-align:center">21.3</td><td style="text-align:center">42.1</td><td style="text-align:center">83.6</td><td style="text-align:center">7.6× ✅</td></tr><tr><td>Gemma4</td><td style="text-align:center">17.4</td><td style="text-align:center">34.3</td><td style="text-align:center">67.9</td><td style="text-align:center">132.0</td><td style="text-align:center">7.6× ✅</td></tr></tbody></table>
-<p>8 并发达到 7.2-7.6× 的扩展，说明 vLLM 的 continuous batching 在 L40S 上工作良好。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="历史对比单卡-vs-双卡">历史对比：单卡 vs 双卡<a href="https://www.real-tech.online/blog/l40s-model-benchmark#%E5%8E%86%E5%8F%B2%E5%AF%B9%E6%AF%94%E5%8D%95%E5%8D%A1-vs-%E5%8F%8C%E5%8D%A1" class="hash-link" aria-label="历史对比：单卡 vs 双卡的直接链接" title="历史对比：单卡 vs 双卡的直接链接">​</a></h2>
-<p>之前还测过 TP=2（双卡）的配置：</p>
-<table><thead><tr><th>模型</th><th style="text-align:center">卡数</th><th style="text-align:center">c=1</th><th style="text-align:center">c=8</th><th style="text-align:center">TPOT</th></tr></thead><tbody><tr><td>gemma-4-26B-A4B BF16</td><td style="text-align:center">2</td><td style="text-align:center"><strong>93.0</strong></td><td style="text-align:center"><strong>536.9</strong></td><td style="text-align:center"><strong>9.1 ms</strong></td></tr><tr><td>Qwen3.5-27B-Int4</td><td style="text-align:center">1</td><td style="text-align:center">24.5</td><td style="text-align:center">167.3</td><td style="text-align:center">39.0 ms</td></tr><tr><td>Qwen3.5-27B-FP8</td><td style="text-align:center">1</td><td style="text-align:center">18.1</td><td style="text-align:center">130.3</td><td style="text-align:center">53.0 ms</td></tr></tbody></table>
-<p><strong>gemma-4-26B-A4B 双卡 BF16 是性能怪兽</strong>：93 tok/s 单请求，537 tok/s 并发。MoE 架构（4B 活跃参数）+ 双卡 + BF16 精度 = 极致速度。但它占两张卡，在"一卡一模型"的方案里用不了。</p>
-<p>另一个有趣的发现：<strong>Int4 比 FP8 快</strong>（24.5 vs 18.1 tok/s）。Int4 权重更小（~15GB vs ~28GB），更多显存给 KV Cache，decode 阶段的显存带宽压力更小。代价是精度损失，需要评测验证。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="结论">结论<a href="https://www.real-tech.online/blog/l40s-model-benchmark#%E7%BB%93%E8%AE%BA" class="hash-link" aria-label="结论的直接链接" title="结论的直接链接">​</a></h2>
-<p>在单卡 L40S 48GB 上：</p>
-<ul>
-<li><strong>追求质量+速度平衡</strong>：Qwen3.5-27B-FP8（18 tok/s，76.6% 质量）</li>
-<li><strong>追求极致吞吐</strong>：Gemma4-31B-FP8（132 tok/s @c=8，但长文本 OOM）</li>
-<li><strong>不推荐</strong>：Qwen3.6-35B-A3B-FP8（enforce-eager 拖累太大，11 tok/s）</li>
-</ul>
-<p>下一篇讲质量评测——速度快不代表回答好，160 道题 6 个维度的评测结果。</p>]]></content>
-        <author>
-            <name>阿男</name>
-            <uri>https://real-tech.online</uri>
-        </author>
-        <category label="系列：L40S大模型部署" term="系列：L40S大模型部署"/>
-        <category label="GPU" term="GPU"/>
-        <category label="vLLM" term="vLLM"/>
-        <category label="性能测试" term="性能测试"/>
-        <category label="LLM" term="LLM"/>
     </entry>
 </feed>
