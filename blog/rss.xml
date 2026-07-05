@@ -4,11 +4,155 @@
         <title>阿男说</title>
         <link>https://www.real-tech.online/blog</link>
         <description>阿男说 Blog</description>
-        <lastBuildDate>Mon, 29 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Jul 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-CN</language>
         <copyright>Copyright © 2026 阿男说 Built with Docusaurus.</copyright>
+        <item>
+            <title><![CDATA[海外需求雷达日报 - 2026-07-06]]></title>
+            <link>https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06</link>
+            <guid>https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06</guid>
+            <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[今日关注：垂直场景AI清单生成器；AI广告素材自动适配；AI-Native GTM销售代理。每日扫描 Product Hunt 发现独立开发者可复制的 AI 工具与 SaaS 机会。]]></description>
+            <content:encoded><![CDATA[<p>每日扫描 Product Hunt 发现值得关注的海外 AI 工具与独立开发机会，重点关注一人可做、SEO 可积累、订阅可变现的方向。</p>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日最值得关注机会top-3">🔥 今日最值得关注机会（Top 3）<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E4%BB%8A%E6%97%A5%E6%9C%80%E5%80%BC%E5%BE%97%E5%85%B3%E6%B3%A8%E6%9C%BA%E4%BC%9Atop-3" class="hash-link" aria-label="🔥 今日最值得关注机会（Top 3）的直接链接" title="🔥 今日最值得关注机会（Top 3）的直接链接">​</a></h2>
+<blockquote>
+<p><strong>扫描说明：</strong> Product Hunt 主站被 Cloudflare 拦截，本次扫描基于 RSS Feed（<code>/feed</code>）获取 2026-06-29 至 2026-07-05 期间的 featured 产品（共 47 个），结合产品官网直接抓取验证。过滤掉 agent framework、infra、纯娱乐、社交产品后，筛选出以下方向。</p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="1-垂直场景-ai-清单计划生成器-">1. 垂直场景 AI 清单/计划生成器 🟢<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#1-%E5%9E%82%E7%9B%B4%E5%9C%BA%E6%99%AF-ai-%E6%B8%85%E5%8D%95%E8%AE%A1%E5%88%92%E7%94%9F%E6%88%90%E5%99%A8-" class="hash-link" aria-label="1. 垂直场景 AI 清单/计划生成器 🟢的直接链接" title="1. 垂直场景 AI 清单/计划生成器 🟢的直接链接">​</a></h3>
+<ul>
+<li><strong>灵感来源:</strong> ChecklistFox（PH 2026-07-03 发布，<code>checklistfox.com</code>）</li>
+<li><strong>核心功能:</strong> 用户输入 prompt，AI 生成结构化 checklist PDF。已覆盖 wedding、Hajj、baby、moving、travel 等生活场景。</li>
+<li><strong>为什么值得关注:</strong> ChecklistFox 验证了「AI 生成结构化 PDF」这个产品形态有市场需求。但它是横向产品（覆盖所有场景），niche 切口的垂直版本还没人做——每个场景（婚礼清单、搬家清单、新生儿清单、旅行打包清单）都可以是一个独立的 SEO 站。</li>
+<li><strong>AI 模式:</strong> AI wrapper（人输入 prompt → AI 生成 → 人下载 PDF）。可升级到 AI worker（用户设定日期 → AI 自动在适当时机推送对应阶段清单）。</li>
+<li><strong>竞争密度:</strong> ChecklistFox 1 家（刚发布），Canva 有模板但不是 AI 生成，Etsy/Pinterest 有静态 PDF 但不可定制。直接竞品极少。</li>
+<li><strong>窗口判断:</strong> 🟢 还开着</li>
+<li><strong>窗口原因:</strong> AI 生成结构化文档的能力（Claude Sonnet 5 / GPT-5）刚成熟到可靠生成专业 PDF，而 ChecklistFox 刚发布不到一周，niche 垂直切角完全空白。</li>
+<li><strong>SEO 潜力:</strong> ⭐⭐⭐⭐⭐ 极高。每个场景都有大量 long-tail 搜索词（"wedding planning checklist pdf" 月搜索量 12K+，"moving out checklist" 8K+，"baby registry checklist" 6K+）。</li>
+<li><strong>MVP 难度:</strong> 低。1 个周末可做单场景 MVP：Next.js + Vercel + OpenAI API + react-pdf。</li>
+<li><strong>商业化潜力:</strong> 高。Freemium（免费 3 个清单）+ Pro（无限 + 自定义品牌 + 协作），$9-19/月。</li>
+<li><strong>差异化切角:</strong> 不做横向平台，做「婚礼专用 AI 清单生成器」——深耕一个场景的内容、模板、SEO，做到该场景 Google 第一页。</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="2-ai-广告素材自动适配-">2. AI 广告素材自动适配 🟡<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#2-ai-%E5%B9%BF%E5%91%8A%E7%B4%A0%E6%9D%90%E8%87%AA%E5%8A%A8%E9%80%82%E9%85%8D-" class="hash-link" aria-label="2. AI 广告素材自动适配 🟡的直接链接" title="2. AI 广告素材自动适配 🟡的直接链接">​</a></h3>
+<ul>
+<li><strong>灵感来源:</strong> PixFit（PH 2026-07-01 发布，<code>pixfit.ai</code>）</li>
+<li><strong>核心功能:</strong> 上传一个 master creative，AI 自动 resize/reframe 成 Facebook、Google、TikTok、Instagram 等所有广告平台的各种尺寸格式。</li>
+<li><strong>为什么值得关注:</strong> 广告投放团队每周花大量时间手动 resize creative。这是一个已被验证的痛点（Canva、Adobe Express 都有 resize 功能），但「AI 智能裁剪 + 批量自动化」的独立工具仍有空间。</li>
+<li><strong>AI 模式:</strong> AI wrapper（人上传素材 → AI 智能裁剪/适配 → 人审核下载）。可升级为 AI worker（连接广告平台 API → 自动生成变体 → A/B 测试 → 自动优化）。</li>
+<li><strong>竞争密度:</strong> PixFit（刚发布）、Canva Magic Resize（50M+ 用户）、Adobe Express（30M+ 用户）、Rocketium（$15M 融资）、Bannerflow（$20M+ ARR）。中小型：Clipping Magic、Pixelixe、Bannersnack。</li>
+<li><strong>窗口判断:</strong> 🟡 快关闭</li>
+<li><strong>窗口原因:</strong> 头部玩家（Canva/Adobe）已有成熟 resize 功能，初创公司窗口正在收窄。差异化必须做到更垂直（比如「仅服务 DTC 电商广告主」）或更 AI-native（自动 A/B 测试 + 优化闭环）。</li>
+<li><strong>SEO 潜力:</strong> ⭐⭐⭐ 中等。"facebook ad size" "google display ad specs" 等搜索量大但被 Canva/Adobe 占据。Long-tail 有机会："resize image for facebook ad without cropping"。</li>
+<li><strong>MVP 难度:</strong> 中。核心裁剪算法可用 AI vision API，但多格式适配 + 批量处理 + 预览需 2-3 周。</li>
+<li><strong>商业化潜力:</strong> 中高。Freemium（每月 10 次免费）+ Pro $29-49/月。广告主付费意愿强。</li>
+<li><strong>差异化切角:</strong> 不做通用 resize 工具，做「DTC 电商专用广告素材工厂」——连接 Shopify 产品 feed → 自动生成所有平台的所有尺寸 → 直接推送到 Facebook/Google Ads。</li>
+</ul>
+<hr>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="3-ai-native-gtmsales-代理-">3. AI-Native GTM/Sales 代理 🟢<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#3-ai-native-gtmsales-%E4%BB%A3%E7%90%86-" class="hash-link" aria-label="3. AI-Native GTM/Sales 代理 🟢的直接链接" title="3. AI-Native GTM/Sales 代理 🟢的直接链接">​</a></h3>
+<ul>
+<li><strong>灵感来源:</strong> Needle（PH 2026-06-30 发布，<code>tryneedle.ai</code>）</li>
+<li><strong>核心功能:</strong> 在 Slack/Teams 中的主动式 GTM agent，自动做潜在客户研究、推送销售信号、建议 outreach 时机。</li>
+<li><strong>为什么值得关注:</strong> 这是典型的 <strong>AI worker 模式</strong>——不是人等 dashboard，而是 AI 主动在 Slack 里推消息。Sales/GTM 领域错误成本低（推了一条不准确的消息 → 用户忽略即可），买单方（sales leader）和受益方（sales rep 效率提升）对齐度高。</li>
+<li><strong>AI 模式:</strong> AI worker（事件驱动 → 自动研究 → 主动推送 → 长期后台运行）。触发方式：CRM 数据变化 / 新闻事件 / 网站访问信号。用户的角色从「每天打开 Salesforce 翻 lead」变成「审批 AI 推荐的高价值 outreach 时机」。</li>
+<li><strong>竞争密度:</strong> Needle（刚发布）、11x.ai（$24M 融资，AI SDR）、Artisan AI（$12M 融资）、Clay（$60M 融资，数据 enrichment）、Apollo.io（$100M+ ARR，但非 AI-native）。</li>
+<li><strong>窗口判断:</strong> 🟢 还开着</li>
+<li><strong>窗口原因:</strong> 现有玩家要么是传统 SaaS + AI  wrapper（Apollo），要么在往通用 AI SDR 方向卷（11x/Artisan）。垂直切角（特定行业 GTM agent，比如「只做 SaaS 对 SaaS 的 GTM agent」）和地域切角（非英语市场 GTM）完全空白。</li>
+<li><strong>SEO 潜力:</strong> ⭐⭐ 低。B2B sales 关键词竞争激烈，但 long-tail 有机会："best AI sales agent for small team"、"AI SDR vs human SDR 2026"。</li>
+<li><strong>MVP 难度:</strong> 中高。核心是数据 pipeline（CRM + 新闻 + 网站访问信号）+ LLM 分析 + Slack bot。2-3 周 MVP，但数据集成是持续工程。</li>
+<li><strong>商业化潜力:</strong> 极高。B2B SaaS 订阅，$99-499/月/seat。Sales 工具付费意愿强。买单方（VP Sales/CEO）和受益方（sales team 效率）对齐。</li>
+<li><strong>差异化切角:</strong> 不做通用 AI SDR，做「SaaS 创始人专用 GTM agent」——聚焦 PLG SaaS 的 signal-based selling，只关注 product-qualified leads 的转化时机。</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日发现的长尾关键词机会">🔑 今日发现的长尾关键词机会<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E4%BB%8A%E6%97%A5%E5%8F%91%E7%8E%B0%E7%9A%84%E9%95%BF%E5%B0%BE%E5%85%B3%E9%94%AE%E8%AF%8D%E6%9C%BA%E4%BC%9A" class="hash-link" aria-label="🔑 今日发现的长尾关键词机会的直接链接" title="🔑 今日发现的长尾关键词机会的直接链接">​</a></h2>
+<table><thead><tr><th>关键词</th><th>搜索意图</th><th>SEO 难度</th><th>pSEO 适合</th></tr></thead><tbody><tr><td>wedding planning checklist pdf</td><td>下载可打印婚礼清单</td><td>中</td><td>✅ 极高</td></tr><tr><td>moving out checklist first time</td><td>首次搬家需要做什么</td><td>低</td><td>✅ 极高</td></tr><tr><td>hajj preparation checklist</td><td>朝圣准备清单</td><td>极低</td><td>✅ 极高</td></tr><tr><td>baby hospital bag checklist</td><td>待产包清单</td><td>低</td><td>✅ 极高</td></tr><tr><td>facebook ad size guide 2026</td><td>广告尺寸规格查询</td><td>高</td><td>⚠️ 中</td></tr><tr><td>resize image for google display ad</td><td>工具型搜索</td><td>中</td><td>⚠️ 中</td></tr><tr><td>AI sales agent for startups</td><td>B2B 购买意向</td><td>中</td><td>❌ 低</td></tr><tr><td>best AI GTM tools 2026</td><td>比价/评测意图</td><td>中</td><td>❌ 低</td></tr><tr><td>travel packing checklist generator</td><td>工具型搜索</td><td>极低</td><td>✅ 极高</td></tr><tr><td>newborn essentials checklist pdf</td><td>下载清单</td><td>低</td><td>✅ 极高</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日发现的可复制模式">📐 今日发现的可复制模式<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E4%BB%8A%E6%97%A5%E5%8F%91%E7%8E%B0%E7%9A%84%E5%8F%AF%E5%A4%8D%E5%88%B6%E6%A8%A1%E5%BC%8F" class="hash-link" aria-label="📐 今日发现的可复制模式的直接链接" title="📐 今日发现的可复制模式的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-1prompt--pdf垂直站矩阵">模式 1：「Prompt → PDF」垂直站矩阵<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#%E6%A8%A1%E5%BC%8F-1prompt--pdf%E5%9E%82%E7%9B%B4%E7%AB%99%E7%9F%A9%E9%98%B5" class="hash-link" aria-label="模式 1：「Prompt → PDF」垂直站矩阵的直接链接" title="模式 1：「Prompt → PDF」垂直站矩阵的直接链接">​</a></h3>
+<p><strong>核心逻辑：</strong> AI 生成结构化内容 → 渲染为精美 PDF → 用户下载/打印。每个生活场景一个站。</p>
+<p><strong>为什么有效：</strong></p>
+<ul>
+<li>每个生活场景都有海量搜索需求（"X checklist pdf"）</li>
+<li>AI 让内容生成成本趋近于零</li>
+<li>PDF 下载 = 天然 lead magnet = email capture</li>
+<li>每个场景可以独立建站、独立 SEO、独立变现</li>
+<li>用户场景有天然时间紧迫性 → 转化率高</li>
+</ul>
+<p><strong>产品化路径：</strong> 免费下载 → email 注册 → Pro（自定义品牌/协作/更多模板）→ $9-19/月</p>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-2ai-worker--低错误成本领域">模式 2：AI Worker × 低错误成本领域<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#%E6%A8%A1%E5%BC%8F-2ai-worker--%E4%BD%8E%E9%94%99%E8%AF%AF%E6%88%90%E6%9C%AC%E9%A2%86%E5%9F%9F" class="hash-link" aria-label="模式 2：AI Worker × 低错误成本领域的直接链接" title="模式 2：AI Worker × 低错误成本领域的直接链接">​</a></h3>
+<p><strong>核心逻辑：</strong> 在「错误成本低 + 买单方受益方对齐」的领域，做 event-driven AI agent。</p>
+<p><strong>已验证的方向：</strong></p>
+<ul>
+<li>GTM/Sales 信号推送（Needle 模式）：错误=推了一条不准的消息，用户忽略即可</li>
+<li>客服 triage（missed-call 回复）：错误=发了一封尴尬的自动回复</li>
+<li>内容审核/标记：错误=多标了一个 false positive</li>
+</ul>
+<p><strong>避开的领域：</strong></p>
+<ul>
+<li>财务操作（错误不可逆）</li>
+<li>医疗决策（错误成本极高）</li>
+<li>法律文件生成（需要 audit trail）</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模式-3工具型-product-hunt-冷启动">模式 3：工具型 Product Hunt 冷启动<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#%E6%A8%A1%E5%BC%8F-3%E5%B7%A5%E5%85%B7%E5%9E%8B-product-hunt-%E5%86%B7%E5%90%AF%E5%8A%A8" class="hash-link" aria-label="模式 3：工具型 Product Hunt 冷启动的直接链接" title="模式 3：工具型 Product Hunt 冷启动的直接链接">​</a></h3>
+<p>ChecklistFox、PixFit、html.contact 都在 PH 发布当天获得了显著曝光。<strong>工具型产品（用完即走、结果可见）比平台型产品更容易在 PH 获得 upvote。</strong></p>
+<p><strong>可复制的路径：</strong> 做一个免费、即时可用的单功能工具 → PH 发布 → 收集 email → 推出 Pro 版本。</p>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日不建议进入的方向">⛔ 今日不建议进入的方向<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E4%BB%8A%E6%97%A5%E4%B8%8D%E5%BB%BA%E8%AE%AE%E8%BF%9B%E5%85%A5%E7%9A%84%E6%96%B9%E5%90%91" class="hash-link" aria-label="⛔ 今日不建议进入的方向的直接链接" title="⛔ 今日不建议进入的方向的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="1-ai-agent-基础设施框架">1. AI Agent 基础设施/框架<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#1-ai-agent-%E5%9F%BA%E7%A1%80%E8%AE%BE%E6%96%BD%E6%A1%86%E6%9E%B6" class="hash-link" aria-label="1. AI Agent 基础设施/框架的直接链接" title="1. AI Agent 基础设施/框架的直接链接">​</a></h3>
+<p><strong>原因：</strong> 本周 PH feed 中 agent infra 占 30%+（CircleChat、scritty、Retrace、TryCase、MentionDrop、PieterPost、N71、Sequence Agentic、Tabstack...），严重供过于求。这些是卖铲子的，但淘金的人还没那么多。大厂（Anthropic MCP、OpenAI Agents SDK）也在铺标准。<strong>一人独立开发者在这个赛道没有差异化空间。</strong></p>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="2-通用-ai-笔记文档工具">2. 通用 AI 笔记/文档工具<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#2-%E9%80%9A%E7%94%A8-ai-%E7%AC%94%E8%AE%B0%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7" class="hash-link" aria-label="2. 通用 AI 笔记/文档工具的直接链接" title="2. 通用 AI 笔记/文档工具的直接链接">​</a></h3>
+<p><strong>原因：</strong> Notion AI、Google Docs AI、Obsidian、Bamboo、Macro...巨头 + 开源双面夹击。用户迁移成本极高，SEO 被头部垄断。</p>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="3-ai-视频生成">3. AI 视频生成<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#3-ai-%E8%A7%86%E9%A2%91%E7%94%9F%E6%88%90" class="hash-link" aria-label="3. AI 视频生成的直接链接" title="3. AI 视频生成的直接链接">​</a></h3>
+<p><strong>原因：</strong> Gemini Omni Flash、Sora、Runway 等大模型平台碾压。独立开发者做视频生成 wrapper 没意义——模型能力本身就是护城河。</p>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="4-email-客户端">4. Email 客户端<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#4-email-%E5%AE%A2%E6%88%B7%E7%AB%AF" class="hash-link" aria-label="4. Email 客户端的直接链接" title="4. Email 客户端的直接链接">​</a></h3>
+<p><strong>原因：</strong> Banger Mail 是个好产品，但 email client 是留存极高、切换成本极高的品类。Gmail/Outlook 的护城河太深，独立开发者不要碰。</p>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-今日最值得尝试的-mvp">🚀 今日最值得尝试的 MVP<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E4%BB%8A%E6%97%A5%E6%9C%80%E5%80%BC%E5%BE%97%E5%B0%9D%E8%AF%95%E7%9A%84-mvp" class="hash-link" aria-label="🚀 今日最值得尝试的 MVP的直接链接" title="🚀 今日最值得尝试的 MVP的直接链接">​</a></h2>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-首选婚礼清单-ai-生成器">🥇 首选：婚礼清单 AI 生成器<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E9%A6%96%E9%80%89%E5%A9%9A%E7%A4%BC%E6%B8%85%E5%8D%95-ai-%E7%94%9F%E6%88%90%E5%99%A8" class="hash-link" aria-label="🥇 首选：婚礼清单 AI 生成器的直接链接" title="🥇 首选：婚礼清单 AI 生成器的直接链接">​</a></h3>
+<ul>
+<li><strong>产品方向:</strong> 输入婚礼日期、风格偏好、预算 → AI 生成分阶段（12 个月前/6 个月前/3 个月前/1 个月前/1 周前）的完整婚礼准备清单 PDF</li>
+<li><strong>最小功能:</strong> 5 个问题收集用户偏好 → OpenAI API 生成结构化清单 → 渲染为精美 PDF → 下载 + email 注册</li>
+<li><strong>推荐技术栈:</strong> Next.js (App Router) + Vercel + OpenAI API + @react-pdf/renderer + Resend (email)</li>
+<li><strong>开发时间估计:</strong> 1 个周末（2 天）</li>
+<li><strong>SEO 切入口:</strong> <code>wedding planning checklist pdf</code> + 围绕婚礼准备的 50+ long-tail 关键词做 blog</li>
+<li><strong>内容矩阵方向:</strong> Blog（婚礼策划 × 50 篇）+ Pinterest（清单截图）+ TikTok（"我用 AI 做了婚礼清单"）+ 免费工具站互相导流</li>
+<li><strong>变现:</strong> 免费清单 → email → Pro $9/月（自定义品牌色/logo、协作、100+ 模板库）</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-次选dtc-电商广告素材工厂">🥈 次选：DTC 电商广告素材工厂<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E6%AC%A1%E9%80%89dtc-%E7%94%B5%E5%95%86%E5%B9%BF%E5%91%8A%E7%B4%A0%E6%9D%90%E5%B7%A5%E5%8E%82" class="hash-link" aria-label="🥈 次选：DTC 电商广告素材工厂的直接链接" title="🥈 次选：DTC 电商广告素材工厂的直接链接">​</a></h3>
+<ul>
+<li><strong>产品方向:</strong> 连接 Shopify → 自动抓取产品图 → AI 生成所有广告平台所有尺寸的 creative → 一键推送</li>
+<li><strong>最小功能:</strong> 上传 1 张产品图 → 选择目标平台（FB/Google/TikTok）→ AI 生成所有尺寸变体 → 批量下载</li>
+<li><strong>推荐技术栈:</strong> Next.js + Vercel + OpenAI Vision API (智能裁剪) + Sharp (图片处理) + Shopify API</li>
+<li><strong>开发时间估计:</strong> 2-3 周</li>
+<li><strong>SEO 切入口:</strong> "facebook ad size converter" + "product image resize for google shopping"</li>
+</ul>
+<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-第三saas-创始人-gtm-agent">🥉 第三：SaaS 创始人 GTM Agent<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E7%AC%AC%E4%B8%89saas-%E5%88%9B%E5%A7%8B%E4%BA%BA-gtm-agent" class="hash-link" aria-label="🥉 第三：SaaS 创始人 GTM Agent的直接链接" title="🥉 第三：SaaS 创始人 GTM Agent的直接链接">​</a></h3>
+<ul>
+<li><strong>产品方向:</strong> Slack bot 连接 LinkedIn + Crunchbase + 网站访问数据 → 自动推送「这家公司刚融资/刚招了 VP Sales/刚访问了你的 pricing page」</li>
+<li><strong>最小功能:</strong> Slack bot + 手动添加目标公司列表 → 每日推送关键信号 → 一键生成 personalized outreach draft</li>
+<li><strong>推荐技术栈:</strong> Node.js + Slack Bolt + OpenAI API + Firebase + Clearbit/Apollo API</li>
+<li><strong>开发时间估计:</strong> 2-3 周</li>
+<li><strong>SEO 切入口:</strong> 内容营销为主（"signal-based selling guide"、"GTM playbook for PLG startups"）</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-决策矩阵">📊 决策矩阵<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E5%86%B3%E7%AD%96%E7%9F%A9%E9%98%B5" class="hash-link" aria-label="📊 决策矩阵的直接链接" title="📊 决策矩阵的直接链接">​</a></h2>
+<table><thead><tr><th></th><th style="text-align:center">🥇 婚礼清单生成器</th><th style="text-align:center">🥈 DTC 广告素材工厂</th><th style="text-align:center">🥉 SaaS GTM Agent</th></tr></thead><tbody><tr><td>竞争密度</td><td style="text-align:center">🟢 极低（1 家横向产品）</td><td style="text-align:center">🔴 高（Canva/Adobe + 5+ 初创）</td><td style="text-align:center">🟡 中（3-4 家初创）</td></tr><tr><td>窗口期</td><td style="text-align:center">🟢 刚打开</td><td style="text-align:center">🟡 快速关闭</td><td style="text-align:center">🟢 打开中</td></tr><tr><td>SEO 潜力</td><td style="text-align:center">🟢 极高（海量 long-tail）</td><td style="text-align:center">🟡 中（头部占位）</td><td style="text-align:center">🔴 低（B2B 竞争激烈）</td></tr><tr><td>MVP 难度</td><td style="text-align:center">🟢 低（1 周末）</td><td style="text-align:center">🟡 中（2-3 周）</td><td style="text-align:center">🟡 中高（2-3 周）</td></tr><tr><td>商业化潜力</td><td style="text-align:center">🟢 中高（$9-19/月）</td><td style="text-align:center">🟢 高（$29-49/月）</td><td style="text-align:center">🟢 极高（$99-499/月）</td></tr><tr><td>买单方对齐度</td><td style="text-align:center">🟢 对齐（个人用户自己买单）</td><td style="text-align:center">🟢 对齐（marketer 用团队预算）</td><td style="text-align:center">🟢 对齐（sales leader 买单）</td></tr><tr><td>内容矩阵潜力</td><td style="text-align:center">🟢 极高（Pinterest/Blog/TikTok）</td><td style="text-align:center">🟡 中（Blog/YouTube）</td><td style="text-align:center">🟡 中（Blog/LinkedIn）</td></tr><tr><td>一人可做</td><td style="text-align:center">✅ 是</td><td style="text-align:center">⚠️ 可，但持续维护重</td><td style="text-align:center">⚠️ 可，但数据 pipeline 重</td></tr><tr><td><strong>优先级</strong></td><td style="text-align:center"><strong>🥇 立即动手</strong></td><td style="text-align:center"><strong>🥈 关注+准备</strong></td><td style="text-align:center"><strong>🥉 验证需求后动手</strong></td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="-扫描备注">📝 扫描备注<a href="https://www.real-tech.online/blog/overseas-demand-radar-2026-07-06#-%E6%89%AB%E6%8F%8F%E5%A4%87%E6%B3%A8" class="hash-link" aria-label="📝 扫描备注的直接链接" title="📝 扫描备注的直接链接">​</a></h2>
+<ul>
+<li><strong>数据来源：</strong> Product Hunt RSS Feed (<code>/feed?category=featured</code>)，覆盖 2026-06-29 至 2026-07-05 的 47 个 featured 产品</li>
+<li><strong>限制：</strong> PH 主站被 Cloudflare 拦截，无法获取 upvote 数、评论、分类标签等详细数据。产品分析基于 tagline + 官网直接抓取 + 市场知识推断</li>
+<li><strong>建议：</strong> 后续若有条件突破 Cloudflare 限制，可补充 upvote 数（验证市场热度）和评论 sentiment（验证用户真实反馈）</li>
+<li><strong>Google Drive 上传：</strong> 本次因 OAuth token 过期（<code>google_token.json</code> 缺失），无法自动上传到 Drive。需手动完成 <code>--auth-url</code> + <code>--auth-code</code> 认证流程后重新上传。</li>
+</ul>]]></content:encoded>
+            <category>海外需求雷达</category>
+            <category>Product Hunt</category>
+            <category>indie hacker</category>
+            <category>AI工具</category>
+            <category>SaaS机会</category>
+        </item>
         <item>
             <title><![CDATA[海外需求雷达日报 - 2026-06-29]]></title>
             <link>https://www.real-tech.online/blog/overseas-demand-radar-2026-06-29</link>
@@ -2639,85 +2783,6 @@ YouTube 上有无限的学习素材，但学习者需要的是：1) 找合适难
             <category>indie hacker</category>
             <category>AI工具</category>
             <category>SaaS机会</category>
-        </item>
-        <item>
-            <title><![CDATA[L40S 大模型部署实录④：160 道题考三个大模型，赢家出乎意料]]></title>
-            <link>https://www.real-tech.online/blog/l40s-model-quality-eval</link>
-            <guid>https://www.real-tech.online/blog/l40s-model-quality-eval</guid>
-            <pubDate>Sat, 02 May 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[160 道题、6 个维度的大模型质量评测：Qwen3.5-27B 76.6% vs Qwen3.6-35B 69.7% vs gemma-4-26B 69.1%，参数大不等于质量好。]]></description>
-            <content:encoded><![CDATA[<p>跑得最快的模型，长文本全部超时。参数最多的模型，总分垫底。最终胜出的是参数最少的那个——76.6% vs 69.7% vs 69.1%。这篇记录 160 道题、6 个维度的完整评测过程，以及为什么"参数大 ≠ 质量好"。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="评测设计">评测设计<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E8%AF%84%E6%B5%8B%E8%AE%BE%E8%AE%A1" class="hash-link" aria-label="评测设计的直接链接" title="评测设计的直接链接">​</a></h2>
-<p>参考了 Artificial Analysis 和主流 benchmark 的方法论，设计了 6 个维度、160 道题的评测集：</p>
-<table><thead><tr><th>维度</th><th style="text-align:center">题数</th><th>数据来源</th><th>考察能力</th></tr></thead><tbody><tr><td>通识基础</td><td style="text-align:center">50</td><td>MMLU-Pro</td><td>多领域知识</td></tr><tr><td>高级推理</td><td style="text-align:center">30</td><td>GSM8K + ARC-Challenge</td><td>数学 + 逻辑</td></tr><tr><td>指令跟随</td><td style="text-align:center">30</td><td>IFEval</td><td>格式约束遵循</td></tr><tr><td>模型幻觉</td><td style="text-align:center">25</td><td>TruthfulQA + SQuAD v2</td><td>拒答 + 事实性</td></tr><tr><td>工具调用</td><td style="text-align:center">10</td><td>BFCL v3</td><td>Function Calling</td></tr><tr><td>长文本</td><td style="text-align:center">15</td><td>K8s 文档</td><td>8K-32K 上下文理解</td></tr></tbody></table>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="为什么不直接用公开-benchmark">为什么不直接用公开 benchmark<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%9B%B4%E6%8E%A5%E7%94%A8%E5%85%AC%E5%BC%80-benchmark" class="hash-link" aria-label="为什么不直接用公开 benchmark的直接链接" title="为什么不直接用公开 benchmark的直接链接">​</a></h3>
-<p>公开 benchmark 的问题：</p>
-<ol>
-<li><strong>数据污染</strong>——模型训练数据可能包含测试题</li>
-<li><strong>场景不匹配</strong>——我们需要的是工具调用、长文本理解，不是做高考题</li>
-<li><strong>量化影响</strong>——FP8 量化后的表现和原始精度不同，需要实测</li>
-</ol>
-<p>所以我从公开数据集中<strong>抽样</strong>，加上自己构造的工具调用和长文本题目，确保评测贴近实际使用场景。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="评测流程">评测流程<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E8%AF%84%E6%B5%8B%E6%B5%81%E7%A8%8B" class="hash-link" aria-label="评测流程的直接链接" title="评测流程的直接链接">​</a></h2>
-<div class="language-javascript codeBlockContainer_APcc theme-code-block" style="--prism-background-color:hsl(230, 1%, 98%);--prism-color:hsl(230, 8%, 24%)"><div class="codeBlockContent_m3Ux"><pre class="prism-code language-javascript codeBlock_qGQc thin-scrollbar" style="background-color:hsl(230, 1%, 98%);color:hsl(230, 8%, 24%)"><code class="codeBlockLines_p187"><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token number" style="color:hsl(35, 99%, 36%)">1.</span><span class="token plain"> </span><span class="token maybe-class-name">Collect：向每个模型发送</span><span class="token plain"> </span><span class="token number" style="color:hsl(35, 99%, 36%)">160</span><span class="token plain"> 道题，收集原始回复</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token number" style="color:hsl(35, 99%, 36%)">2.</span><span class="token plain"> </span><span class="token maybe-class-name">Auto</span><span class="token operator" style="color:hsl(221, 87%, 60%)">-</span><span class="token maybe-class-name">Score：规则引擎自动评分（</span><span class="token constant" style="color:hsl(35, 99%, 36%)">MCQ</span><span class="token plain"> 精确匹配、数学答案提取、格式检查）</span><br></span><span class="token-line" style="color:hsl(230, 8%, 24%)"><span class="token plain"></span><span class="token number" style="color:hsl(35, 99%, 36%)">3.</span><span class="token plain"> </span><span class="token maybe-class-name">Manual</span><span class="token plain"> </span><span class="token maybe-class-name">Review：人工审核自动评分结果，修正误判</span><br></span></code></pre><div class="buttonGroup_6DOT"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_FhaS" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_phi_"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_FfTR"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>关键配置：</p>
-<ul>
-<li><code>temperature=0.6</code>，开启 thinking mode（Qwen3.5/3.6 支持）</li>
-<li><code>max_tokens=4096</code></li>
-<li>超时 300 秒/题</li>
-</ul>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="自动评分规则">自动评分规则<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E8%87%AA%E5%8A%A8%E8%AF%84%E5%88%86%E8%A7%84%E5%88%99" class="hash-link" aria-label="自动评分规则的直接链接" title="自动评分规则的直接链接">​</a></h3>
-<p>不同题型用不同评分逻辑：</p>
-<ul>
-<li><strong>MCQ</strong>：精确匹配选项字母（A/B/C/D）</li>
-<li><strong>数学</strong>：从回复中提取 <code>\boxed{}</code> 或加粗数字，和标准答案比较</li>
-<li><strong>指令跟随</strong>：逐条检查约束（JSON 格式、字数限制、语言要求、关键词包含等）</li>
-<li><strong>幻觉/可回答</strong>：语义匹配预期答案</li>
-<li><strong>幻觉/不可回答</strong>：检测拒答模式（"I don't know"、"无法确定"等）</li>
-<li><strong>工具调用</strong>：解析模型输出的 tool call 格式，匹配函数名和参数</li>
-</ul>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="评测结果">评测结果<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E8%AF%84%E6%B5%8B%E7%BB%93%E6%9E%9C" class="hash-link" aria-label="评测结果的直接链接" title="评测结果的直接链接">​</a></h2>
-<table><thead><tr><th>维度</th><th style="text-align:center">Qwen3.5-27B</th><th style="text-align:center">Qwen3.6-35B</th><th style="text-align:center">Gemma4-31B</th></tr></thead><tbody><tr><td>通识基础 (50)</td><td style="text-align:center">52.0%</td><td style="text-align:center">50.0%</td><td style="text-align:center"><strong>60.0%</strong></td></tr><tr><td>高级推理 (30)</td><td style="text-align:center"><strong>93.3%</strong></td><td style="text-align:center">86.7%</td><td style="text-align:center">86.7%</td></tr><tr><td>指令跟随 (30)</td><td style="text-align:center"><strong>71.7%</strong></td><td style="text-align:center">61.7%</td><td style="text-align:center">68.3%</td></tr><tr><td>模型幻觉 (25)</td><td style="text-align:center"><strong>100%</strong></td><td style="text-align:center"><strong>100%</strong></td><td style="text-align:center"><strong>100%</strong></td></tr><tr><td>工具调用 (10)</td><td style="text-align:center"><strong>100%</strong></td><td style="text-align:center">80.0%</td><td style="text-align:center">90.0%</td></tr><tr><td>长文本 (15)</td><td style="text-align:center"><strong>80.0%</strong></td><td style="text-align:center">60.0%</td><td style="text-align:center">0.0% ⚠️</td></tr><tr><td><strong>总分 (160)</strong></td><td style="text-align:center"><strong>76.6%</strong></td><td style="text-align:center">69.7%</td><td style="text-align:center">69.1%</td></tr></tbody></table>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="逐维度分析">逐维度分析<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E9%80%90%E7%BB%B4%E5%BA%A6%E5%88%86%E6%9E%90" class="hash-link" aria-label="逐维度分析的直接链接" title="逐维度分析的直接链接">​</a></h2>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="通识基础gemma4-领先">通识基础：Gemma4 领先<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E9%80%9A%E8%AF%86%E5%9F%BA%E7%A1%80gemma4-%E9%A2%86%E5%85%88" class="hash-link" aria-label="通识基础：Gemma4 领先的直接链接" title="通识基础：Gemma4 领先的直接链接">​</a></h3>
-<p>Gemma4 在 MMLU-Pro 多选题上表现最好（60%），可能因为 Google 的训练数据在百科知识方面更全面。Qwen3.5 和 3.6 都在 50% 左右，说明 FP8 量化对知识类任务有一定影响。</p>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="高级推理qwen35-碾压">高级推理：Qwen3.5 碾压<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E9%AB%98%E7%BA%A7%E6%8E%A8%E7%90%86qwen35-%E7%A2%BE%E5%8E%8B" class="hash-link" aria-label="高级推理：Qwen3.5 碾压的直接链接" title="高级推理：Qwen3.5 碾压的直接链接">​</a></h3>
-<p>Qwen3.5 在数学推理上达到 93.3%，远超其他两个模型。Qwen3.6 虽然有 thinking mode，但<strong>倾向于过度推理</strong>——在复杂数学题上写了很长的推导过程，结果被 <code>max_tokens</code> 截断，最终答案没输出完。</p>
-<p>这是 MoE 架构的一个隐性问题：Expert 路由增加了推理路径的不确定性，模型更容易"跑偏"。</p>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="指令跟随所有模型都不够好">指令跟随：所有模型都不够好<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E6%8C%87%E4%BB%A4%E8%B7%9F%E9%9A%8F%E6%89%80%E6%9C%89%E6%A8%A1%E5%9E%8B%E9%83%BD%E4%B8%8D%E5%A4%9F%E5%A5%BD" class="hash-link" aria-label="指令跟随：所有模型都不够好的直接链接" title="指令跟随：所有模型都不够好的直接链接">​</a></h3>
-<p>IFEval 的约束非常严格（"用 JSON 格式回答"、"不超过 50 个词"、"必须包含关键词 X"），三个模型都只有 62-72%。这是当前开源模型的普遍短板。</p>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="模型幻觉全部满分">模型幻觉：全部满分<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E6%A8%A1%E5%9E%8B%E5%B9%BB%E8%A7%89%E5%85%A8%E9%83%A8%E6%BB%A1%E5%88%86" class="hash-link" aria-label="模型幻觉：全部满分的直接链接" title="模型幻觉：全部满分的直接链接">​</a></h3>
-<p>三个模型在幻觉测试上都是 100%——该拒答的拒答，该引用的引用。FP8 量化没有影响模型的事实性判断能力。这是个好消息。</p>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="工具调用格式差异">工具调用：格式差异<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8%E6%A0%BC%E5%BC%8F%E5%B7%AE%E5%BC%82" class="hash-link" aria-label="工具调用：格式差异的直接链接" title="工具调用：格式差异的直接链接">​</a></h3>
-<p>Qwen3.5 满分，Gemma4 90%，Qwen3.6 只有 80%。</p>
-<p>问题出在<strong>格式</strong>：</p>
-<ul>
-<li>Qwen3.5/3.6 用 <code>&lt;function=name&gt;</code> XML 格式</li>
-<li>Gemma4 用 <code>&lt;|tool_call&gt;call:name{...}</code> 格式</li>
-</ul>
-<p>Qwen3.6 的 2 道错题是参数格式不对（JSON 里多了引号转义），不是逻辑错误。这种问题在实际使用中可以通过 prompt 工程缓解。</p>
-<h3 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="长文本gemma4-全军覆没">长文本：Gemma4 全军覆没<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E9%95%BF%E6%96%87%E6%9C%ACgemma4-%E5%85%A8%E5%86%9B%E8%A6%86%E6%B2%A1" class="hash-link" aria-label="长文本：Gemma4 全军覆没的直接链接" title="长文本：Gemma4 全军覆没的直接链接">​</a></h3>
-<p>Gemma4 的 15 道长文本题<strong>全部超时</strong>（300 秒）。原因：Dense 31B 模型在单卡 L40S 上处理 8K-32K 的 prefill 太慢，TTFT 超过 300 秒。</p>
-<p>这不是模型能力问题，是<strong>硬件限制</strong>。如果给 Gemma4 双卡 TP=2，长文本性能会好很多。但在单卡方案里，它不适合长文本场景。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="最终选型">最终选型<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E6%9C%80%E7%BB%88%E9%80%89%E5%9E%8B" class="hash-link" aria-label="最终选型的直接链接" title="最终选型的直接链接">​</a></h2>
-<p>综合性能和质量：</p>
-<table><thead><tr><th>指标</th><th style="text-align:center">Qwen3.5-27B</th><th style="text-align:center">Qwen3.6-35B</th><th style="text-align:center">Gemma4-31B</th></tr></thead><tbody><tr><td>质量总分</td><td style="text-align:center"><strong>76.6%</strong></td><td style="text-align:center">69.7%</td><td style="text-align:center">69.1%</td></tr><tr><td>单请求速度</td><td style="text-align:center"><strong>18.1</strong> tok/s</td><td style="text-align:center">11.0 tok/s</td><td style="text-align:center">17.4 tok/s</td></tr><tr><td>并发吞吐</td><td style="text-align:center">130.3 tok/s</td><td style="text-align:center">83.6 tok/s</td><td style="text-align:center"><strong>132.0</strong> tok/s</td></tr><tr><td>长文本支持</td><td style="text-align:center">✅ 128K</td><td style="text-align:center">⚠️ 64K</td><td style="text-align:center">❌ 32K OOM</td></tr><tr><td>工具调用</td><td style="text-align:center"><strong>100%</strong></td><td style="text-align:center">80%</td><td style="text-align:center">90%</td></tr></tbody></table>
-<p><strong>结论：Qwen3.5-27B-FP8 是单卡 L40S 上的最佳选择。</strong></p>
-<p>它在质量、速度、长文本、工具调用四个维度上都是最优或接近最优。唯一的短板是通识知识（52% vs Gemma4 的 60%），但这对我们的业务场景（代码生成、文档问答、工具调用）影响不大。</p>
-<h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="复盘">复盘<a href="https://www.real-tech.online/blog/l40s-model-quality-eval#%E5%A4%8D%E7%9B%98" class="hash-link" aria-label="复盘的直接链接" title="复盘的直接链接">​</a></h2>
-<p>整个评测过程中学到的几点：</p>
-<ol>
-<li><strong>不要同时跑 throughput 和 eval</strong>——我犯过这个错误，两个测试互相干扰，数据全废了</li>
-<li><strong>MoE 模型的"活跃参数"是个陷阱</strong>——3B 活跃参数不代表 3B 的速度，Expert 路由有开销</li>
-<li><strong>量化对不同能力的影响不同</strong>——FP8 对推理能力影响小，对知识记忆影响大</li>
-<li><strong>硬件限制比模型能力更重要</strong>——Gemma4 的长文本能力不差，是单卡显存不够</li>
-</ol>
-<p>这个系列到此结束。从基础设施搭建、显存优化、性能测试到质量评测，完整记录了在单卡 L40S 上部署大模型推理服务的全过程。希望对同样在做企业内部大模型部署的同学有帮助。</p>]]></content:encoded>
-            <category>系列：L40S大模型部署</category>
-            <category>LLM</category>
-            <category>模型评测</category>
-            <category>vLLM</category>
-            <category>AI</category>
         </item>
     </channel>
 </rss>
