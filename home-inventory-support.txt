@@ -13,6 +13,10 @@
 
 https://github.com/oldbone0x/oldbone_site_docusaurus/issues
 
+支持邮箱：
+
+oldbone0x@gmail.com
+
 提交问题时，建议说明设备型号、iOS 版本、发生问题前的操作步骤、预期结果和实际结果。请不要公开上传家庭照片、Apple ID、交易凭证、家庭地址或其他敏感信息。
 
 隐私政策：
