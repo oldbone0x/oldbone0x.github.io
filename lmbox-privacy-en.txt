@@ -1,0 +1,29 @@
+LMBox Privacy Policy
+Last updated: October 4, 2026
+
+1. Offline and on-device processing
+LMBox is an offline AI chat tool. After downloading model resources, chat inference, audio transcription and text extraction from photos, PDFs and text files run on your device. LMBox does not provide cloud AI inference or send conversations, photos, files, recordings or transcripts to cloud models.
+
+2. Local content and permissions
+Conversations, attachments, recordings and extracted text that you add are stored in the app local directory. Content uses system file protection; LMBox does not claim additional app-level end-to-end encryption. Device and system backups follow your settings. The app not uploading content does not prevent system backups. Chat and speech model resources are excluded from system backups.
+The camera, microphone and system content pickers are used when you choose the corresponding action. Speech recognition runs locally without automatic online fallback. Manage permissions in system settings.
+
+3. Model downloads and network connections
+Chat and speech models require an initial internet download. Speech resources are approximately 1 GB. Download services receive connection information needed for network requests, such as the network address, and may process it under their policies. Requests do not include your conversations, photos, files or recordings.
+LMBox has no accounts, ads or third-party product analytics SDKs and does not track you across apps for advertising.
+
+4. Recognition and answer limitations
+Photos support text extraction, not visual understanding. Documents supply extracted text and recordings are transcribed locally. Recognition and model answers may be incorrect; check original material. PDFs process up to 200 pages or one million characters, with extraction scope shown in the app. A full local record does not mean each inference includes all conversation or attachment text; model context limits still apply.
+
+5. Deletion, sharing and retention
+You can delete a conversation and related attachments no longer referenced by other records, or remove all conversations, attachments and recordings in settings. Personal content and model removal are separate. Chat and speech resources can be cleared independently; removed models need to be downloaded again before use.
+When you actively share or export content, it is passed to your chosen system share destination. Manage shared files and system backups separately at the destination or in system settings.
+
+6. Support and contact
+Developer: oldbone
+Email: oldbone0x@gmail.com
+Support: https://www.real-tech.online/lmbox-support-en.txt
+Information you voluntarily send by email is used to respond to and resolve your request. Do not send passwords, verification codes, full private conversations, private recordings or sensitive material. We do not require uploading complete private content for troubleshooting.
+
+7. Policy changes
+If data processing changes materially, we will update this policy and in-app notices. Contact the email above with privacy questions.

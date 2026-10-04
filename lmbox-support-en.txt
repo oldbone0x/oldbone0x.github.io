@@ -1,0 +1,19 @@
+LMBox Support
+
+Private offline AI on your device. Once model resources are ready, chat, audio transcription and document text recognition run locally. Personal content is not sent to cloud AI.
+
+Contact: oldbone0x@gmail.com
+
+For download, model loading, audio transcription, PDF extraction, history or privacy questions, please include your device model, iOS version, LMBox version, steps, expected behavior and actual behavior. Describing the issue is enough; do not send passwords, verification codes, full private conversations, private files or recordings.
+
+Getting started
+- The interface is currently in Simplified Chinese.
+- Chat models and approximately 1 GB of speech resources need an initial internet download and sufficient storage. Processing works offline after resources are ready.
+- Choose a model suited to your device resources. Larger models can take longer to load or reply.
+- Saved recordings can be replayed. Re-run attachment recognition to update a transcript.
+- PDFs support embedded text and scanned-page OCR, up to 200 pages or one million characters. Check the displayed extraction scope. Long-document questions remain limited by model context.
+- Photos support text recognition only. Recognition and AI answers may be incorrect; check original material.
+- Personal content and models are cleaned up separately. Check what you wish to keep before clearing data or uninstalling.
+
+Privacy policy:
+https://www.real-tech.online/lmbox-privacy-en.txt
