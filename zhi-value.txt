@@ -1,8 +1,7 @@
 日均隐私政策
 
-本文件已统一为《日均隐私政策》。完整政策请访问：
-https://www.real-tech.online/zhi-value-privacy.txt
+完整政策：https://www.real-tech.online/zhi-value-privacy.txt
 
-日均将物品资料保存在设备上，并可通过你的私有 iCloud 数据库同步。使用分析为可选项；只有你在 App 内允许后，才向 Amplitude 发送功能使用和购买路径事件。你可随时在 App 设置中关闭后续分析采集。
+日均不使用第三方使用分析或广告追踪，不向开发者服务器发送物品资料、功能使用或购买路径。资料在本地保存；设备登录 iCloud 且同步可用时，物品、使用记录和冷静清单可通过用户的私有 CloudKit 数据库同步。照片文件保存在本地。购买与恢复由 Apple StoreKit 处理。
 
-最后更新：2026年9月24日
+隐私问题：oldbone0x@gmail.com
