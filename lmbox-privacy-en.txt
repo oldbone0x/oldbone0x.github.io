@@ -1,0 +1,52 @@
+LMBox Privacy Policy
+Effective date: November 9, 2026
+
+This policy describes how LMBox handles information when you use its on-device AI features.
+
+1. Content processed on your device
+
+LMBox runs language models on your iPhone or iPad. AI conversations, recording transcription, text recognition and PDF questions are processed on the device. Your conversations, recordings, photos and documents are not sent to cloud AI for these features.
+
+The app can keep conversation history, recordings, extracted text and imported attachments locally so you can return to them. Content you choose to import or record may contain personal information; consider what you add and where you later share it.
+
+2. Network access and model downloads
+
+An internet connection is required to download the chat models and initial speech-recognition resources. Once the required models and resources are ready, the corresponding processing can work offline.
+
+Model and resource downloads make network requests to the services that provide those files. Those services may process connection information under their own privacy policies. A model download is distinct from uploading your personal conversations or attachments to cloud AI.
+
+If you open an external website, its own privacy policy applies to that visit.
+
+3. Accounts, advertising and analytics
+
+LMBox does not require an app account and does not include advertisements or third-party product analytics.
+
+Apple separately processes App Store activity under Apple's terms and privacy policies. Device settings and Apple services are outside the developer's control.
+
+4. Device permissions
+
+Features such as recording audio and selecting photos or documents use the relevant device permissions and system selection interfaces. You can manage permissions in your device's system settings. Using a permission-dependent feature is your choice.
+
+5. Local storage and deletion
+
+The app's storage management lets you view local storage and separately remove personal content, caches, chat models or speech-recognition resources. Removing required models or resources means downloading them again before using the corresponding feature.
+
+Personal content uses system file protection. System backups depend on your device settings; app storage controls do not determine the retention of a separate system backup. On-device processing does not mean that LMBox provides additional app-level end-to-end encryption.
+
+6. Scope and accuracy
+
+Photos are used for text recognition, not general visual scene understanding. Extracted text and AI responses can be incorrect. Check original documents before relying on an answer, and avoid sharing sensitive content through external services unless you understand their handling of it.
+
+7. Changes
+
+This policy may be updated when the app's features or data-handling practices change. The effective date at the top identifies this version.
+
+8. Contact
+
+For questions about this policy, use the developer contact links at:
+https://www.real-tech.online/about
+
+The public product listing is:
+https://apps.apple.com/us/app/id6818812926
+
+Do not include private recordings, conversations or documents in public support messages.
