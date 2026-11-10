@@ -1,0 +1,12 @@
+{"id":"001","user":"查询商品 SKU-101 的详情","expected":[{"name":"get_item","arguments":{"item_id":"SKU-101"}}]}
+{"id":"002","user":"SKU-204 现在还有库存吗？","expected":[{"name":"get_stock","arguments":{"sku":"SKU-204"}}]}
+{"id":"003","user":"查找「7天无理由退货」的帮助文档","expected":[{"name":"search_help","arguments":{"query":"7天无理由退货"}}]}
+{"id":"004","user":"把 SKU-305 加到心愿清单","expected":[{"name":"add_to_wishlist","arguments":{"sku":"SKU-305"}}]}
+{"id":"005","user":"SKU-305 是什么商品？","expected":[{"name":"get_item","arguments":{"item_id":"SKU-305"}}]}
+{"id":"006","user":"查一下 SKU-101 还剩多少件","expected":[{"name":"get_stock","arguments":{"sku":"SKU-101"}}]}
+{"id":"007","user":"检索帮助文档：运费规则","expected":[{"name":"search_help","arguments":{"query":"运费规则"}}]}
+{"id":"008","user":"请收藏 SKU-204","expected":[{"name":"add_to_wishlist","arguments":{"sku":"SKU-204"}}]}
+{"id":"009","user":"你好","expected":[]}
+{"id":"010","user":"9 乘 9 等于多少？","expected":[]}
+{"id":"011","user":"帮我查一下库存","expected":[]}
+{"id":"012","user":"删除 SKU-305 的记录","expected":[]}
