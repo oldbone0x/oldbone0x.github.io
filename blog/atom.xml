@@ -22,6 +22,8 @@
 <p><strong>财务上的 OPEX / CAPEX</strong>，说的是一笔支出应当怎样确认。工资、日常维护、一般软件订阅，通常计入当期费用；购买符合条件的设备或开发符合条件的软件资产，可能先形成资产，再按相应规则折旧或摊销。</p>
 <p><strong>经营上的 OPEX → CAPEX</strong>，通常指企业改变了生产方式：原来依赖反复发生的人工、外包或租赁费用，现在投资设备、自动化系统或自有软件，试图降低未来的单位成本。</p>
 <p>两者可能同时发生，但不能混为一谈。</p>
+<picture><source media="(max-width: 640px)" srcset="/img/blog/ai-opex-capex/concept-mobile.svg"><img src="https://www.real-tech.online/img/blog/ai-opex-capex/concept.svg" alt="OPEX 与 CAPEX 投入方式对比：前者持续支付取得服务，后者投资建设可多年使用的设备或软件，仍有维护与技术更新成本。" loading="lazy" decoding="async" style="width:100%;height:auto;display:block"></picture>
+<p><em>图 1：这张图对比的是经营上的投入方式，不代表所有长期投入都能资本化。</em></p>
 <ul>
 <li>企业购买一台工业机器人，可能确认为固定资产。原来员工的工资并不会因此被“改记”为资产。</li>
 <li>企业采用按量付费的 AI 客服，可能减少人工费用，但新的 AI API 费用仍是运营支出。</li>
@@ -39,6 +41,8 @@
 <p>以开头的工厂为例，假设现有人工质检每年成本 500 万元，检测质量和产量在三个方案下都能达到同一要求。供应商提出两种替代方案。</p>
 <table><thead><tr><th>方案</th><th style="text-align:right">首期投资</th><th style="text-align:right">每年后续现金支出</th><th style="text-align:right">五年合计</th></tr></thead><tbody><tr><td>保留人工质检</td><td style="text-align:right">0</td><td style="text-align:right">500 万</td><td style="text-align:right">2,500 万</td></tr><tr><td>自建视觉检测系统</td><td style="text-align:right">800 万</td><td style="text-align:right">维护 120 万 + 保留人工 150 万</td><td style="text-align:right">2,150 万</td></tr><tr><td>购买检测设备即服务</td><td style="text-align:right">0</td><td style="text-align:right">330 万</td><td style="text-align:right">1,650 万</td></tr></tbody></table>
 <p><strong>全部是假设数字</strong>，不代表现有设备报价、行业平均水平或真实项目收益；暂不考虑税、融资、折现、残值、停机和合同涨价。</p>
+<picture><source media="(max-width: 640px)" srcset="/img/blog/ai-opex-capex/cost-comparison-mobile.svg"><img src="https://www.real-tech.online/img/blog/ai-opex-capex/cost-comparison.svg" alt="工厂质检五年总现金支出比较：保留人工2500万元，自建视觉检测2150万元，设备即服务1650万元；自建包括800万元首期投资与1350万元后续现金支出。" loading="lazy" decoding="async" style="width:100%;height:auto;display:block"></picture>
+<p><em>图 2：在这组假设中，设备即服务最便宜；如果实际价格、利用率或质量不同，结论也可能变化。</em></p>
 <p>自建方案每年减少的净现金支出是：</p>
 <p>500 − 120 − 150 = <strong>230 万元</strong></p>
 <p>简单投资回收期为：</p>
@@ -59,6 +63,9 @@
 <p>第三种在 AI 时代同样值得重视。技术更新很快的领域，保留灵活性本身就有经济价值。</p>
 <p>因此，我不赞成把“提高 CAPEX 比例”设成所有部门的共同目标。一家云厂商可能应该建设数据中心；一家使用云服务的零售企业却可能完全不需要自购服务器。这不矛盾。</p>
 <h2 class="anchor anchorWithHideOnScrollNavbar_Kn_G" id="判断自建还是购买可以先回答五个问题">判断自建还是购买，可以先回答五个问题<a href="https://www.real-tech.online/blog/ai-opex-capex-build-vs-buy#%E5%88%A4%E6%96%AD%E8%87%AA%E5%BB%BA%E8%BF%98%E6%98%AF%E8%B4%AD%E4%B9%B0%E5%8F%AF%E4%BB%A5%E5%85%88%E5%9B%9E%E7%AD%94%E4%BA%94%E4%B8%AA%E9%97%AE%E9%A2%98" class="hash-link" aria-label="判断自建还是购买，可以先回答五个问题的直接链接" title="判断自建还是购买，可以先回答五个问题的直接链接">​</a></h2>
+<p>先用两个维度粗筛：<strong>需求是否稳定</strong>，以及<strong>自建相对外购是否真有经济优势</strong>。这不是会计分类标准，也不代替合规或风险评估。</p>
+<picture><source media="(max-width: 640px)" srcset="/img/blog/ai-opex-capex/build-buy-matrix-mobile.svg"><img src="https://www.real-tech.online/img/blog/ai-opex-capex/build-buy-matrix.svg" alt="自建还是购买的四象限决策矩阵：需求稳定且自建经济优势高时优先评估自建；稳定但优势低倾向购买；需求不稳且优势低按需购买；需求不稳但似乎划算先小规模验证。" loading="lazy" decoding="async" style="width:100%;height:auto;display:block"></picture>
+<p><em>图 3：象限用于决定先评估什么，而不是自动批准投资。控制权、退出成本和合规约束仍要另算。</em></p>
 <p>如果一个 AI 自动化项目正在申请预算，我会要求项目负责人先把以下问题写清楚：</p>
 <p><strong>这项工作到底有多稳定？</strong> 每天都在重复、规则变化不大、需求持续多年，自建更容易收回投入。需求每季度都变，通常需要更谨慎。</p>
 <p><strong>使用规模够不够大？</strong> 固定成本高的资产必须有足够利用率。不要只用业务高峰时的产量估算全年收益。</p>

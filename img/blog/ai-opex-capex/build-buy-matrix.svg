@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="565" viewBox="0 0 900 565" role="img" aria-labelledby="m-title m-desc">
+<title id="m-title">企业自建或购买自动化能力的初步决策矩阵</title>
+<desc id="m-desc">横轴为自建相对外购的经济优势，右侧更高；纵轴为需求稳定性，上方更高。稳定且自建划算可以优先评估自建；稳定但不划算适合外购；不稳定且不划算按需购买；不稳定但看似划算先试点。仍需考虑合规、控制权、资金与退出成本。</desc>
+<rect width="900" height="565" rx="24" fill="#F8FAFC"/>
+<text x="38" y="54" font-size="29" font-weight="700" fill="#192D45" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">什么时候自建，什么时候购买？</text>
+<text x="38" y="88" font-size="18" fill="#697C90" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">先看需求稳定性与相对经济性，再检查风险和控制权</text>
+<rect x="144" y="113" width="339" height="160" rx="13" fill="#EBF1F7" stroke="#D5E0EA"/>
+<rect x="489" y="113" width="339" height="160" rx="13" fill="#DBF2EA" stroke="#B9DFD2"/>
+<rect x="144" y="279" width="339" height="160" rx="13" fill="#EDF1F5" stroke="#DDE4EB"/>
+<rect x="489" y="279" width="339" height="160" rx="13" fill="#FFF1D8" stroke="#F4DEB2"/>
+<g font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">
+<text x="171" y="162" font-size="26" font-weight="700" fill="#42617E">倾向购买服务</text>
+<text x="171" y="203" font-size="20" fill="#587187">需求虽然稳定</text>
+<text x="171" y="233" font-size="20" fill="#587187">自建成本仍偏高</text>
+<text x="518" y="162" font-size="26" font-weight="700" fill="#127D68">优先评估自建</text>
+<text x="518" y="203" font-size="20" fill="#357B6E">长期、高频使用</text>
+<text x="518" y="233" font-size="20" fill="#357B6E">自建相对更经济</text>
+<text x="171" y="328" font-size="26" font-weight="700" fill="#506779">按需购买或租赁</text>
+<text x="171" y="369" font-size="20" fill="#667A8C">需求不稳定</text>
+<text x="171" y="399" font-size="20" fill="#667A8C">不值得锁定重资产</text>
+<text x="518" y="328" font-size="26" font-weight="700" fill="#956818">先做小规模验证</text>
+<text x="518" y="369" font-size="20" fill="#9D782F">自建似乎划算</text>
+<text x="518" y="399" font-size="20" fill="#9D782F">但使用规模尚不确定</text>
+</g>
+<path d="M126 445V111m-7 10 7 -11 7 11" stroke="#536679" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M144 455H833m-10 -7 11 7 -11 7" stroke="#536679" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="114" y="286" transform="rotate(-90 114 286)" text-anchor="middle" font-size="19" font-weight="700" fill="#536679" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">需求稳定性：越往上越稳定</text>
+<text x="490" y="491" text-anchor="middle" font-size="19" font-weight="700" fill="#536679" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">自建相对外购的经济优势：越往右越高</text>
+<line x1="38" x2="862" y1="514" y2="514" stroke="#DDE4EC" stroke-width="2"/>
+<text x="450" y="542" font-size="17" text-anchor="middle" fill="#61778C" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">概念框架 · 最终还需考虑质量、合规、资金成本与退出难度</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="490" viewBox="0 0 900 490" role="img" aria-labelledby="cost-title cost-desc">
+<title id="cost-title">工厂质检的三种方案，五年总现金支出对比</title>
+<desc id="cost-desc">演示假设：保留人工质检五年成本2500万元，自建视觉检测五年2150万元，其中初始设备投资800万、五年运营1350万；购买设备即服务五年1650万元。后者在假设下最便宜，不代表真实市场报价。</desc>
+<rect width="900" height="490" rx="24" fill="#F8FAFC"/>
+<text x="38" y="56" font-size="29" font-weight="700" fill="#172B43" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">5 年成本：自建未必最省钱</text>
+<text x="38" y="89" font-size="18" fill="#667A8E" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">工厂质检示例 · 单位：万元 · 全部为演示假设</text>
+<rect x="730" y="29" width="133" height="38" rx="19" fill="#FFF3D6"/>
+<text x="797" y="54" text-anchor="middle" font-size="17" font-weight="700" fill="#9A671D" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">非真实报价</text>
+<text x="42" y="163" font-size="22" font-weight="700" fill="#30465B" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">保留人工</text>
+<text x="42" y="269" font-size="22" font-weight="700" fill="#30465B" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">自建视觉检测</text>
+<text x="42" y="376" font-size="22" font-weight="700" fill="#30465B" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">设备即服务</text>
+<g fill="#E8EDF4">
+<rect x="245" y="126" width="510" height="52" rx="10"/>
+<rect x="245" y="232" width="510" height="52" rx="10"/>
+<rect x="245" y="339" width="510" height="52" rx="10"/>
+</g>
+<rect x="245" y="126" width="510" height="52" rx="10" fill="#8494A8"/>
+<rect x="245" y="232" width="164" height="52" rx="8" fill="#345F9F"/>
+<rect x="409" y="232" width="275" height="52" rx="8" fill="#7F9AC2"/>
+<rect x="245" y="339" width="337" height="52" rx="10" fill="#159A85"/>
+<text x="270" y="160" font-size="17" font-weight="700" fill="#FFFFFF" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">每年 500 × 5</text>
+<text x="286" y="265" font-size="17" font-weight="700" fill="#FFFFFF" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">首投 800</text>
+<text x="453" y="265" font-size="17" font-weight="700" fill="#FFFFFF" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">后续 1,350</text>
+<text x="269" y="372" font-size="17" font-weight="700" fill="#FFFFFF" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">每年 330 × 5</text>
+<text x="777" y="163" font-size="27" font-weight="800" fill="#243850" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">2,500</text>
+<text x="707" y="269" font-size="27" font-weight="800" fill="#243850" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">2,150</text>
+<text x="602" y="376" font-size="27" font-weight="800" fill="#137968" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">1,650</text>
+<line x1="38" x2="861" y1="418" y2="418" stroke="#DDE4EC" stroke-width="2"/>
+<text x="41" y="452" font-size="18" fill="#536980" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">自建比人工少 350 万，但比设备即服务多 500 万</text>
+<text x="41" y="476" font-size="15" fill="#8794A3" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',Arial,sans-serif">未考虑折现、税费、停机、合同涨价及不同质量造成的损失</text>
+</svg>
