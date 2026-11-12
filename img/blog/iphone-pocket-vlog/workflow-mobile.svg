@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 1050" width="680" height="1050" role="img" aria-labelledby="title desc">
+<title id="title">生活短片轻量剪辑流程</title><desc id="desc">拍摄、人工选镜头、工具生成初剪、人工复核归档四个步骤。</desc>
+<rect width="680" height="1050" rx="25" fill="#F7F5EF"/>
+<text x="30" y="57" font-size="30" font-weight="700" fill="#202D32" font-family="sans-serif">60 秒短片的四步流程</text>
+<text x="30" y="95" font-size="18" fill="#607076" font-family="sans-serif">机器做重复工作，人决定内容</text>
+<g font-family="sans-serif">
+<rect x="34" y="129" width="612" height="180" rx="18" fill="#E8EEE5" stroke="#ABC0AA"/><text x="68" y="177" font-size="21" fill="#4F6752">01 拍</text><text x="68" y="224" font-size="29" font-weight="700" fill="#264331">有目的地拍</text><text x="68" y="271" font-size="22" fill="#48604E">景别、动作、现场原声</text>
+<path d="M340 315v37m-10-10 10 10 10-10" fill="none" stroke="#829095" stroke-width="3" stroke-linecap="round"/>
+<rect x="34" y="359" width="612" height="180" rx="18" fill="#F3ECD9" stroke="#D9C8A7"/><text x="68" y="407" font-size="21" fill="#84683E">02 选</text><text x="68" y="454" font-size="29" font-weight="700" fill="#574728">自己挑镜头</text><text x="68" y="501" font-size="22" fill="#776447">把值得看的瞬间留下</text>
+<path d="M340 545v37m-10-10 10 10 10-10" fill="none" stroke="#829095" stroke-width="3" stroke-linecap="round"/>
+<rect x="34" y="589" width="612" height="180" rx="18" fill="#E8EDF5" stroke="#B4C5D6"/><text x="68" y="637" font-size="21" fill="#527399">03 剪</text><text x="68" y="684" font-size="29" font-weight="700" fill="#25486B">工具生成初剪</text><text x="68" y="731" font-size="22" fill="#4E6B87">剪映 / Codex + FFmpeg</text>
+<path d="M340 775v37m-10-10 10 10 10-10" fill="none" stroke="#829095" stroke-width="3" stroke-linecap="round"/>
+<rect x="34" y="819" width="612" height="180" rx="18" fill="#F3E9E6" stroke="#D6BBB4"/><text x="68" y="867" font-size="21" fill="#936E64">04 留</text><text x="68" y="914" font-size="29" font-weight="700" fill="#71473A">复核并归档</text><text x="68" y="961" font-size="22" fill="#88695F">节奏、原声、隐私</text>
+</g></svg>

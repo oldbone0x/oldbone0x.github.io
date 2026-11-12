@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 390" width="1120" height="390" role="img" aria-labelledby="title desc">
+<title id="title">生活短片轻量剪辑流程</title><desc id="desc">先有目的地拍摄，再人工选镜头，随后用剪辑软件或 Codex 与 FFmpeg 拼出初剪，最终由人检查并归档。</desc>
+<rect width="1120" height="390" rx="24" fill="#F7F5EF"/>
+<text x="54" y="64" font-size="30" font-weight="700" fill="#202D32" font-family="sans-serif">一条 60 秒短片，可以这样完成</text>
+<text x="54" y="98" font-size="17" fill="#607076" font-family="sans-serif">自动化负责重复操作，重要画面和声音由人来决定</text>
+<g font-family="sans-serif">
+<rect x="48" y="136" width="220" height="177" rx="19" fill="#E8EEE5" stroke="#ABC0AA"/><text x="72" y="180" font-size="19" fill="#4F6752">01  拍</text><text x="72" y="222" font-size="27" font-weight="700" fill="#264331">有目的地拍</text><text x="72" y="260" font-size="18" fill="#48604E">景别、动作、原声</text>
+<rect x="312" y="136" width="220" height="177" rx="19" fill="#F3ECD9" stroke="#D9C8A7"/><text x="336" y="180" font-size="19" fill="#84683E">02  选</text><text x="336" y="222" font-size="27" font-weight="700" fill="#574728">自己挑镜头</text><text x="336" y="260" font-size="18" fill="#776447">保留值得看的瞬间</text>
+<rect x="576" y="136" width="220" height="177" rx="19" fill="#E8EDF5" stroke="#B4C5D6"/><text x="600" y="180" font-size="19" fill="#527399">03  剪</text><text x="600" y="222" font-size="27" font-weight="700" fill="#25486B">工具生成初剪</text><text x="600" y="260" font-size="18" fill="#4E6B87">剪映 / Codex + FFmpeg</text>
+<rect x="840" y="136" width="232" height="177" rx="19" fill="#F3E9E6" stroke="#D6BBB4"/><text x="864" y="180" font-size="19" fill="#936E64">04  留</text><text x="864" y="222" font-size="27" font-weight="700" fill="#71473A">人来复核归档</text><text x="864" y="260" font-size="18" fill="#88695F">节奏、原声、隐私</text>
+<path d="M273 222h31m-10-9 10 9-10 9M537 222h31m-10-9 10 9-10 9M801 222h31m-10-9 10 9-10 9" fill="none" stroke="#809096" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="54" y="359" font-size="16" fill="#5E6B70">成片时间短，不代表可以省略选镜头；拍得越多，整理工作往往越重。</text></g></svg>
