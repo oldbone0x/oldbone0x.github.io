@@ -44,7 +44,7 @@ This policy may be updated when the app's features or data-handling practices ch
 8. Contact
 
 For questions about this policy, use the developer contact links at:
-https://www.real-tech.online/about
+https://www.real-tech.online/about/
 
 The public product listing is:
 https://apps.apple.com/us/app/id6818812926
