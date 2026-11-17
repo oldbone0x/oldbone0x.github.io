@@ -1,8 +1,8 @@
 {
     "version": "https://jsonfeed.org/version/1",
-    "title": "阿男说",
+    "title": "RealTech Lab",
     "home_page_url": "https://www.real-tech.online/blog/",
-    "description": "阿男说 Blog",
+    "description": "RealTech Lab Blog",
     "items": [
         {
             "id": "https://www.real-tech.online/blog/simple-products-independent-stores/",

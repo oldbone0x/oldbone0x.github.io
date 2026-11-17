@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([["7658"],{1344(e){e.exports=JSON.parse('{"metadata":{"permalink":"/blog","page":1,"postsPerPage":18,"totalPages":3,"totalCount":49,"nextPage":"/blog/page/2","blogDescription":"RealTech Lab \u7684\u72EC\u7ACB\u5F00\u53D1\u4E0E\u6280\u672F\u5B9E\u8DF5\u6587\u7AE0","blogTitle":"Blog"}}')}}]);
